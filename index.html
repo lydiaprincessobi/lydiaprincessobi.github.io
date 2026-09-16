@@ -79,8 +79,11 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .sec-sub{font-size:14px;color:var(--muted);max-width:none;margin-bottom:3rem;line-height:1.7;text-align:justify;text-justify:inter-word;hyphens:none}
 
 /* ============ HOME ============ */
-.home-video{width:100%;height:56vh;min-height:360px;background:linear-gradient(135deg,var(--surface2),var(--surface));position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:0.5px solid var(--line)}
+.home-video{width:100%;height:82vh;min-height:520px;background:linear-gradient(135deg,var(--surface2),var(--surface));position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:0.5px solid var(--line)}
 .home-video video,.home-video iframe{width:100%;height:100%;object-fit:cover;border:none}
+/* Transparent layer over the iframe. Nothing can hover or click through to
+   YouTube, which is what keeps its chrome from ever appearing. */
+.home-video .vid-shield{position:absolute;inset:0;z-index:2;cursor:default}
 .home-video .vid-ph{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted)}
 .home-video .vid-ph .ring{width:72px;height:72px;border-radius:50%;border:1.5px solid var(--purple-light);display:flex;align-items:center;justify-content:center;color:var(--purple-light);font-size:24px}
 .home-tagline{max-width:900px;margin:3.5rem auto 0;padding:0 2rem;text-align:center;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(1.5rem,3.6vw,2.7rem);line-height:1.15}
@@ -154,8 +157,10 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .car{display:none;position:fixed;inset:0;z-index:530;background:rgba(8,8,10,0.96);backdrop-filter:blur(6px);
   align-items:center;justify-content:center;flex-direction:column;padding:2rem}
 .car.open{display:flex}
-.car-stage{max-width:82vw;max-height:66vh;display:flex;align-items:center;justify-content:center;
-  background:var(--surface2);border-radius:8px;overflow:hidden;min-width:34vw;min-height:34vh}
+/* The stage shrink-wraps whatever it holds — no fixed min-size, so a
+   portrait or square image never sits in a letterboxed grey box. */
+.car-stage{max-width:82vw;max-height:66vh;display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;border-radius:8px;overflow:hidden}
 .car-stage img,.car-stage video{max-width:82vw;max-height:66vh;object-fit:contain;display:block}
 .car-stage iframe{width:min(82vw,420px);aspect-ratio:9/16;border:none;display:block}
 .car-ph{color:var(--muted2);font-family:'DynaPuff',cursive;font-size:14px;padding:2rem}
@@ -225,7 +230,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .m-item .m-overlay .m-hint{position:absolute;left:1rem;bottom:2.6rem;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--yellow-star);font-weight:600}
 
 /* ============ BOOK READER ============ */
-.book{display:none;position:fixed;inset:0;z-index:540;background:rgba(6,6,8,0.97);backdrop-filter:blur(8px);align-items:center;justify-content:center;flex-direction:column;padding:2rem}
+.book{display:none;position:fixed;inset:0;z-index:540;background:rgba(6,6,8,0.97);backdrop-filter:blur(8px);align-items:center;justify-content:center;flex-direction:column;padding:1.25rem 1.5rem;overflow-y:auto}
 .book.open{display:flex}
 .bk-close{position:absolute;top:24px;right:30px;font-size:28px;color:var(--white);cursor:pointer;background:none;border:none;line-height:1}
 .bk-close:hover{color:var(--yellow-star)}
@@ -235,12 +240,18 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
    is the back cover alone. `.bk-flip` is the page physically turning: it has a
    front face (the page you're leaving) and a back face (the page revealed as it
    lands), rotated in 3D around the spine. */
+/* Pages are sized by their OWN images, not by a fixed panel shape. Each panel
+   is as tall as the book and only as wide as its page actually is, so the two
+   halves meet edge to edge with no gap and no letterbox bars. A spread that
+   runs across both pages now reads as one continuous image. */
 .bk-book{position:relative;display:flex;align-items:stretch;justify-content:center;
-  perspective:2400px;max-height:64vh;box-shadow:0 30px 70px rgba(0,0,0,.65)}
-.bk-page{background:var(--surface2);width:31vw;max-width:520px;aspect-ratio:3/4;
+  perspective:2400px;height:58vh;box-shadow:0 30px 70px rgba(0,0,0,.65)}
+.bk-page{background:var(--surface2);height:100%;width:auto;
   display:flex;align-items:center;justify-content:center;color:var(--muted2);
   font-family:'DynaPuff',cursive;font-size:14px;position:relative;overflow:hidden}
-.bk-page img{width:100%;height:100%;object-fit:contain;display:block}
+.bk-page img{height:100%;width:auto;object-fit:contain;display:block}
+/* Placeholders have no intrinsic width, so give them one. */
+.bk-page:not(:has(img)){width:22vw;min-width:200px}
 .bk-page.left{border-radius:6px 0 0 6px;box-shadow:inset -18px 0 26px -18px rgba(0,0,0,.85)}
 .bk-page.right{border-radius:0 6px 6px 0;box-shadow:inset 18px 0 26px -18px rgba(0,0,0,.85)}
 .bk-page.solo{border-radius:6px;box-shadow:none}
@@ -263,7 +274,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .bk-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
   overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center;
   color:var(--muted2);font-family:'DynaPuff',cursive;font-size:14px}
-.bk-face img{width:100%;height:100%;object-fit:contain;display:block}
+.bk-face img{height:100%;width:auto;object-fit:contain;display:block}
 .bk-face.back{transform:rotateY(180deg)}
 /* Click zones over each half of the open book */
 .bk-half{position:absolute;top:0;bottom:0;width:50%;z-index:3;cursor:pointer}
@@ -275,11 +286,10 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .bk-count{font-size:12px;color:var(--muted);letter-spacing:.1em}
 .bk-track{width:min(420px,60vw);height:3px;background:var(--surface3);border-radius:3px;overflow:hidden}
 .bk-fill{height:100%;background:var(--yellow-star);width:0;transition:width .25s}
-.bk-blurb{margin-top:1rem;max-width:640px;text-align:center;font-size:13px;color:var(--muted);line-height:1.7;padding:0 1rem}
+.bk-blurb{margin-top:1rem;max-width:min(1150px,92vw);text-align:justify;text-justify:inter-word;hyphens:none;font-size:13px;color:var(--muted);line-height:1.7;padding:0 1rem}
 .bk-tip{margin-top:.7rem;font-size:11px;color:var(--muted2);letter-spacing:.06em}
 @media(max-width:820px){
-  .bk-page{width:42vw}
-  .bk-book{max-height:52vh}
+  .bk-book{height:44vh}
   .bk-spread{max-height:52vh}
 }
 
@@ -289,7 +299,8 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 /* Tighten the gap above the banner too — the subtitle's own bottom margin
    was what created most of that space. */
 #page-projects .sec-sub{margin-bottom:1.5rem}
-@media(max-width:768px){.proj-banner{height:260px;margin-bottom:1.25rem}
+@media(max-width:768px){.home-video{height:58vh;min-height:320px}
+  .proj-banner{height:260px;margin-bottom:1.25rem}
   #page-projects .sec-sub{margin-bottom:1.25rem}}
 .mgmt-intro{max-width:none;color:var(--muted);font-size:15px;line-height:1.85;margin-bottom:2.5rem;text-align:justify;hyphens:none}
 .mgmt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
@@ -298,6 +309,26 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .mgmt-prev{aspect-ratio:4/3;background:var(--surface3);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
 .mgmt-prev img{width:100%;height:100%;object-fit:cover;display:block}
 .mgmt-prev .mgmt-ph{color:var(--muted2);font-family:'DynaPuff',cursive;font-size:13px;text-align:center;padding:1rem}
+
+/* ---- Drawn spreadsheet thumbnail ---- */
+.sheet-mock{position:absolute;inset:0;padding:12px;display:flex;flex-direction:column;gap:7px;
+  background:linear-gradient(160deg,var(--surface3),var(--surface2));overflow:hidden}
+.sheet-mock .sm-bar{display:flex;gap:5px;flex:0 0 auto}
+.sheet-mock .sm-bar span{height:7px;border-radius:3px;background:var(--accent);opacity:.85}
+.sheet-mock .sm-bar span:nth-child(1){width:34%}
+.sheet-mock .sm-bar span:nth-child(2){width:22%;opacity:.45}
+.sheet-mock .sm-bar span:nth-child(3){width:14%;opacity:.3}
+.sheet-mock .sm-grid{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;align-content:start}
+.sheet-mock .sm-grid i{height:9px;border-radius:2px;background:rgba(255,255,255,0.055)}
+.sheet-mock .sm-grid i.w1{opacity:.55}
+.sheet-mock .sm-grid i.w2{opacity:.8}
+.sheet-mock .sm-grid i.fill{background:var(--accent);opacity:.7}
+.sheet-mock .sm-label{font-family:'DynaPuff',cursive;font-size:11.5px;color:var(--muted);text-align:center;margin-top:2px}
+.mgmt-card:hover .sheet-mock .sm-label{color:var(--yellow-star)}
+.sheet-mock.tint0{--accent:var(--yellow-star)}
+.sheet-mock.tint1{--accent:var(--purple-med)}
+.sheet-mock.tint2{--accent:#7FC8A9}
+.sheet-mock.tint3{--accent:var(--purple-light)}
 .mgmt-fmt{position:absolute;top:10px;left:10px;background:var(--purple-deep);color:var(--purple-light);font-size:10px;font-weight:600;letter-spacing:.06em;padding:3px 9px;border-radius:20px;text-transform:uppercase;font-family:'Poppins',sans-serif}
 .mgmt-body{padding:1.1rem 1.25rem 1.35rem;display:flex;flex-direction:column;flex:1}
 .mgmt-body h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.05rem;line-height:1.15;margin-bottom:.5rem}
@@ -396,7 +427,8 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .d-video-item .dvi-cap h4{font-family:'DynaPuff',cursive;font-size:1rem;margin-bottom:.35rem;color:var(--white)}
 .d-video-item .dvi-cap p{font-size:13px;color:var(--muted);line-height:1.6}
 .fg-block{background:var(--surface);border-radius:8px;overflow:hidden;border:0.5px solid var(--line-soft)}
-.fg-img{aspect-ratio:16/10;background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:12px;position:relative}
+.fg-img{aspect-ratio:16/10;background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:12px;position:relative;overflow:hidden}
+.fg-img img{width:100%;height:100%;object-fit:cover;display:block}
 .fg-img.tall{aspect-ratio:3/4}
 .fg-cap{padding:1.1rem 1.25rem;font-size:13px;color:var(--muted);line-height:1.6}
 .fg-block.span2{grid-column:span 2}
@@ -428,7 +460,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 /* ---- Photo full-screen viewer ---- */
 .pv{display:none;position:fixed;inset:0;z-index:520;background:rgba(8,8,10,0.96);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column}
 .pv.open{display:flex}
-.pv-stage{max-width:86vw;max-height:70vh;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:8px;min-width:40vw;min-height:40vh;color:var(--muted);font-family:'DynaPuff',cursive}
+.pv-stage{max-width:86vw;max-height:70vh;display:inline-flex;align-items:center;justify-content:center;background:transparent;border-radius:8px;color:var(--muted);font-family:'DynaPuff',cursive}
 .pv-stage img{max-width:86vw;max-height:70vh;object-fit:contain;border-radius:8px;display:block}
 .pv-cap{margin-top:1.4rem;max-width:680px;text-align:center;padding:0 2rem}
 .pv-cap .pvt{display:none}
@@ -449,11 +481,10 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .star-intro p{color:var(--muted);max-width:none;margin:0 auto;font-size:14px;line-height:1.8}
 .star-wall{columns:3;column-gap:16px}
 .star-tile{break-inside:avoid;margin-bottom:16px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;background:var(--surface2);border:0.5px solid var(--line-soft)}
-.star-tile.circle{border-radius:50%;aspect-ratio:1}
-.star-tile .st-ph{display:flex;align-items:center;justify-content:center;color:var(--muted2);font-family:'DynaPuff',cursive;font-size:13px;text-align:center;overflow:hidden}
-.star-tile .st-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.star-tile .st-ph{display:flex;align-items:center;justify-content:center;color:var(--muted2);font-family:'DynaPuff',cursive;font-size:13px;text-align:center;overflow:hidden;height:auto !important}
+.star-tile .st-ph img{width:100%;height:auto;object-fit:contain;display:block}
 .star-tile .st-ph:empty,.star-tile .st-ph{padding:0}
-.star-tile video,.star-tile iframe,.star-tile img{width:100%;display:block;border:none}
+.star-tile video,.star-tile iframe,.star-tile img{width:100%;height:auto;display:block;border:none}
 .st-thumb{aspect-ratio:16/9;background-size:cover;background-position:center;position:relative;display:flex;align-items:center;justify-content:center}
 .st-play{width:52px;height:52px;border-radius:50%;background:rgba(12,12,14,0.6);border:1.5px solid var(--yellow-star);color:var(--yellow-star);display:flex;align-items:center;justify-content:center;font-size:18px;transition:.2s}
 .video-clickplay{cursor:pointer}
@@ -471,7 +502,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 /* ============ LIGHTBOX ============ */
 .lightbox{display:none;position:fixed;inset:0;z-index:500;background:rgba(8,8,10,0.94);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column}
 .lightbox.open{display:flex}
-.lb-stage{max-width:80vw;max-height:68vh;background:var(--surface2);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);min-width:55vw;min-height:48vh;font-family:'DynaPuff',cursive}
+.lb-stage{max-width:80vw;max-height:68vh;background:transparent;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);font-family:'DynaPuff',cursive}
 .lb-stage img{max-width:80vw;max-height:68vh;object-fit:contain;border-radius:8px}
 .lb-caption{margin-top:1.5rem;max-width:680px;text-align:center;padding:0 2rem}
 .lb-caption .lbt{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.2rem;color:var(--purple-light);margin-bottom:.4rem}
@@ -549,12 +580,22 @@ footer{border-top:0.5px solid var(--line-soft);padding:2.5rem 2rem;text-align:ce
 <div class="page active" id="page-home">
   <div class="ebar"></div>
   <div class="home-video">
-    <!-- Showreel. mute=1 is required — browsers block autoplay with sound.
-         loop=1 only works alongside playlist= set to the same video ID. -->
-    <iframe src="https://www.youtube.com/embed/zvoWg8ArVaw?autoplay=1&mute=1&loop=1&playlist=zvoWg8ArVaw&controls=1&rel=0&modestbranding=1&playsinline=1"
+    <!-- Showreel, set up to behave like a background video rather than a
+         YouTube embed:
+           controls=0        no play bar, no progress bar
+           disablekb=1       arrow keys don't scrub it
+           iv_load_policy=3  no annotation cards
+           fs=0              no fullscreen button
+           mute=1            required; browsers block autoplay with sound
+           loop + playlist   YouTube won't loop without playlist set to the
+                             same ID
+         The .vid-shield over the top swallows mouse events so hovering never
+         wakes YouTube's title bar or share buttons. The reel is silent, so
+         there's nothing a viewer needs to control. -->
+    <iframe src="https://www.youtube.com/embed/zvoWg8ArVaw?autoplay=1&mute=1&loop=1&playlist=zvoWg8ArVaw&controls=0&disablekb=1&iv_load_policy=3&fs=0&rel=0&modestbranding=1&playsinline=1"
       title="Lydia Princess Obi — showreel"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    <div class="vid-shield"></div>
   </div>
   <p class="home-tagline">Using my creative practices to tell stories that <em>build</em>, <em>connect</em>, and <em>sustain</em> communities</p>
   <div class="home-btns">
@@ -692,8 +733,8 @@ footer{border-top:0.5px solid var(--line-soft);padding:2.5rem 2rem;text-align:ce
       <!-- Both photos, stacked in the left column. Swap each placeholder for
            an image, e.g. <img src="site/about-me-up.png" alt="Lydia"> -->
       <div class="about-photos">
-        <div class="about-photo"><img src="site/about-me-up.png" alt="Lydia Princess Obi" onerror="swapExt(this)"></div>
         <div class="about-photo"><img src="site/about-me-down.jpg" alt="Lydia Princess Obi" onerror="swapExt(this)"></div>
+        <div class="about-photo"><img src="site/about-me-up.png" alt="Lydia Princess Obi" onerror="swapExt(this)"></div>
       </div>
       <div class="about-text">
         <h2>Hi, I'm <em>Lydia</em>.</h2>
@@ -817,6 +858,7 @@ footer{border-top:0.5px solid var(--line-soft);padding:2.5rem 2rem;text-align:ce
   <button class="pv-arrow pv-next" onclick="pvNav(1)">›</button>
   <div class="pv-cap"><div class="pvt" id="pv-title">Title</div><div class="pvs" id="pv-sub">Caption</div></div>
   <div class="pv-count" id="pv-count"></div>
+  <span class="car-open" id="pv-open"></span>
 </div>
 
 <div class="lightbox" id="lightbox" onclick="lbBackdrop(event)">
@@ -1288,20 +1330,29 @@ function funkyLayout(items){
   var out='';
   items.forEach(function(d,i){
     var pattern=i%5;
-    var isBook = !!DESIGNS[d._idx].spread;
+    var D=DESIGNS[d._idx];
+    var isBook = !!D.spread;
     var open='onclick="'+(isBook?'openBook':'openLightbox')+'('+d._idx+')" style="cursor:pointer"';
-    var badge = isBook ? ' (book \u00b7 '+bookPages(DESIGNS[d._idx]).length+' pp)'
+    var badge = isBook ? ' (book \u00b7 '+bookPages(D).length+' pp)'
               : d.slides>1 ? ' ('+d.slides+' slides)' : '';
+    /* Cover image, same source the Designs page uses. Falls back to the title
+       if the file isn't there. */
+    var cover = designSlide(D,0);
+    function frame(extra){
+      return '<div class="fg-img'+(extra||'')+'">'
+        + (cover ? img(cover, D.title) : D.title+badge) + '</div>';
+    }
     if(pattern===0){
-      out+='<div class="fg-block" '+open+'><div class="fg-img">'+d.title+badge+'</div><div class="fg-cap">'+d.blurb+'</div></div>';
+      out+='<div class="fg-block" '+open+'>'+frame()+'<div class="fg-cap">'+d.blurb+'</div></div>';
     } else if(pattern===1){
-      out+='<div class="fg-block fg-side" '+open+'><div class="fg-img">'+d.title+badge+'</div><div class="fg-cap">'+d.blurb+'</div></div>';
+      out+='<div class="fg-block fg-side" '+open+'>'+frame()+'<div class="fg-cap">'+d.blurb+'</div></div>';
     } else if(pattern===2){
-      out+='<div class="fg-block span2 fg-overlay-wrap" '+open+'><div class="fg-img" style="aspect-ratio:21/8">'+d.title+badge+'<div class="fg-overlay">'+d.blurb+'</div></div></div>';
-    } else if(pattern===3){
-      out+='<div class="fg-block" '+open+'><div class="fg-img tall">'+d.title+badge+'</div><div class="fg-cap">'+d.blurb+'</div></div>';
+      out+='<div class="fg-block span2 fg-overlay-wrap" '+open+'>'
+        +'<div class="fg-img" style="aspect-ratio:21/8">'
+        + (cover ? img(cover, D.title) : D.title+badge)
+        +'<div class="fg-overlay">'+d.blurb+'</div></div></div>';
     } else {
-      out+='<div class="fg-block" '+open+'><div class="fg-img tall">'+d.title+badge+'</div><div class="fg-cap">'+d.blurb+'</div></div>';
+      out+='<div class="fg-block" '+open+'>'+frame(' tall')+'<div class="fg-cap">'+d.blurb+'</div></div>';
     }
   });
   return out;
@@ -1663,6 +1714,17 @@ function updatePhotoViewer(){
   document.getElementById('pv-count').textContent=(pvIdx+1)+' of '+list.length;
   document.querySelector('.pv-prev').style.visibility = pvIdx===0 ? 'hidden':'visible';
   document.querySelector('.pv-next').style.visibility = pvIdx===list.length-1 ? 'hidden':'visible';
+
+  /* Route to the Photography page. Useful from the Highlights wall, where a
+     starred photo is otherwise a dead end. Hidden when you're already there. */
+  var link=document.getElementById('pv-open');
+  if(document.getElementById('page-photography').classList.contains('active')){
+    link.style.display='none';
+  } else {
+    link.style.display='inline-block';
+    link.textContent='See all photography \u2192';
+    link.onclick=function(){ closePhoto(); go('photography'); };
+  }
 }
 document.addEventListener('keydown',function(e){
   if(!document.getElementById('photo-viewer').classList.contains('open'))return;
@@ -1735,9 +1797,20 @@ function sheetCopyUrl(id){ return 'https://docs.google.com/spreadsheets/d/'+id+'
 var mgmtGrid=document.getElementById('mgmt-grid');
 if(mgmtGrid){
   mgmtGrid.innerHTML = TEMPLATES.map(function(t,i){
+    /* No screenshot needed: draw a miniature spreadsheet in CSS, tinted per
+       card so the four don't look identical. Drop a real screenshot into
+       `preview` later and it takes over. */
     var preview = t.preview
       ? img(t.preview, t.title+' preview')
-      : '<span class="mgmt-ph">\u2317 Preview the live sheet</span>';
+      : '<div class="sheet-mock tint'+(i%4)+'">'
+        +'<div class="sm-bar"><span></span><span></span><span></span></div>'
+        +'<div class="sm-grid">'
+        +  '<i class="w3"></i><i class="w2"></i><i class="w1"></i><i class="w2"></i>'
+        +  '<i class="w1"></i><i class="w3 fill"></i><i class="w2"></i><i class="w1"></i>'
+        +  '<i class="w2"></i><i class="w1"></i><i class="w2 fill"></i><i class="w3"></i>'
+        +  '<i class="w1"></i><i class="w2"></i><i class="w3"></i><i class="w1 fill"></i>'
+        +'</div>'
+        +'<span class="sm-label">Preview the live sheet</span></div>';
     var clickPrev = t.sheetId ? ' onclick="openSheet('+i+')" style="cursor:pointer"' : '';
     var btns='';
     if(t.sheetId) btns+='<span class="mgmt-btn ghost" onclick="openSheet('+i+')">Preview</span>';
@@ -1892,9 +1965,10 @@ var starWall=document.getElementById('star-wall');
     } else {
       var o=item.o;
       var isBook = !!o.d.spread;
-      var circle = (!isBook && o.idx%4===1);
-      var cls = circle ? 'star-tile circle' : 'star-tile';
-      var h = circle ? '' : 'height:'+(200+(o.idx%3)*60)+'px';
+      /* No circular crop here. A 16:9 slide forced into a circle loses half
+         its content, which is the opposite of a highlight. */
+      var cls = 'star-tile';
+      var h = designSlide(o.d,0) ? '' : 'height:'+(200+(o.idx%3)*60)+'px';
       /* Books open the page-flip reader, same as on the Designs page. */
       var act = isBook ? 'openBook('+o.idx+')' : 'openLightbox('+o.idx+')';
       html+='<div class="'+cls+'" onclick="'+act+'">'
