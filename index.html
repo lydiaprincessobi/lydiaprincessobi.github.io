@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lydia Princess Obi — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DynaPuff:wght@500;600;700&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0C0C0E;
+  --surface:#151517;
+  --surface2:#1D1D21;
+  --surface3:#26262B;
+  --purple-med:#8C82E0;
+  --purple-light:#C9C2F5;
+  --purple-deep:#534AB7;
+  --yellow:#F0E6A8;
+  --yellow-star:#F5DE6B;
+  --red:#E5484D;
+  --white:#F4F2EC;
+  --muted:#8E8C92;
+  --muted2:#615F66;
+  --line:rgba(140,130,224,0.16);
+  --line-soft:rgba(255,255,255,0.06);
+  /* Shape used for social tiles inside company detail pages. */
+  --social-ratio:1/1;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;line-height:1.6}
+h1,h2,h3{font-weight:400;line-height:1.05}
+.font-display{font-family:'Anton',sans-serif;letter-spacing:.01em;text-transform:uppercase}
+.font-bubble{font-family:'DynaPuff',cursive}
+.font-hand{font-family:'Caveat',cursive}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--purple-med);color:var(--white)}
+</style>
+<style>
+/* ============ NAV ============ */
+nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,0.9);backdrop-filter:blur(14px);border-bottom:0.5px solid var(--line)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem;gap:1rem}
+.nav-logo{font-family:'DynaPuff',cursive;font-size:17px;color:var(--purple-light);font-weight:600;font-variant:small-caps;text-transform:lowercase;white-space:nowrap;cursor:pointer}
+.nav-links{display:flex;gap:2px;list-style:none;align-items:center}
+.nav-links a{display:flex;align-items:center;gap:6px;padding:8px 12px;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent;transition:color .2s,border-color .2s;cursor:pointer;font-weight:500;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--white);border-bottom-color:var(--yellow-star)}
+
+/* ---- Projects dropdown ---- */
+.nav-drop{position:relative}
+.nav-menu{display:none;position:absolute;top:100%;left:0;width:300px;max-width:min(300px,90vw);background:var(--surface);
+  border:0.5px solid var(--line);border-radius:8px;padding:.4rem 0;box-shadow:0 20px 45px rgba(0,0,0,.6);z-index:60}
+.nav-drop:hover .nav-menu,.nav-drop:focus-within .nav-menu{display:block}
+.nav-menu a{display:block;padding:9px 16px;font-size:12px;letter-spacing:.04em;text-transform:none;
+  color:var(--muted);border-bottom:none;white-space:normal;line-height:1.35}
+.nav-menu a:hover{color:var(--white);background:var(--surface2);border-bottom-color:transparent}
+.nav-menu a .nm-role{display:block;font-size:10px;color:var(--muted2);letter-spacing:.02em;margin-top:1px;line-height:1.4}
+.nav-menu a:hover .nm-role{color:var(--purple-light)}
+.nav-menu .nm-all{border-top:0.5px solid var(--line-soft);margin-top:.3rem;padding-top:.6rem;
+  color:var(--yellow-star);text-transform:uppercase;font-size:11px;letter-spacing:.09em}
+.nav-star{font-size:17px;color:var(--yellow-star)!important;padding:8px 10px!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:.3s}
+
+/* ============ PAGE SYSTEM ============ */
+.page{display:none;min-height:100vh;padding-top:64px;animation:fade .4s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.wrap{max-width:1280px;margin:0 auto;padding:3.5rem 2rem 5rem}
+
+/* top bars — all yellow now */
+.ebar{height:3px;width:100%;background:var(--yellow-star)}
+
+/* section header */
+.sec-head{display:flex;align-items:baseline;gap:1.25rem;margin-bottom:.6rem;flex-wrap:wrap}
+.sec-kicker{font-family:'DynaPuff',cursive;font-size:13px;letter-spacing:.03em;color:var(--purple-med);text-transform:lowercase}
+.sec-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:.01em}
+.sec-sub{font-size:14px;color:var(--muted);max-width:none;margin-bottom:3rem;line-height:1.7;text-align:justify;text-justify:inter-word;hyphens:none}
+
+/* ============ HOME ============ */
+.home-video{width:100%;height:56vh;min-height:360px;background:linear-gradient(135deg,var(--surface2),var(--surface));position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:0.5px solid var(--line)}
+.home-video video,.home-video iframe{width:100%;height:100%;object-fit:cover;border:none}
+.home-video .vid-ph{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted)}
+.home-video .vid-ph .ring{width:72px;height:72px;border-radius:50%;border:1.5px solid var(--purple-light);display:flex;align-items:center;justify-content:center;color:var(--purple-light);font-size:24px}
+.home-tagline{max-width:900px;margin:3.5rem auto 0;padding:0 2rem;text-align:center;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(1.5rem,3.6vw,2.7rem);line-height:1.15}
+.home-tagline em{color:var(--purple-light);font-style:normal}
+.home-btns{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin:3rem auto 0;max-width:820px;padding:0 2rem}
+.home-btn:nth-child(-n+3){grid-column:span 2}
+.home-btn:nth-child(n+4){grid-column:span 3}
+.home-btn{padding:1.5rem 1rem;border:0.5px solid var(--line);border-radius:6px;text-align:center;font-family:'DynaPuff',cursive;font-size:1.15rem;cursor:pointer;transition:.22s;position:relative;overflow:hidden;background:var(--surface)}
+.home-btn::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--hb);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.home-btn:hover{background:var(--surface2)}
+.home-btn:hover::after{transform:scaleX(1)}
+
+/* begin here callout */
+.begin-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;margin:5rem auto 1rem;max-width:600px}
+.begin-note{font-family:'Caveat',cursive;font-size:2.4rem;color:var(--purple-light);line-height:1.1;transform:rotate(-3deg);white-space:nowrap}
+.begin-star{position:relative;width:175px;height:175px;cursor:pointer;transition:.25s;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.begin-star svg{position:absolute;inset:0;width:100%;height:100%}
+.begin-star .bs-label{position:relative;z-index:2;color:var(--black);font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.35rem;line-height:1;text-align:center;transform:rotate(-3deg)}
+.begin-star:hover{transform:scale(1.08) rotate(6deg)}
+
+.home-contact{display:flex;gap:18px;justify-content:center;margin:4.5rem auto 3rem;flex-wrap:wrap}
+.contact-pill{display:flex;align-items:center;gap:10px;padding:11px 22px;border:0.5px solid var(--line);border-radius:40px;font-size:13px;color:var(--muted);transition:.2s}
+.contact-pill:hover{border-color:var(--yellow-star);color:var(--white)}
+.contact-pill .pill-icon{width:16px;height:16px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.6}
+.contact-pill:hover .pill-icon{stroke:var(--yellow-star)}
+
+/* ============ MEDIA (videography/social) grouped by company ============ */
+.company-group{border:0.5px solid var(--line);border-radius:10px;padding:1.5rem;margin-bottom:2rem;background:linear-gradient(180deg,rgba(140,130,224,0.03),transparent)}
+.company-group-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.15rem;color:var(--yellow);letter-spacing:.03em;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:0.5px solid var(--line-soft)}
+.media-row{display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;padding:2rem 0;border-bottom:0.5px solid var(--line-soft);align-items:center}
+.media-row:last-child{border-bottom:none}
+.media-thumb{aspect-ratio:16/9;background:var(--surface2);border-radius:6px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.media-thumb.vertical{aspect-ratio:9/16;max-width:280px;margin:0 auto}
+.media-thumb.square{aspect-ratio:1/1;max-width:360px;margin:0 auto}
+.media-thumb video,.media-thumb img,.media-thumb iframe{width:100%;height:100%;object-fit:cover;border:none}
+.media-thumb .ph{display:flex;flex-direction:column;gap:8px;align-items:center;color:var(--muted2);font-size:12px}
+.media-thumb .ph .ring{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--purple-med);display:flex;align-items:center;justify-content:center;color:var(--purple-light)}
+.media-info .mr-company{font-family:'DynaPuff',cursive;font-size:13px;color:var(--yellow);margin-bottom:6px}
+.media-info h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.5rem;margin-bottom:.6rem}
+.media-info p{color:var(--muted);font-size:14px;max-width:540px}
+.media-info .arrow{margin-top:1rem;font-size:12px;color:var(--purple-light);letter-spacing:.1em;text-transform:uppercase;font-weight:600;cursor:pointer;display:inline-block}
+.media-info .arrow:hover{color:var(--yellow-star)}
+
+/* ============ SOCIAL MEDIA GRID ============
+   Three columns that flow like a magazine (masonry), so there are never
+   ragged rows or dead gaps. Every tile snaps to ONE of three standardised
+   shapes below — no in-between sizes. Change a shape here and every tile
+   using it updates. */
+.social-grid{columns:3;column-gap:22px}
+.social-card{break-inside:avoid;margin-bottom:22px;background:var(--surface2);border:0.5px solid var(--line-soft);border-radius:10px;overflow:hidden;transition:border-color .2s,transform .2s}
+.social-card:hover{border-color:var(--line);transform:translateY(-3px)}
+.sc-frame{background:var(--surface3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.sc-frame.sq{aspect-ratio:1/1}          /* square  — feed posts, carousels */
+.sc-frame.portrait{aspect-ratio:4/5}    /* upright — reels, stories, vertical video */
+.sc-frame.wide{aspect-ratio:16/9}       /* wide    — banners, landscape video */
+.sc-frame video,.sc-frame img,.sc-frame iframe{width:100%;height:100%;object-fit:cover;border:none;display:block}
+.sc-frame .ph{display:flex;flex-direction:column;gap:8px;align-items:center;color:var(--muted2);font-size:12px}
+.sc-frame .ph .ring{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--purple-med);display:flex;align-items:center;justify-content:center;color:var(--purple-light)}
+.sc-body{padding:1rem 1.15rem 1.2rem}
+.sc-company{font-family:'DynaPuff',cursive;font-size:12px;color:var(--yellow);margin-bottom:5px}
+.sc-body h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.05rem;line-height:1.15;margin-bottom:.5rem}
+.sc-body p{color:var(--muted);font-size:13px}
+.sc-body .arrow{display:inline-block;margin-top:.9rem;font-size:11px;color:var(--purple-light);letter-spacing:.1em;text-transform:uppercase;font-weight:600;cursor:pointer}
+.sc-body .arrow:hover{color:var(--yellow-star)}
+@media(max-width:980px){.social-grid{columns:2}}
+@media(max-width:620px){.social-grid{columns:1}}
+
+/* ============ SOCIAL CAROUSEL (one post, many slides) ============ */
+.sc-slidebadge{position:absolute;top:10px;right:10px;background:var(--yellow-star);color:var(--black);
+  font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;z-index:2;font-family:'Poppins',sans-serif}
+.car{display:none;position:fixed;inset:0;z-index:530;background:rgba(8,8,10,0.96);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;flex-direction:column;padding:2rem}
+.car.open{display:flex}
+.car-stage{max-width:82vw;max-height:66vh;display:flex;align-items:center;justify-content:center;
+  background:var(--surface2);border-radius:8px;overflow:hidden;min-width:34vw;min-height:34vh}
+.car-stage img,.car-stage video{max-width:82vw;max-height:66vh;object-fit:contain;display:block}
+.car-stage iframe{width:min(82vw,420px);aspect-ratio:9/16;border:none;display:block}
+.car-ph{color:var(--muted2);font-family:'DynaPuff',cursive;font-size:14px;padding:2rem}
+.car-cap{margin-top:1.3rem;text-align:center;max-width:640px;padding:0 1rem}
+.car-cap .cct{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.1rem;color:var(--purple-light)}
+.car-cap .ccc{font-family:'DynaPuff',cursive;font-size:12px;color:var(--yellow);margin-top:4px}
+.car-count{margin-top:.9rem;font-size:12px;color:var(--muted2);letter-spacing:.1em}
+.car-close{position:absolute;top:24px;right:30px;font-size:28px;color:var(--white);cursor:pointer;background:none;border:none;line-height:1}
+.car-close:hover{color:var(--yellow-star)}
+.car-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:34px;color:var(--white);
+  cursor:pointer;background:none;border:none;padding:1rem;transition:.2s}
+.car-arrow:hover{color:var(--yellow-star)}
+.car-prev{left:20px}.car-next{right:20px}
+.car-open{display:inline-block;margin-top:1rem;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;color:var(--purple-light);cursor:pointer}
+.car-open:hover{color:var(--yellow-star)}
+
+/* ============ CLICK-TO-PLAY YOUTUBE POSTER ============ */
+.yt-cp{width:100%;height:100%;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;cursor:pointer;background-color:var(--surface3)}
+.yt-cp .st-play{width:52px;height:52px;border-radius:50%;background:rgba(12,12,14,0.62);border:1.5px solid var(--yellow-star);color:var(--yellow-star);display:flex;align-items:center;justify-content:center;font-size:18px;transition:.2s}
+.yt-cp:hover .st-play{background:var(--yellow-star);color:var(--black)}
+
+/* ============ PROJECTS TIMELINE ============ */
+.tl-item{display:grid;grid-template-columns:130px 1fr 220px;gap:2rem;padding:1.75rem 0;border-bottom:0.5px solid var(--line-soft);align-items:start}
+.tl-thumb img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}
+.tl-thumb{aspect-ratio:1;background:var(--surface2);border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:11px;cursor:pointer}
+.tl-thumb img{width:100%;height:100%;object-fit:cover}
+.tl-meta{cursor:pointer}
+.tl-meta .tl-position{font-family:'DynaPuff',cursive;font-size:1.05rem;color:var(--purple-light);margin-bottom:2px}
+.tl-meta .tl-company{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.5rem;letter-spacing:.01em}
+.tl-meta .tl-sub{font-size:13px;color:var(--muted);margin:4px 0 .9rem}
+.tl-meta .tl-sub .yr{color:var(--yellow)}
+.tl-keywords{display:flex;flex-wrap:wrap;gap:7px}
+
+/* Yellow highlight row for the Passion Projects entry. Yellow does the
+   shouting; purple does the detail work \u2014 the deep purple carries the
+   headline and the keyword pills, so the card reads as part of the site's
+   palette rather than a stray yellow block. Buttons go solid black. */
+.tl-item.tl-highlight{background:var(--yellow-star);border-radius:12px;padding:1.75rem;margin-bottom:.75rem;border-bottom:none;box-shadow:inset 0 0 0 1px rgba(83,74,183,0.22)}
+.tl-item.tl-highlight .tl-thumb{background:var(--black);color:var(--purple-light)}
+.tl-item.tl-highlight .tl-position{color:var(--purple-deep);font-weight:600}
+.tl-item.tl-highlight .tl-company{color:var(--black)}
+.tl-item.tl-highlight .tl-sub{color:rgba(12,12,14,0.66)}
+.tl-item.tl-highlight .tl-sub .yr{color:var(--black);font-weight:700}
+/* Purple-med fill rather than purple-deep: black text needs a lighter
+   backdrop to stay legible at 11px. */
+.tl-item.tl-highlight .kw{background:var(--purple-med);color:var(--black);border-color:transparent;font-weight:500}
+.tl-item.tl-highlight .ref-btn{background:var(--black);border-color:var(--black);color:var(--yellow-star)}
+.tl-item.tl-highlight .ref-btn .rl{color:var(--purple-light);opacity:1}
+.tl-item.tl-highlight .ref-btn:hover{background:var(--purple-deep);border-color:var(--purple-deep);color:var(--white)}
+.kw{padding:4px 11px;border:0.5px solid var(--line);border-radius:30px;font-size:11px;color:var(--purple-light);letter-spacing:.02em}
+.tl-refs{display:flex;flex-direction:column;gap:8px}
+.ref-btn{display:block;padding:10px 20px;background:transparent;border:0.5px solid var(--yellow-star);border-radius:40px;color:var(--yellow-star);font-size:11px;letter-spacing:.03em;text-align:left;transition:.2s;cursor:pointer}
+.ref-btn:hover{background:var(--yellow-star);color:var(--black)}
+.ref-btn .rl{display:block;font-size:9px;letter-spacing:.15em;text-transform:uppercase;opacity:.7;margin-bottom:2px}
+.ref-btn .rn{font-family:'Poppins',sans-serif;font-weight:600;font-size:13px}
+
+/* ============ DESIGN MASONRY ============ */
+.masonry{columns:3;column-gap:14px}
+.m-item{break-inside:avoid;margin-bottom:14px;position:relative;border-radius:6px;overflow:hidden;cursor:pointer;background:var(--surface2)}
+.m-item .m-ph{display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:12px;font-family:'DynaPuff',cursive;overflow:hidden}
+.m-item .m-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.m-item .m-overlay{position:absolute;inset:0;background:rgba(12,12,14,0.78);opacity:0;display:flex;align-items:flex-end;padding:1rem;transition:opacity .25s}
+.m-item:hover .m-overlay{opacity:1}
+.m-item .m-overlay .m-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.1rem;color:var(--purple-light)}
+.m-slidebadge{position:absolute;top:10px;right:10px;background:var(--yellow-star);color:var(--black);font-size:10px;font-weight:600;padding:3px 8px;border-radius:20px;letter-spacing:.05em;z-index:2;font-family:'Poppins',sans-serif}
+.m-item .m-overlay .m-hint{position:absolute;left:1rem;bottom:2.6rem;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--yellow-star);font-weight:600}
+
+/* ============ BOOK READER ============ */
+.book{display:none;position:fixed;inset:0;z-index:540;background:rgba(6,6,8,0.97);backdrop-filter:blur(8px);align-items:center;justify-content:center;flex-direction:column;padding:2rem}
+.book.open{display:flex}
+.bk-close{position:absolute;top:24px;right:30px;font-size:28px;color:var(--white);cursor:pointer;background:none;border:none;line-height:1}
+.bk-close:hover{color:var(--yellow-star)}
+.bk-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.05rem;color:var(--purple-light);letter-spacing:.03em;margin-bottom:1rem;text-align:center}
+/* One PAGE per file. A closed book shows one face, so view 0 is the front
+   cover alone; after that pages sit in facing pairs, and a leftover final page
+   is the back cover alone. `.bk-flip` is the page physically turning: it has a
+   front face (the page you're leaving) and a back face (the page revealed as it
+   lands), rotated in 3D around the spine. */
+.bk-book{position:relative;display:flex;align-items:stretch;justify-content:center;
+  perspective:2400px;max-height:64vh;box-shadow:0 30px 70px rgba(0,0,0,.65)}
+.bk-page{background:var(--surface2);width:31vw;max-width:520px;aspect-ratio:3/4;
+  display:flex;align-items:center;justify-content:center;color:var(--muted2);
+  font-family:'DynaPuff',cursive;font-size:14px;position:relative;overflow:hidden}
+.bk-page img{width:100%;height:100%;object-fit:contain;display:block}
+.bk-page.left{border-radius:6px 0 0 6px;box-shadow:inset -18px 0 26px -18px rgba(0,0,0,.85)}
+.bk-page.right{border-radius:0 6px 6px 0;box-shadow:inset 18px 0 26px -18px rgba(0,0,0,.85)}
+.bk-page.solo{border-radius:6px;box-shadow:none}
+.bk-page.hidden{display:none}
+.bk-side{position:absolute;bottom:10px;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted2)}
+.bk-page.left .bk-side{left:14px}
+.bk-page.right .bk-side{right:14px}
+
+/* The turning page */
+.bk-flip{position:absolute;top:0;width:50%;height:100%;display:none;z-index:6;
+  transform-style:preserve-3d;pointer-events:none}
+.bk-flip.fwd{right:0;transform-origin:left center}
+.bk-flip.bwd{left:0;transform-origin:right center}
+.bk-flip.turning{display:block}
+.bk-flip.fwd.turning{animation:bkTurnFwd .62s ease-in-out forwards}
+.bk-flip.bwd.turning{animation:bkTurnBwd .62s ease-in-out forwards}
+@keyframes bkTurnFwd{from{transform:rotateY(0deg)}to{transform:rotateY(-180deg)}}
+@keyframes bkTurnBwd{from{transform:rotateY(0deg)}to{transform:rotateY(180deg)}}
+.bk-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center;
+  color:var(--muted2);font-family:'DynaPuff',cursive;font-size:14px}
+.bk-face img{width:100%;height:100%;object-fit:contain;display:block}
+.bk-face.back{transform:rotateY(180deg)}
+/* Click zones over each half of the open book */
+.bk-half{position:absolute;top:0;bottom:0;width:50%;z-index:3;cursor:pointer}
+.bk-half.left{left:0}.bk-half.right{right:0}
+.bk-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:38px;color:var(--white);cursor:pointer;background:none;border:none;padding:1rem;transition:.2s}
+.bk-arrow:hover{color:var(--yellow-star)}
+.bk-prev{left:16px}.bk-next{right:16px}
+.bk-bar{margin-top:1.4rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;justify-content:center}
+.bk-count{font-size:12px;color:var(--muted);letter-spacing:.1em}
+.bk-track{width:min(420px,60vw);height:3px;background:var(--surface3);border-radius:3px;overflow:hidden}
+.bk-fill{height:100%;background:var(--yellow-star);width:0;transition:width .25s}
+.bk-blurb{margin-top:1rem;max-width:640px;text-align:center;font-size:13px;color:var(--muted);line-height:1.7;padding:0 1rem}
+.bk-tip{margin-top:.7rem;font-size:11px;color:var(--muted2);letter-spacing:.06em}
+@media(max-width:820px){
+  .bk-page{width:42vw}
+  .bk-book{max-height:52vh}
+  .bk-spread{max-height:52vh}
+}
+
+/* ============ MANAGEMENT GRID ============ */
+.proj-banner{width:100%;height:420px;overflow:hidden;background:var(--surface2);margin:0 0 1.5rem;display:flex;align-items:center;justify-content:center}
+.proj-banner img{width:100%;height:100%;object-fit:cover;display:block}
+/* Tighten the gap above the banner too — the subtitle's own bottom margin
+   was what created most of that space. */
+#page-projects .sec-sub{margin-bottom:1.5rem}
+@media(max-width:768px){.proj-banner{height:260px;margin-bottom:1.25rem}
+  #page-projects .sec-sub{margin-bottom:1.25rem}}
+.mgmt-intro{max-width:none;color:var(--muted);font-size:15px;line-height:1.85;margin-bottom:2.5rem;text-align:justify;hyphens:none}
+.mgmt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
+.mgmt-card{background:var(--surface2);border:0.5px solid var(--line-soft);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.mgmt-card:hover{border-color:var(--purple-med);transform:translateY(-3px)}
+.mgmt-prev{aspect-ratio:4/3;background:var(--surface3);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.mgmt-prev img{width:100%;height:100%;object-fit:cover;display:block}
+.mgmt-prev .mgmt-ph{color:var(--muted2);font-family:'DynaPuff',cursive;font-size:13px;text-align:center;padding:1rem}
+.mgmt-fmt{position:absolute;top:10px;left:10px;background:var(--purple-deep);color:var(--purple-light);font-size:10px;font-weight:600;letter-spacing:.06em;padding:3px 9px;border-radius:20px;text-transform:uppercase;font-family:'Poppins',sans-serif}
+.mgmt-body{padding:1.1rem 1.25rem 1.35rem;display:flex;flex-direction:column;flex:1}
+.mgmt-body h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.05rem;line-height:1.15;margin-bottom:.5rem}
+.mgmt-body p{color:var(--muted);font-size:13px;line-height:1.7;flex:1}
+.mgmt-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:1.1rem}
+.mgmt-price{font-family:'DynaPuff',cursive;font-size:15px;color:var(--yellow-star)}
+.mgmt-price.free{color:var(--purple-light)}
+.mgmt-btn{padding:9px 16px;border-radius:6px;background:var(--yellow-star);color:var(--black);font-family:'Anton',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:.04em;cursor:pointer;border:none;white-space:nowrap;transition:.2s}
+.mgmt-btn:hover{background:#FFE87A}
+.mgmt-btn.ghost{background:transparent;border:1px solid var(--purple-med);color:var(--purple-light)}
+.mgmt-btn.ghost:hover{background:var(--purple-med);color:var(--black)}
+.mgmt-btn.soon{background:transparent;border:1px solid var(--muted2);color:var(--muted2);cursor:default}
+.mgmt-foot{flex-wrap:wrap}
+.sheetview{display:none;position:fixed;inset:0;z-index:560;background:rgba(8,8,10,0.97);backdrop-filter:blur(6px);flex-direction:column;padding:1.5rem}
+.sheetview.open{display:flex}
+.sv-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.sv-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.1rem;color:var(--purple-light)}
+.sv-actions{display:flex;align-items:center;gap:10px}
+.sv-close{background:none;border:none;color:var(--white);font-size:26px;cursor:pointer;line-height:1;padding:0 .3rem}
+.sv-close:hover{color:var(--yellow-star)}
+#sheet-frame{flex:1;width:100%;border:0.5px solid var(--line);border-radius:8px;background:var(--surface2)}
+.sv-note{margin-top:.9rem;font-size:12px;color:var(--muted2);text-align:center}
+.mgmt-support{margin-top:3.5rem;padding:2rem 2.25rem;border:0.5px solid var(--line);border-radius:12px;background:var(--surface2);max-width:760px}
+.mgmt-support h4{font-family:'DynaPuff',cursive;font-size:1rem;color:var(--yellow-star);margin-bottom:.7rem}
+.mgmt-support p{color:var(--muted);font-size:14.5px;line-height:1.8;margin-bottom:1.4rem}
+.mgmt-btn.soon:hover{background:transparent}
+
+/* ============ ABOUT ============ */
+.about-top{display:grid;grid-template-columns:340px 1fr;gap:3.25rem;align-items:start;margin-bottom:3rem}
+.about-photos{display:flex;flex-direction:column;gap:1.25rem}
+.about-photo{width:100%;aspect-ratio:4/5;border-radius:18px;background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:13px;border:1px solid var(--line);overflow:hidden}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-text h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:1.2rem;line-height:1.1}
+.about-text h2 em{color:var(--purple-light);font-style:normal}
+.about-text p{color:var(--muted);font-size:15px;line-height:1.85;margin-bottom:1rem;text-align:justify;text-justify:inter-word;hyphens:none;-webkit-hyphens:none;overflow-wrap:normal;word-break:normal}
+/* The line the whole page is really about — promoted to the opening
+   statement. Qualified as `.about-text p.story-lead` so it outranks the
+   `.about-text p` colour rule above it. Left-aligned rather than justified,
+   because a short justified line stretches badly. The rule is
+   --purple-light, matched to "Lydia" in the heading directly above. */
+.about-text p.story-lead{color:var(--yellow-star);font-weight:600;font-size:16px;line-height:1.7;
+  text-align:left;hyphens:none;padding-left:1.1rem;margin-bottom:1.6rem;
+  border-left:2px solid var(--purple-light)}
+.about-keywords{display:flex;flex-wrap:nowrap;gap:8px;margin-top:1.75rem}
+.akw{padding:9px 14px;white-space:nowrap;border:1px solid var(--yellow-star);border-radius:8px;font-family:'DynaPuff',cursive;font-size:13px;color:var(--yellow-star);transition:.2s;cursor:pointer;background:transparent}
+.akw:hover{background:var(--yellow-star);color:var(--black);border-color:var(--yellow-star)}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start}
+.cform{display:flex;flex-direction:column;gap:1.1rem}
+.fg{display:flex;flex-direction:column;gap:7px}
+.fg label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fg input,.fg textarea{background:var(--surface);border:0.5px solid var(--line);color:var(--white);padding:13px 16px;font-family:'Poppins',sans-serif;font-size:14px;border-radius:5px;outline:none;transition:border-color .2s}
+.fg input:focus,.fg textarea:focus{border-color:var(--purple-med)}
+.fg textarea{resize:vertical;min-height:130px}
+.contact-photo{aspect-ratio:3/4;background:var(--surface2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:13px;border:0.5px solid var(--line)}
+.contact-photo img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.contact-foot{display:flex;gap:16px;justify-content:center;margin-top:3.5rem;flex-wrap:wrap;border-top:0.5px solid var(--line-soft);padding-top:2.5rem}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.05em;border-radius:5px;cursor:pointer;transition:.2s;border:none}
+.btn-primary{background:var(--purple-med);color:var(--white)}
+.btn-primary:hover{background:var(--purple-light);color:var(--black)}
+.btn-send{background:var(--yellow-star);color:var(--black);width:100%;justify-content:center}
+.btn-send:disabled{opacity:.6;cursor:default}
+.c-error{display:none;background:rgba(200,70,70,0.1);border:0.5px solid rgba(220,90,90,0.5);color:#E89090;font-size:13px;line-height:1.6;padding:.8rem 1rem;border-radius:6px;margin-bottom:1rem}
+.btn-send:hover{background:#FFE87A}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-light);margin-bottom:2rem;cursor:pointer;font-weight:600}
+.back-link:hover{color:var(--yellow-star)}
+
+/* ============ DETAIL PAGE ============ */
+.detail-head{margin-bottom:1.5rem}
+.detail-position{font-family:'DynaPuff',cursive;font-size:1.3rem;color:var(--yellow)}
+.detail-company{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(2rem,5vw,3.4rem);line-height:1.05}
+/* Runs edge to edge so it lines up with the tile grid below it. */
+.detail-blurb{color:var(--muted);font-size:15px;line-height:1.85;max-width:none;margin-bottom:1.75rem;text-align:justify;text-justify:inter-word;hyphens:none}
+.detail-refs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:2.5rem}
+.detail-refs .ref-btn{display:inline-flex;flex-direction:column;background:var(--yellow-star);border-color:var(--yellow-star);color:var(--black)}
+.detail-refs .ref-btn .rl{color:rgba(12,12,14,0.62);opacity:1}
+.detail-refs .ref-btn:hover{background:var(--purple-deep);border-color:var(--purple-deep);color:var(--white)}
+.detail-refs .ref-btn:hover .rl{color:var(--purple-light)}
+.funky-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.detail-keywords{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem}
+.detail-sec-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.4rem;color:var(--purple-light);margin:2.5rem 0 1.25rem;letter-spacing:.02em}
+.detail-sec-title .dst-count{color:var(--muted2);font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:400;margin-left:.5rem}
+.detail-empty{color:var(--muted2);font-size:14px;padding:1rem 0}
+.d-video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.d-video-item{background:var(--surface);border-radius:8px;overflow:hidden;border:0.5px solid var(--line-soft)}
+.d-video-item .dvi-frame{aspect-ratio:16/9;background:var(--surface2);display:flex;align-items:center;justify-content:center}
+.d-video-item .dvi-frame.vertical{aspect-ratio:9/16;max-width:260px;margin:0 auto}
+.d-video-item .dvi-frame.square{aspect-ratio:1/1;max-width:340px;margin:0 auto}
+.d-video-item .dvi-frame.social{aspect-ratio:var(--social-ratio)}
+.d-video-item .dvi-frame iframe,.d-video-item .dvi-frame video,.d-video-item .dvi-frame img{width:100%;height:100%;object-fit:cover;border:none}
+.d-video-item .dvi-frame .ph{color:var(--muted2);font-size:12px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.d-video-item .dvi-cap{padding:1rem 1.1rem}
+.d-video-item .dvi-cap h4{font-family:'DynaPuff',cursive;font-size:1rem;margin-bottom:.35rem;color:var(--white)}
+.d-video-item .dvi-cap p{font-size:13px;color:var(--muted);line-height:1.6}
+.fg-block{background:var(--surface);border-radius:8px;overflow:hidden;border:0.5px solid var(--line-soft)}
+.fg-img{aspect-ratio:16/10;background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:12px;position:relative}
+.fg-img.tall{aspect-ratio:3/4}
+.fg-cap{padding:1.1rem 1.25rem;font-size:13px;color:var(--muted);line-height:1.6}
+.fg-block.span2{grid-column:span 2}
+.fg-side{display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.fg-side .fg-cap{padding:1.5rem}
+.fg-overlay-wrap{position:relative;cursor:pointer}
+.fg-overlay{position:absolute;inset:0;background:rgba(12,12,14,0.8);opacity:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:1.5rem;transition:.25s;font-size:13px;color:var(--purple-light);line-height:1.6}
+.fg-overlay-wrap:hover .fg-overlay{opacity:1}
+
+/* ============ PHOTOGRAPHY ============ */
+.photo-section{margin-bottom:3.5rem}
+/* Style A: plain yellow text on black */
+.photo-label-a{font-family:'DynaPuff',cursive;color:var(--yellow-star);font-size:1.15rem;line-height:1.5;margin-bottom:1.5rem}
+/* Style B: yellow box, black text, square corners */
+.photo-label-b{font-family:'DynaPuff',cursive;background:var(--yellow-star);color:var(--black);font-size:1.1rem;line-height:1.5;padding:1.1rem 1.4rem;margin-bottom:1.5rem;border-radius:0}
+/* Style C: yellow box, black text, rounded corners */
+.photo-label-c{font-family:'DynaPuff',cursive;background:var(--yellow-star);color:var(--black);font-size:1.1rem;line-height:1.5;padding:1.1rem 1.6rem;margin-bottom:1.5rem;border-radius:22px}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:32px}
+.photo-tile{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;background:var(--surface2);aspect-ratio:4/3;border:0.5px solid var(--line-soft);transition:.2s}
+.photo-tile:hover{outline:1px solid var(--yellow-star);outline-offset:3px}
+.photo-tile .pt-slideshow{position:absolute;inset:0}
+.photo-tile .pt-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-family:'DynaPuff',cursive;font-size:13px;opacity:0;transition:opacity .8s;background:var(--surface2)}
+.photo-tile .pt-slide.active{opacity:1}
+.photo-tile .pt-slide img{width:100%;height:100%;object-fit:cover}
+.photo-tile .pt-count{position:absolute;top:10px;right:10px;background:var(--yellow-star);color:var(--black);font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;z-index:3;font-family:'Poppins',sans-serif}
+.photo-tile .pt-zoom{position:absolute;top:10px;left:10px;z-index:3;background:rgba(12,12,14,0.7);border:1px solid var(--yellow-star);color:var(--yellow-star);font-size:11px;padding:3px 9px;border-radius:20px;opacity:0;transition:.2s;font-family:'Poppins',sans-serif}
+.photo-tile:hover .pt-zoom{opacity:1}
+
+/* ---- Photo full-screen viewer ---- */
+.pv{display:none;position:fixed;inset:0;z-index:520;background:rgba(8,8,10,0.96);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column}
+.pv.open{display:flex}
+.pv-stage{max-width:86vw;max-height:70vh;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:8px;min-width:40vw;min-height:40vh;color:var(--muted);font-family:'DynaPuff',cursive}
+.pv-stage img{max-width:86vw;max-height:70vh;object-fit:contain;border-radius:8px;display:block}
+.pv-cap{margin-top:1.4rem;max-width:680px;text-align:center;padding:0 2rem}
+.pv-cap .pvt{display:none}
+.pv-cap .pvs{font-size:13.5px;color:var(--muted);line-height:1.7}
+.pv-count{margin-top:1rem;font-size:12px;color:var(--muted2);letter-spacing:.1em}
+.pv-close{position:absolute;top:24px;right:30px;font-size:28px;color:var(--white);cursor:pointer;background:none;border:none;line-height:1}
+.pv-close:hover{color:var(--yellow-star)}
+.pv-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:34px;color:var(--white);cursor:pointer;background:none;border:none;padding:1rem;transition:.2s}
+.pv-arrow:hover{color:var(--yellow-star)}
+.pv-prev{left:20px}.pv-next{right:20px}
+
+/* ============ STAR PAGE ============ */
+.star-intro{text-align:center;margin-bottom:3rem}
+.star-intro .si-star{width:90px;height:90px;margin:0 auto .75rem}
+.star-intro .si-star svg{width:100%;height:100%}
+.star-intro .si-kicker{font-family:'Caveat',cursive;font-size:1.8rem;color:var(--yellow-star);margin-bottom:.2rem}
+.star-intro h1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(2.5rem,6vw,4.5rem);margin:.3rem 0}
+.star-intro p{color:var(--muted);max-width:none;margin:0 auto;font-size:14px;line-height:1.8}
+.star-wall{columns:3;column-gap:16px}
+.star-tile{break-inside:avoid;margin-bottom:16px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;background:var(--surface2);border:0.5px solid var(--line-soft)}
+.star-tile.circle{border-radius:50%;aspect-ratio:1}
+.star-tile .st-ph{display:flex;align-items:center;justify-content:center;color:var(--muted2);font-family:'DynaPuff',cursive;font-size:13px;text-align:center;overflow:hidden}
+.star-tile .st-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.star-tile .st-ph:empty,.star-tile .st-ph{padding:0}
+.star-tile video,.star-tile iframe,.star-tile img{width:100%;display:block;border:none}
+.st-thumb{aspect-ratio:16/9;background-size:cover;background-position:center;position:relative;display:flex;align-items:center;justify-content:center}
+.st-play{width:52px;height:52px;border-radius:50%;background:rgba(12,12,14,0.6);border:1.5px solid var(--yellow-star);color:var(--yellow-star);display:flex;align-items:center;justify-content:center;font-size:18px;transition:.2s}
+.video-clickplay{cursor:pointer}
+.video-clickplay:hover .st-play{background:var(--yellow-star);color:var(--black)}
+.st-open{display:inline-block;margin-top:4px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--purple-light);cursor:pointer;font-family:'Poppins',sans-serif}
+.st-open:hover{color:var(--yellow-star)}
+.star-tile .st-badge{position:absolute;top:10px;left:10px;background:var(--yellow-star);color:var(--black);font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;z-index:2}
+.star-tile .st-overlay{position:absolute;inset:0;background:rgba(12,12,14,0.72);opacity:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;transition:.25s;font-family:'Anton',sans-serif;text-transform:uppercase;color:var(--purple-light);font-size:1rem}
+.star-tile:hover .st-overlay{opacity:1}
+.explore-btn{break-inside:avoid;margin-bottom:16px;display:block;width:100%;padding:2rem 1.25rem;background:var(--yellow-star);color:var(--black);border:none;border-radius:10px;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.1rem;cursor:pointer;transition:.2s;line-height:1.2}
+.explore-btn:hover{transform:scale(1.03);background:#FFE87A}
+.explore-btn.rot1{transform:rotate(-2deg)}.explore-btn.rot1:hover{transform:rotate(-2deg) scale(1.03)}
+.explore-btn.rot2{transform:rotate(2deg)}.explore-btn.rot2:hover{transform:rotate(2deg) scale(1.03)}
+
+/* ============ LIGHTBOX ============ */
+.lightbox{display:none;position:fixed;inset:0;z-index:500;background:rgba(8,8,10,0.94);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column}
+.lightbox.open{display:flex}
+.lb-stage{max-width:80vw;max-height:68vh;background:var(--surface2);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);min-width:55vw;min-height:48vh;font-family:'DynaPuff',cursive}
+.lb-stage img{max-width:80vw;max-height:68vh;object-fit:contain;border-radius:8px}
+.lb-caption{margin-top:1.5rem;max-width:680px;text-align:center;padding:0 2rem}
+.lb-caption .lbt{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.2rem;color:var(--purple-light);margin-bottom:.4rem}
+.lb-caption .lbs{font-size:13px;color:var(--muted)}
+.lb-close{position:absolute;top:24px;right:30px;font-size:28px;color:var(--white);cursor:pointer;background:none;border:none;line-height:1}
+.lb-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:34px;color:var(--white);cursor:pointer;background:none;border:none;padding:1rem;transition:.2s}
+.lb-arrow:hover{color:var(--yellow-star)}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lb-dots{margin-top:1.2rem;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;max-width:400px}
+.lb-dot{width:8px;height:8px;border-radius:50%;background:var(--muted2);transition:.2s}
+.lb-dot.active{background:var(--yellow-star)}
+.lb-slidelabel{margin-top:.8rem;font-size:12px;color:var(--muted);letter-spacing:.1em}
+
+footer{border-top:0.5px solid var(--line-soft);padding:2.5rem 2rem;text-align:center;color:var(--muted2);font-size:13px;font-family:'DynaPuff',cursive;letter-spacing:.02em}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1050px){
+  .nav-links{display:none;position:fixed;top:64px;left:0;width:100%;background:var(--black);flex-direction:column;border-bottom:0.5px solid var(--line);padding:.5rem 0;max-height:calc(100vh - 64px);overflow-y:auto}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:15px 2rem;border-bottom:none;border-left:3px solid transparent}
+  /* No hover on touch, and the role lines are long enough to force the whole
+     nav panel wider than the screen. On mobile the Projects tab just goes to
+     the Projects page, whose timeline is already the full list. */
+  .nav-menu,.nav-drop:hover .nav-menu,.nav-drop:focus-within .nav-menu{display:none}
+  .nav-links a.active{border-left-color:var(--yellow-star);border-bottom-color:transparent}
+  .hamburger{display:flex}
+  .tl-item{grid-template-columns:110px 1fr;gap:1.25rem}
+  .tl-refs{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
+}
+@media(max-width:820px){
+  .about-top,.contact-grid{grid-template-columns:1fr;gap:2rem}
+  .about-photos{flex-direction:row;gap:1rem}
+  .about-photo{max-width:none}
+  .about-keywords{flex-wrap:wrap}
+  .media-row{grid-template-columns:1fr;gap:1rem}
+  .masonry,.star-wall{columns:2}
+  .funky-grid{grid-template-columns:1fr}
+  .fg-block.span2{grid-column:span 1}
+  .fg-side{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .wrap{padding:2.5rem 1.25rem 4rem}
+  .nav-inner{padding:0 1.25rem}
+  .masonry,.star-wall{columns:1}
+  .home-btns{grid-template-columns:1fr 1fr}
+  .home-btn:nth-child(-n+3),.home-btn:nth-child(n+4){grid-column:span 1}
+  .home-btn:nth-child(5){grid-column:span 2}
+}
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo" onclick="go('home')">lydia princess obi</span>
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a onclick="go('star')" id="nav-star" class="nav-star" title="Start here">★</a></li>
+      <li><a onclick="go('home')" class="active" id="nav-home">Home</a></li>
+      <li><a onclick="go('about')" id="nav-about">About Lydia</a></li>
+      <li><a onclick="go('videography')" id="nav-videography">Videography</a></li>
+      <li><a onclick="go('designs')" id="nav-designs">Designs</a></li>
+      <li><a onclick="go('photography')" id="nav-photography">Photography</a></li>
+      <li><a onclick="go('management')" id="nav-management">Management</a></li>
+      <li><a onclick="go('social')" id="nav-social">Social Media</a></li>
+      <li class="nav-drop">
+        <a onclick="go('projects')" id="nav-projects">Projects</a>
+        <!-- Built from PROJECTS, so it stays in sync automatically. -->
+        <div class="nav-menu" id="nav-projects-menu"></div>
+      </li>
+      <li><a onclick="go('contact')" id="nav-contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========== HOME ========== -->
+<div class="page active" id="page-home">
+  <div class="ebar"></div>
+  <div class="home-video">
+    <!-- Showreel. mute=1 is required — browsers block autoplay with sound.
+         loop=1 only works alongside playlist= set to the same video ID. -->
+    <iframe src="https://www.youtube.com/embed/zvoWg8ArVaw?autoplay=1&mute=1&loop=1&playlist=zvoWg8ArVaw&controls=1&rel=0&modestbranding=1&playsinline=1"
+      title="Lydia Princess Obi — showreel"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  <p class="home-tagline">Using my creative practices to tell stories that <em>build</em>, <em>connect</em>, and <em>sustain</em> communities</p>
+  <div class="home-btns">
+    <div class="home-btn" style="--hb:var(--yellow-star)" onclick="go('videography')">Videography</div>
+    <div class="home-btn" style="--hb:var(--yellow-star)" onclick="go('designs')">Designs</div>
+    <div class="home-btn" style="--hb:var(--yellow-star)" onclick="go('photography')">Photography</div>
+    <div class="home-btn" style="--hb:var(--yellow-star)" onclick="go('management')">Management</div>
+    <div class="home-btn" style="--hb:var(--yellow-star)" onclick="go('social')">Social Media</div>
+  </div>
+  <div class="begin-wrap">
+    <span class="begin-note">wondering where to start?</span>
+    <div class="begin-star" onclick="go('star')">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--yellow-star)" stroke="var(--yellow-star)" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"
+          d="M50 20 L58 42 L80 42 L62 56 L69 78 L50 64 L31 78 L38 56 L20 42 L42 42 Z"/>
+      </svg>
+      <span class="bs-label">Begin<br>Here</span>
+    </div>
+  </div>
+  <div class="home-contact">
+    <a class="contact-pill" href="https://instagram.com/blessedxeats" target="_blank"><svg class="pill-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a>
+    <a class="contact-pill" href="https://linkedin.com/in/lydiaobi" target="_blank"><svg class="pill-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7" y1="10" x2="7" y2="17"/><circle cx="7" cy="7" r="0.6" fill="currentColor"/><path d="M11 17v-4a2 2 0 0 1 4 0v4"/><line x1="11" y1="10" x2="11" y2="17"/></svg>LinkedIn</a>
+    <a class="contact-pill" href="mailto:lydiaobi@outlook.com"><svg class="pill-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>lydiaobi@outlook.com</a>
+  </div>
+  <footer>© 2025 Lydia Princess Obi — Creative · Storyteller · Digital Media Strategist</footer>
+</div>
+
+<!-- ========== VIDEOGRAPHY ========== -->
+<div class="page" id="page-videography">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">motion & film</span><h1 class="sec-title">Videography</h1></div>
+    <p class="sec-sub">Work produced across roles and companies. Play any reel right here, or open the full work.</p>
+    <div id="video-list"></div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== SOCIAL MEDIA ========== -->
+<div class="page" id="page-social">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">content creation & strategy</span><h1 class="sec-title">Social Media</h1></div>
+    <p class="sec-sub">Social content and campaigns by company. Open any entry for the full story.</p>
+    <div id="social-list"></div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== DESIGNS ========== -->
+<div class="page" id="page-designs">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">visual & graphic</span><h1 class="sec-title">Designs</h1></div>
+    <p class="sec-sub">Posters, decks and branding. Hover for the title; click to view full screen — multi-slide works flip with the arrows.</p>
+    <div class="masonry" id="design-grid"></div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== PHOTOGRAPHY ========== -->
+<div class="page" id="page-photography">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">captured moments</span><h1 class="sec-title">Photography</h1></div>
+    <p class="sec-sub">Moments, portraits, and places. Multi-photo sets play through on their own \u2014 hover to pause, click to view full screen.</p>
+    <div id="photo-sections"></div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== MANAGEMENT ========== -->
+<div class="page" id="page-management">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">systems &amp; planning</span><h1 class="sec-title">Management</h1></div>
+    <p class="mgmt-intro" id="mgmt-intro"></p>
+    <div class="mgmt-grid" id="mgmt-grid"></div>
+    <div class="mgmt-support">
+      <p>Every template is yours to download, copy, and adapt at no cost. If one of them
+         saves you a few hours and you&rsquo;d like to support the work, a contribution is
+         warmly appreciated and entirely optional.</p>
+      <a class="mgmt-btn" href="https://ko-fi.com/lydiaobi" target="_blank" rel="noopener" id="mgmt-donate">Support this work</a>
+    </div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== PROJECTS ========== -->
+<div class="page" id="page-projects">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">visual résumé</span><h1 class="sec-title">Projects</h1></div>
+    <p class="sec-sub">A timeline of roles and the work behind them. Click any entry for the full story.</p>
+  </div>
+  <!-- Full-bleed banner: breaks out of .wrap so it runs the true width of the
+       browser. Fixed height, object-fit:cover — so the image is cropped to fit
+       and its own dimensions don't matter. -->
+  <div class="proj-banner"><img src="site/banner.jpg" alt="" onerror="swapExt(this)"></div>
+  <div class="wrap">
+    <div class="timeline" id="timeline"></div>
+    <div class="contact-foot">
+      <a class="contact-pill" href="https://instagram.com/blessedxeats" target="_blank"><svg class="pill-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a>
+      <a class="contact-pill" href="https://linkedin.com/in/lydiaobi" target="_blank"><svg class="pill-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7" y1="10" x2="7" y2="17"/><circle cx="7" cy="7" r="0.6" fill="currentColor"/><path d="M11 17v-4a2 2 0 0 1 4 0v4"/><line x1="11" y1="10" x2="11" y2="17"/></svg>LinkedIn</a>
+      <a class="contact-pill" href="mailto:lydiaobi@outlook.com"><svg class="pill-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>lydiaobi@outlook.com</a>
+    </div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== STAR / ATTRACTION WALL ========== -->
+<div class="page" id="page-star">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <div class="star-intro">
+      <div class="si-star" aria-hidden="true">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path fill="var(--yellow-star)" stroke="var(--yellow-star)" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"
+            d="M50 20 L58 42 L80 42 L62 56 L69 78 L50 64 L31 78 L38 56 L20 42 L42 42 Z"/>
+        </svg>
+      </div>
+      <h1>The Highlights</h1>
+      <p>A curated mix of my favourite videos and designs.<br>Watch, explore, and dive into any project.</p>
+    </div>
+    <div class="star-wall" id="star-wall"></div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== ABOUT ========== -->
+<div class="page" id="page-about">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <div class="about-top">
+      <!-- Both photos, stacked in the left column. Swap each placeholder for
+           an image, e.g. <img src="site/about-me-up.png" alt="Lydia"> -->
+      <div class="about-photos">
+        <div class="about-photo"><img src="site/about-me-up.png" alt="Lydia Princess Obi" onerror="swapExt(this)"></div>
+        <div class="about-photo"><img src="site/about-me-down.jpg" alt="Lydia Princess Obi" onerror="swapExt(this)"></div>
+      </div>
+      <div class="about-text">
+        <h2>Hi, I'm <em>Lydia</em>.</h2>
+        <p class="story-lead">At my core, I'm a storyteller — I believe every project, event, and brand has a story to tell, and I love finding the best way to tell it.</p>
+        <p>On paper: an MBA candidate. In practice: a passionate creative bringing ideas to life through storytelling. My work sits at the intersection of creativity and execution — spanning event management, marketing, communications, digital media, and program operations — giving me the ability to move seamlessly between big-picture vision and detailed execution.</p>
+        <p>I've supported large-scale initiatives from leadership programs and public-sector events to award ceremonies and marketing campaigns, managing everything from timelines, stakeholder engagement, and budgets to content creation, communications, and production. Whether I'm coordinating a high-visibility event, editing a video, designing a presentation, or building a tracker that keeps a project moving, I enjoy creating systems that make great work possible.</p>
+        <p>I taught myself Adobe Premiere Pro at twelve, when I fell in love with video editing making films for my school's volunteer club. That led to a curiosity for graphic design and photography, which I refined through my work with the African Development Initiative, AIESEC DC, and TEDxFoggyBottom.</p>
+        <p style="color:var(--muted2);font-size:14px">Shoot me a message — I'm always looking for opportunities to create work that leaves a lasting impact on the people it serves. <span style="color:var(--muted)">(Draft blended from your resume + LinkedIn — edit freely.)</span></p>
+        <div class="about-keywords">
+          <span class="akw" onclick="go('star')">Storyteller</span>
+          <span class="akw" onclick="go('designs')">Creative</span>
+          <span class="akw" onclick="go('social')">Strategist</span>
+          <span class="akw" onclick="go('management')">Coordinator</span>
+          <span class="akw" onclick="go('videography')">Editor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== CONTACT ========== -->
+<div class="page" id="page-contact">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-kicker">let's talk</span><h1 class="sec-title">Contact</h1></div>
+    <div class="contact-grid">
+      <div class="cform">
+        <div class="fg"><label>Name</label><input type="text" id="c-name" placeholder="Your name"></div>
+        <div class="fg"><label>Email</label><input type="email" id="c-email" placeholder="your@email.com"></div>
+        <div class="fg"><label>Number</label><input type="tel" id="c-number" placeholder="Phone (optional)"></div>
+        <div class="fg"><label>Subject</label><input type="text" id="c-subject" placeholder="What's this about?"></div>
+        <div class="fg"><label>Message</label><textarea id="c-message" placeholder="Tell me more…"></textarea></div>
+        <div class="c-error" id="c-error"></div>
+        <button class="btn btn-send" onclick="submitContact()">Send inquiry</button>
+        <p id="c-success" style="display:none;color:var(--yellow-star);font-size:13.5px;margin-top:1rem">✓ Thanks — your message is on its way. I’ll get back to you soon.</p>
+      </div>
+      <div class="contact-photo"><img src="site/contact-me.jpg" alt="Lydia Princess Obi" onerror="swapExt(this)"></div>
+    </div>
+    <div class="contact-foot">
+      <a class="contact-pill" href="https://instagram.com/blessedxeats" target="_blank"><svg class="pill-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a>
+      <a class="contact-pill" href="https://linkedin.com/in/lydiaobi" target="_blank"><svg class="pill-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7" y1="10" x2="7" y2="17"/><circle cx="7" cy="7" r="0.6" fill="currentColor"/><path d="M11 17v-4a2 2 0 0 1 4 0v4"/><line x1="11" y1="10" x2="11" y2="17"/></svg>LinkedIn</a>
+      <a class="contact-pill" href="mailto:lydiaobi@outlook.com"><svg class="pill-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>lydiaobi@outlook.com</a>
+    </div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== DETAIL PAGE (shared, nested under Projects) ========== -->
+<div class="page" id="page-detail">
+  <div class="ebar"></div>
+  <div class="wrap">
+    <span class="back-link" id="detail-back" onclick="goBack()">← Back</span>
+    <div class="detail-head">
+      <div class="detail-position font-bubble" id="d-position">Creative Lead</div>
+      <div class="detail-company" id="d-company">COMPANY NAME</div>
+    </div>
+    <p class="detail-blurb" id="d-blurb">Blurb goes here.</p>
+    <div class="detail-refs" id="d-refs"></div>
+    <div id="d-sections"></div>
+  </div>
+  <footer>© 2025 Lydia Princess Obi</footer>
+</div>
+
+<!-- ========== LIGHTBOX ========== -->
+<!-- ========== BOOK READER ========== -->
+<div class="book" id="book" onclick="bkBackdrop(event)">
+  <button class="bk-close" onclick="closeBook()">✕</button>
+  <button class="bk-arrow bk-prev" onclick="bkNav(-1)">‹</button>
+  <div class="bk-title" id="bk-title">Book title</div>
+  <div class="bk-book" id="bk-book">
+    <div class="bk-page left" id="bk-left"></div>
+    <div class="bk-page right" id="bk-right"></div>
+    <div class="bk-flip" id="bk-flip">
+      <div class="bk-face front" id="bk-flip-front"></div>
+      <div class="bk-face back" id="bk-flip-back"></div>
+    </div>
+    <div class="bk-half left" onclick="bkNav(-1)"></div>
+    <div class="bk-half right" onclick="bkNav(1)"></div>
+  </div>
+  <button class="bk-arrow bk-next" onclick="bkNav(1)">›</button>
+  <div class="bk-bar">
+    <span class="bk-count" id="bk-count"></span>
+    <div class="bk-track"><div class="bk-fill" id="bk-fill"></div></div>
+  </div>
+  <div class="bk-blurb" id="bk-blurb"></div>
+  <span class="car-open" id="bk-open"></span>
+  <div class="bk-tip">Click the right page or › to go forward · left page or ‹ to go back · Esc to close</div>
+</div>
+
+<!-- ========== LIVE SHEET PREVIEW ========== -->
+<div class="sheetview" id="sheet-view" onclick="sheetBackdrop(event)">
+  <div class="sv-bar">
+    <span class="sv-title" id="sheet-title"></span>
+    <span class="sv-actions">
+      <a class="mgmt-btn" id="sheet-xlsx" href="#" download>Excel</a>
+      <a class="mgmt-btn ghost" id="sheet-copy" href="#" target="_blank" rel="noopener">Copy to Sheets</a>
+      <button class="sv-close" onclick="closeSheet()">✕</button>
+    </span>
+  </div>
+  <iframe id="sheet-frame" title="Template preview"></iframe>
+  <p class="sv-note">Read-only preview — nothing is saved to your Drive. Use <strong>Copy to Sheets</strong> for your own editable version.</p>
+</div>
+
+<!-- ========== SOCIAL CAROUSEL ========== -->
+<div class="car" id="carousel" onclick="carBackdrop(event)">
+  <button class="car-close" onclick="closeCarousel()">✕</button>
+  <button class="car-arrow car-prev" onclick="carNav(-1)">‹</button>
+  <div class="car-stage" id="car-stage"></div>
+  <button class="car-arrow car-next" onclick="carNav(1)">›</button>
+  <div class="car-cap"><div class="cct" id="car-title"></div><div class="ccc" id="car-company"></div></div>
+  <div class="car-count" id="car-count"></div>
+  <span class="car-open" id="car-open"></span>
+</div>
+
+<!-- ========== PHOTO FULL-SCREEN VIEWER ========== -->
+<div class="pv" id="photo-viewer" onclick="pvBackdrop(event)">
+  <button class="pv-close" onclick="closePhoto()">✕</button>
+  <button class="pv-arrow pv-prev" onclick="pvNav(-1)">‹</button>
+  <div class="pv-stage" id="pv-stage">[ Photo ]</div>
+  <button class="pv-arrow pv-next" onclick="pvNav(1)">›</button>
+  <div class="pv-cap"><div class="pvt" id="pv-title">Title</div><div class="pvs" id="pv-sub">Caption</div></div>
+  <div class="pv-count" id="pv-count"></div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="lbBackdrop(event)">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-arrow lb-prev" onclick="lbNav(-1)">‹</button>
+  <div class="lb-stage" id="lb-stage">[ Full-screen work ]</div>
+  <button class="lb-arrow lb-next" onclick="lbNav(1)">›</button>
+  <div class="lb-caption"><div class="lbt" id="lb-title">Design Title</div><div class="lbs" id="lb-sub">A sentence about this work.</div></div>
+  <span class="car-open" id="lb-open"></span>
+  <div class="lb-slidelabel" id="lb-slidelabel"></div>
+  <div class="lb-dots" id="lb-dots"></div>
+</div>
+
+<script>
+/* =====================================================================
+   DATA — edit these arrays to add your real content later.
+   Each project has a unique "id" so videography + social both link
+   to the SAME project detail page (e.g. Emanuela Cosmetics).
+   ===================================================================== */
+var PROJECTS = [
+  /* highlight:true paints this entry yellow \u2014 it sits first as the through-line
+     of the whole portfolio rather than one job among many. */
+  {id:'passion', logo:'logos/passion-logo.jpg', company:'Independent/Passion Projects', position:'Personal & Academic Work', years:'Ongoing', location:'Remote',
+   highlight:true,
+   keywords:['Interviews','Storytelling','Design','Concept','Marketing','Branding','Craft'],
+   blurb:'Personal and academic work \u2014 the interviews and projects I pursue because they move me, alongside coursework and independent design explorations where I get to experiment freely.',
+   refs:[{role:'Reference',name:'Seun Oyewole',email:'seun@oyewole.co'},
+         {role:'Reference',name:'Bethel Adekogbe',email:'bethel@ptspice.org'}]},
+  {id:'nu-camd', logo:'logos/camd-logo.png', company:'NU College of Arts, Media and Design', position:'Videographer — Dean\u2019s Office', years:'Jul 2026 – Present', location:'Boston, MA',
+   keywords:['Videography','Filming','Editing','Campus Stories','Post-Production','Interviews','Delivery'],
+   blurb:'Editing video for the Dean\u2019s Office within the College of Arts, Media and Design at Northeastern \u2014 work aimed at bringing more dynamism and movement to the college webpage and to locations across the school\u2019s buildings.',
+   refs:[{role:'Manager',name:'Ryan Wilcox',email:'r.wilcox@northeastern.edu'}]},
+  {id:'youth-alive', logo:'logos/yaf-logo.jpg', company:'Youth Alive Fellowship', position:'Video Editor', years:'Feb 2025 – Present', location:'Dartford, United Kingdom',
+   keywords:['Video Editing','Storytelling','Post-Production','Community','Faith','Events','Delivery'],
+   blurb:'As video editor for Youth Alive Fellowship, I bring our programs to life \u2014 everything from our annual conference to our monthly programmes \u2014 with an emphasis on community, fun, and spiritual growth.',
+   refs:[{role:'Colleague',name:'EJ',email:'name@example.com'},{role:'Colleague',name:'Bolu',email:'name@example.com'}]},
+  {id:'emmanuela', logo:'logos/ec-logo.jpg', company:'Emmanuela Cosmetics', position:'Social Media Manager', years:'Sep 2024 – Jun 2025', location:'Remote',
+   keywords:['Social Media','Instagram','TikTok','Reels','Graphics','Content','Growth'],
+   blurb:'Developed and posted daily graphics and reels for Instagram and TikTok, increasing TikTok followership by 65%. Curated interactive posts highlighting the importance of skincare, growing customers\u2019 industry knowledge.',
+   refs:[{role:'Manager',name:'Yvonne Tazem',email:'yvonnetazem@gmail.com'}]},
+  {id:'gw-cepl', logo:'logos/cepl-logo.jpg', company:'GW Center for Excellence in Public Leadership', position:'Marketing & Communications Administrator | Cafritz Awards Program Coordinator', years:'May 2021 – Jul 2024', location:'Washington, DC',
+   keywords:['Marketing','Communications','Event Management','$380K Gala','Vendors','Budgets','Creative Direction','Stakeholders','Program Book','Digital Content','Newsletters'],
+   blurb:'Coordinated logistics for ceremonies and receptions recognizing 100+ DC government employees, managing budgets from $300 to $5,000 per project. Oversaw vendor outreach, contract documentation, and payment tracking, and curated digital marketing content and social collateral (video, graphics) to promote initiatives and increase engagement across LinkedIn and X. As Program Coordinator for the Cafritz Awards for Distinguished DC Government, managed end-to-end operations for the Awards Gala \u2014 vendor sourcing, requisition tracking, and coordination of catering, production, and marketing deliverables within a $380K budget. Directed the creative production process and served as primary liaison for vendors and stakeholders, ensuring contract compliance and seamless event execution. Led the development and production of the official 21st Cafritz Foundation Awards program book, overseeing content strategy, copyediting, and photography selection.',
+   refs:[{role:'Manager',name:'Kateryna Pyatybratova',email:'pyatybratova@yahoo.com'},{role:'Colleague',name:'Anne Laurie Joseph',email:'annejoseph0908@gmail.com'}]},
+  {id:'gw-nursing', logo:'logos/gwson-logo.png', company:'GW School of Nursing', position:'Video Editor', years:'Jan 2021 \u2013 Apr 2021', location:'Remote',
+   keywords:['Video Editing','Interviews','Storytelling','Profiles','Education','Post-Production','Delivery'],
+   blurb:'Edited a series of profile and interview videos for the George Washington School of Nursing, spotlighting students and their journeys.',
+   refs:[]},
+  {id:'tedx', logo:'logos/ted-logo.jpg', company:'TEDxFoggyBottom', position:'Design Director', years:'Jan 2019 – Jan 2023', location:'Washington, DC',
+   keywords:['Video','Graphics','Creative Direction','Logo Design','Recruitment','Event','Storytelling'],
+   blurb:'Produced informative and artistic video content optimized for Facebook, Instagram, and YouTube to support the organization\u2019s annual event and year-round engagement. Led a five-person creative team, designed graphics and digital assets for campaigns and the annual conference, co-designed the official 2022 conference logo, and filmed and edited the conference theme-release video with strong narrative pacing and visual cohesion.',
+   refs:[{role:'Colleague',name:'Ignacio Gomez',email:'ignaciogomez3000@gmail.com'}]},
+  {id:'gw-adi', logo:'logos/gwadi-logo.jpg', company:'GW African Development Initiative', position:'Communications & Design Director', years:'Jan 2020 – Jan 2021', location:'Washington, DC',
+   keywords:['Communications','Creative Direction','Video','Graphics','Branding','Partnerships','Community'],
+   blurb:'Managed outreach to sponsors and partners, coordinated restaurant partnerships for profit-share fundraisers, and organized Executive Board and General Body meetings. Led a three-person creative team overseeing the production of cohesive videos, graphics, and Instagram content, and developed branding guidelines and assets aligned with GWADI\u2019s values.',
+   refs:[{role:'Colleague',name:'Adedasola Adeniyi',email:'adeniyiadedasolaa@gmail.com'}]},
+  {id:'ecomadic', logo:'logos/ecomadic-logo.png', company:'ecomadic', position:'Visual Communications Intern', years:'Oct 2020 – Dec 2020', location:'Remote',
+   keywords:['Video Editing','Multimedia','Storyboarding','Sustainability','Branding','Research','Content'],
+   blurb:'Served as the primary video editor, producing polished visual content for company campaigns and partner initiatives across social platforms. Conceptualized and designed multimedia assets \u2014 including visual storyboarding \u2014 to highlight ecomadic\u2019s sustainability projects and brand mission, collaborating directly with the Co-Founders to plan and schedule video releases.',
+   refs:[]},
+  {id:'tastemade', logo:'logos/tastemade-logo.png', company:'Tastemade', position:'People Operations (HR) Intern', years:'Aug 2020 – Oct 2020', location:'Remote',
+   keywords:['People Ops','Multimedia','Design','Culture','Collaboration','Media','Support'],
+   blurb:'Collaborated with teams across departments to learn the operational needs of a modern media company and support HR initiatives. Designed multimedia assets for internal projects while exploring how people operations drive talent development and culture.',
+   refs:[]}
+];
+
+/* =====================================================================
+   VIDEOGRAPHY WORKS — mirrors your Google Drive "1. Videos" folders:
+   Interview Style, TEDxFB Videos, Youth Alive, ecomadic, EC Reels, CEPL Videos.
+   videoId = the YouTube ID (the part after "v=" in the URL). Empty = placeholder.
+   projectId links each video to its company's Projects page.
+   ===================================================================== */
+var VIDEO_WORKS = [
+  // ecomadic
+  {projectId:'ecomadic', star:true,  title:'Introducing ecomadic',                 videoId:'Vv-6Gn4TiHw', blurb:'The video that introduces ecomadic \u2014 its mission, its people, and its commitment to sustainable travel and storytelling.'},
+  {projectId:'ecomadic',             title:'ecomadic x OTP Partnership',           videoId:'luHoVx4wlVk', blurb:'A partnership spotlight bringing together ecomadic and OTP, celebrating shared values around conscious exploration.'},
+  {projectId:'ecomadic', star:true,  title:'VOTE',                       videoId:'Fwc0srQ84DE', blurb:'A civic-minded piece encouraging the ecomadic community to make their voices heard at the ballot box.'},
+  {projectId:'ecomadic',             title:'2020 Kenya Wildfires (ecomadic x T4P)', videoId:'3DzjCzKhYiI', blurb:'A collaboration with T4P shedding light on the 2020 Kenya wildfires and their impact on land and communities.'},
+
+  // Youth Alive Fellowship
+  {projectId:'youth-alive', star:true, title:'YAF: Mind Your Mind',                 videoId:'eOSikUXzleg', blurb:'A gentle, community-focused piece on mental wellbeing \u2014 a reminder to care for your mind as much as your spirit.'},
+  {projectId:'youth-alive', star:true, title:'Introducing YAF w/ AJ',              videoId:'izJCOUShXEo', blurb:'A warm welcome to Youth Alive Fellowship, hosted by AJ, capturing the heart and energy of the community.'},
+  {projectId:'youth-alive',            title:'AYAC Induction Video',               videoId:'rgWBN75r1GM', blurb:'An induction video welcoming new members into AYAC and setting the tone for the journey ahead.'},
+  {projectId:'youth-alive', star:true, title:'What Is AYAC?',                       videoId:'hCqlrTEJ8rE', blurb:'A short, punchy explainer answering the question everyone asks \u2014 what exactly is AYAC, and what does it stand for?'},
+  {projectId:'youth-alive',            title:'YAF Service Expectations',            videoId:'vL3iUCH1iE4', blurb:'A quick guide to what to expect at a Youth Alive service, making newcomers feel right at home.'},
+  {projectId:'youth-alive',             title:'Emma Sings Interview',                videoId:'2iJy0ZXCTdc', blurb:'A short-form interview with Emma, letting her voice and her music lead the piece.'},
+  {projectId:'youth-alive',             title:'AYAC Day 2 Evening Recap',            videoId:'wTF-bxrV2AU', blurb:'An evening recap cut from the second day of the annual conference \u2014 the energy of the room condensed into a short.'},
+  {projectId:'youth-alive', star:true,  title:'YAF Sports Day Expectations',         videoId:'X6L8GRvJivU', blurb:'A playful set-up piece for Sports Day, building anticipation for a day of community and competition.'},
+  {projectId:'youth-alive',             title:'AYAC Workshops Summary',              videoId:'4rg6t3ZU2EY', blurb:'A summary of the conference workshops, pulling the throughline out of several sessions into one short.'},
+  {projectId:'youth-alive',             title:'WCID: YAF Prayer Congress',           videoId:'QvKaxOwUSfA', blurb:'A short covering the Prayer Congress \u2014 quieter in tone, built around the atmosphere of the gathering.'},
+
+  {projectId:'youth-alive', star:true, title:'AYAC 2025: Emmanuel Smith Interview', videoId:'5Toman6GNqY', blurb:'An intimate interview with Emmanuel Smith from AYAC 2025, sharing his story and reflections.'},
+
+  // GW School of Nursing
+  {projectId:'gw-nursing',            title:'Spotlight: Alex Lada',       videoId:'PIrTZs0LJ8o', blurb:'A student profile following Alex Lada\u2019s journey through the GW School of Nursing.'},
+  {projectId:'gw-nursing',            title:'Spotlight: Billy Baron',     videoId:'SNNm4rIZ9cw', blurb:'A personal spotlight on Billy Baron, capturing what drew him to nursing and where he\u2019s headed.'},
+  {projectId:'gw-nursing', star:true, title:'Spotlight: Dyonna Hydleburg', videoId:'1NGPFg6zbvA', blurb:'Dyonna Hydleburg shares her path into nursing in this heartfelt student profile.'},
+  {projectId:'gw-nursing',            title:'Spotlight: Rebecca Ortego',  videoId:'9TOJqPb9QwE', blurb:'Rebecca Ortego reflects on her experience and aspirations at the GW School of Nursing.'},
+  {projectId:'gw-nursing', star:true, title:'An Overview of GW SON',                  videoId:'O6K9dLfp2ME', blurb:'A flagship feature capturing the spirit and community of the George Washington School of Nursing.'},
+
+  // Passion Projects
+  {projectId:'passion',              title:'Raw Interview with Anne Laurie Joseph', videoId:'0kO4lW7nC1s', blurb:'An unedited, unhurried conversation \u2014 the kind of interview I make because the person is worth listening to, not because a brief asked for it.'},
+  {projectId:'passion',   star:true, title:'The LOVE Project',                     videoId:'vlW0XSSj-JU', blurb:'A passion project about love \u2014 made because it mattered to me, not because anything asked for it.'},
+  {projectId:'passion',              title:'GW Senior Reflection',                 videoId:'yIoW89V32pw', blurb:'A reflective piece marking the end of my time at GW \u2014 personal, and edited to feel like looking back rather than summing up.'},
+  {projectId:'passion',              title:'Group Project: Global Hunger Video',   videoId:'fU8VM5IYieQ', blurb:'A coursework group project on global hunger, where the edit had to carry a heavy subject without overwhelming the argument.'},
+  {projectId:'passion',              title:'Rooted Fare Campaign Group Recording', videoId:'gxXctBcFGuc', blurb:'A group campaign recording for Rooted Fare \u2014 built around the pitch, kept plain enough to let the idea land.'},
+
+  // GWADI
+  {projectId:'gw-adi', star:true, title:'Africa\u2019s Role in the Global Economy', videoId:'up41Zbu_9sA', blurb:'A thought-provoking piece exploring Africa\u2019s place and influence in the global economy.'},
+  {projectId:'gw-adi',            title:'GWADI x HALO Partnership',                 videoId:'rFplaWjeL_E', blurb:'A partnership announcement celebrating the collaboration between GWADI and HALO.'},
+  {projectId:'gw-adi',            title:'GWADI x HALO How-To',                        videoId:'NZBApWc9IqM', blurb:'A practical how-to guide supporting the GWADI x HALO partnership.'},
+  {projectId:'gw-adi',            title:'The Root of the African Diaspora',    videoId:'ef25f2tmp3I', blurb:'A short tracing the roots of the African diaspora \u2014 made to give members historical grounding rather than just a headline.'},
+  {projectId:'gw-adi',            title:'An Introduction to African Diaspora', videoId:'84QU_FnbrOc', blurb:'An accessible introduction to the African diaspora and the threads that connect it.'},
+
+  // TEDxFoggyBottom
+  {projectId:'tedx', star:true, title:'TEDxFoggyBottom 2021 Presents En Route',            videoId:'pjLZcPV7EX0', blurb:'The theme-release video for the 2021 conference, En Route \u2014 setting the tone for a year of ideas in motion.'},
+  {projectId:'tedx',            title:'TEDxFoggyBottom 2022 Presents RE[verb]',             videoId:'4ZLSmAcLWIQ', blurb:'The 2022 theme reveal for RE[verb] \u2014 the brackets nodding to a fresh, post-COVID chance to be and do whatever you choose.'},
+  {projectId:'tedx', star:true, title:'TEDxFoggyBottom 2023 Presents Origin Story',         videoId:'2vuVRNLoSsI', blurb:'The theme-release video for 2023, Origin Story, inviting the community to reflect on where it all began.'},
+  {projectId:'tedx', star:true, title:'Human on the Streets 2022', videoId:'viwcPepwj10', blurb:'A lively street-interview series taking TEDx questions straight to the people of Foggy Bottom.'},
+  {projectId:'tedx',            title:'Human on the Streets 2023', videoId:'RnA8aEi1TaY', blurb:'The 2023 edition of the street-interview series, capturing candid thoughts from passersby.'},
+
+  // GW CEPL
+  {projectId:'gw-cepl',            title:'Introduction to Enterprise Risk Management (ERM)', videoId:'DdwICeQ5eCk', blurb:'An informative overview introducing Enterprise Risk Management to CEPL\u2019s public-sector audience.'},
+  {projectId:'gw-cepl', star:true, title:'Women\u2019s Leadership Program Promo (SHORT)', videoId:'fkBlzGHGrec', blurb:'A punchy short promoting CEPL\u2019s Women\u2019s Leadership Program.'},
+  {projectId:'gw-cepl',            title:'Women\u2019s Leadership Program Promo (LONG)',  videoId:'DZ2P7q6ki4w', blurb:'The extended promo for the Women\u2019s Leadership Program, diving deeper into its impact.'},
+  {projectId:'gw-cepl', star:true, title:'STEP Program Promo',             videoId:'DtUx6vQHrYg', blurb:'A promotional video spotlighting CEPL\u2019s STEP Program and the leaders it develops.'},
+  {projectId:'gw-cepl',            title:'Enterprise Risk Management Promo',                videoId:'3EO90mOoiS8', blurb:'A promo bringing Enterprise Risk Management to life for the CEPL community.'},
+
+  // NU College of Arts, Media and Design
+  {projectId:'nu-camd', star:true,   title:'NU in NY',                             videoId:'WFqYgyU6e4s', blurb:'Cut for the Dean\u2019s Office to bring movement and dynamism to the college webpage \u2014 Northeastern\u2019s New York campus, shot and edited to feel like a place rather than a location.'},
+
+  {projectId:'nu-camd',              title:'CAMD Web Home',                        videoId:'O1-Ck41JHJU', blurb:'A web-home piece for the College of Arts, Media and Design \u2014 cut to give the landing page motion rather than a static header.'},
+
+  // Tastemade
+  {projectId:'tastemade',            title:'Kirsten\u2019s Tastemade Internship Spotlight', videoId:'_dwR0416sek', blurb:'A warm internship spotlight following Kirsten\u2019s experience at Tastemade.'}
+];
+
+/* =====================================================================
+   SOCIAL MEDIA WORKS. Each item can be ONE of these media types:
+
+   1) MP4 animation (a video FILE in your images/ folder \u2014 for short,
+      silent, looping animations you made in Canva/CapCut):
+        mp4:'ec/your-file.mp4', shape:'square'   // or 'vertical' or 'wide'
+   2) YouTube video (a real video with sound, hosted on YouTube):
+        videoId:'abc123', shape:'vertical'           // shape optional
+   3) Static image (a JPG/PNG in your images/ folder):
+        img:'ec/your-file.png', shape:'square'
+   4) Placeholder (nothing added yet): leave mp4/videoId/img all empty.
+
+   shape controls the frame: 'square' = 1:1, 'vertical' = 9:16 (tall),
+   'wide' = 16:9. Defaults to 'square' for social if omitted.
+   ===================================================================== */
+var SOCIAL_WORKS = [
+  /* ONE ENTRY = ONE POST. `media` lists the slides of that post in order,
+     carousel-style, exactly like the Designs page. The first file is the
+     cover shown on the grid; clicking opens the carousel. A post with a
+     videoId is a single YouTube short instead. */
+
+  // ---- Emmanuela Cosmetics ----
+  {projectId:'emmanuela', shape:'vertical', title:'Black Skin Needs Care', media:['ec/black-skin-needs-care.mp4']},
+  {projectId:'emmanuela', star:true, shape:'vertical', title:'12 Days of Beauty Campaign with EC', media:['ec/ec-beauty-campaign.png']},
+  {projectId:'emmanuela', shape:'square', title:'Black Friday Promo', media:['ec/ec-black-friday-1.mp4','ec/ec-black-friday-2.mp4']},
+  {projectId:'emmanuela', star:true, shape:'square', title:'Christmas Post', media:['ec/ec-christmas.mp4']},
+  {projectId:'emmanuela', shape:'square', title:'EC Christmas Sale', media:['ec/ec-christmas-sale.mp4']},
+  {projectId:'emmanuela', star:true, shape:'square', title:'Evening Routine with EC Products', media:['ec/ec-evening-routine-1.png','ec/ec-evening-routine-2.png','ec/ec-evening-routine-3.png','ec/ec-evening-routine-4.png','ec/ec-evening-routine-5.png','ec/ec-evening-routine-6.png']},
+  {projectId:'emmanuela', star:true, shape:'vertical', title:'You Need A Facial!', media:['ec/ec-facial-notification.mp4']},
+  {projectId:'emmanuela', shape:'vertical', title:'Bye Dull, Hello Glow Routine with EC', media:['ec/ec-glow-1.png','ec/ec-glow-2.png','ec/ec-glow-3.png','ec/ec-glow-4.png','ec/ec-glow-5.png','ec/ec-glow-6.png','ec/ec-glow-7.png','ec/ec-glow-8.png']},
+  {projectId:'emmanuela', star:true, shape:'vertical', title:'Hydrate with EC', media:['ec/ec-hydrate.mp4']},
+  {projectId:'emmanuela', shape:'vertical', title:'Morning Routine with EC Products', media:['ec/ec-morning-routine.mp4']},
+  {projectId:'emmanuela', shape:'square', title:'What Are Skin Peels?', media:['ec/ec-peel.png']},
+  {projectId:'emmanuela', shape:'vertical', title:'Product Breakdown | Luminous Brightening Serum 1', media:['ec/ec-product.mp4']},
+  {projectId:'emmanuela', shape:'square', title:'Product Breakdown | Vitamin C Serum 1', media:['ec/ec-product-info.png']},
+  {projectId:'emmanuela', shape:'square', title:'It\u2019s A Promo!', media:['ec/ec-promo.mp4']},
+  {projectId:'emmanuela', shape:'square', title:'Product Breakdown | Resurfacing Peel Kit', media:['ec/ec-rpk.png']},
+  {projectId:'emmanuela', shape:'square', title:'Product Breakdown | Luminous Brightening Serum 2', media:['ec/ec-serum.png']},
+  {projectId:'emmanuela', shape:'vertical', title:'What Happens When You Use EC?', media:['ec/ec-smooth-skin-era.mp4']},
+  {projectId:'emmanuela', star:true, shape:'vertical', title:'Product Breakdown | National Sunscreen Day Sale', media:['ec/ec-spf-sale.png']},
+  {projectId:'emmanuela', shape:'vertical', title:'Product Breakdown | Vitamin C Serum 2', media:['ec/ec-vitamin-c.mp4']},
+  {projectId:'emmanuela', shape:'vertical', title:'International Women\u2019s Day', media:['ec/ec-womens-day-1.png','ec/ec-womens-day-2.png','ec/ec-womens-day-3.png']},
+  {projectId:'emmanuela', shape:'vertical', title:'Acne Education', videoId:'_jwuLHcYnyo', media:[]},
+  {projectId:'emmanuela', shape:'vertical', title:'All About Hyperpigmentation', videoId:'W-6St8gyVAs', media:[]},
+  {projectId:'emmanuela', shape:'vertical', title:'EC\u2019s Night Routine Products', videoId:'Wp5XusfO-3Q', media:[]},
+  {projectId:'emmanuela', shape:'vertical', title:'Sagging Skin Edu', videoId:'vwCDJlytXH0', media:[]},
+  {projectId:'emmanuela', shape:'vertical', title:'Understanding Your Skin Barrier', videoId:'_Xrsm-csniE', media:[]},
+  {projectId:'emmanuela', shape:'vertical', title:'Skin Cancer Protective Care', videoId:'rRwGlgJj-0s', media:[]},
+  {projectId:'emmanuela', shape:'vertical', title:'The Vitamin C Glow', videoId:'LT0GT7l-GUY', media:[]},
+  {projectId:'emmanuela', shape:'vertical', title:'Wear Sunscreen DAILY', videoId:'-RZYJVNcwi4', media:[]},
+
+  // ---- TEDxFoggyBottom ----
+  {projectId:'tedx', star:true, shape:'square', title:'RE[verb] Promo', media:['tedxfb/day-of-promo-1.png','tedxfb/day-of-promo-2.png']},
+  {projectId:'tedx', shape:'square', title:'RE[verb] Announcement', media:['tedxfb/reverb-livestream-announcement.png']},
+  {projectId:'tedx', shape:'square', title:'TEDxFoggyBottom General Promo', media:['tedxfb/ted-tabling-graphic.png']},
+  {projectId:'tedx', shape:'vertical', title:'RE[verb] Ticket Graphic', media:['tedxfb/reverb-ticket-reminder.png']},
+  {projectId:'tedx', shape:'square', title:'RE[verb] Speaker Graphics', media:['tedxfb/reverb-speaker-1.jpg','tedxfb/reverb-speaker-2.jpg','tedxfb/reverb-speaker-3.jpg','tedxfb/reverb-speaker-4.jpg','tedxfb/reverb-speaker-5.jpg','tedxfb/reverb-speaker-6.jpg','tedxfb/reverb-speaker-7.jpg']},
+
+  // ---- GW CEPL ----
+  {projectId:'gw-cepl', shape:'wide', title:'Cafritz Banner', media:['cepl/cafritz.png']},
+  {projectId:'gw-cepl', star:true, shape:'square', title:'CommPro Ad | GW CEPL Programs', media:['cepl/commpro-ad-1.png','cepl/commpro-ad-2.png']},
+  {projectId:'gw-cepl', shape:'wide', title:'CommPro Ad | GW CEPL Women\u2019s Programs', media:['cepl/commpro-womens-program-ad-1.png','cepl/commpro-womens-program-ad-2.png','cepl/commpro-womens-program-ad-3.png']},
+  {projectId:'gw-cepl', shape:'square', title:'e-Co Leadership Coaching Program', media:['cepl/eclc-sm-1.png','cepl/eclc-sm-2.png','cepl/eclc-sm-3.png','cepl/eclc-sm-4.png']},
+  {projectId:'gw-cepl', shape:'wide', title:'Step up to the Mic Program', media:['cepl/step-sm.png']},
+  {projectId:'gw-cepl', star:true, shape:'square', title:'Women\u2019s Programs v1', media:['cepl/women-promo-blue-1.png','cepl/women-promo-blue-2.png']},
+  {projectId:'gw-cepl', shape:'square', title:'Women\u2019s Programs v2', media:['cepl/women-program-promo-1.png','cepl/women-program-promo-2.png','cepl/women-program-promo-3.png']},
+
+  // ---- FansWhoTravel | Passion Projects ----
+  // No dimensions given, so these default to 'square'.
+  {projectId:'passion', star:true, shape:'square', title:'FansWhoTravel San Francisco Guidebook', media:['fwt/fwt-sf-1.png','fwt/fwt-sf-2.png','fwt/fwt-sf-3.png','fwt/fwt-sf-4.png','fwt/fwt-sf-5.png','fwt/fwt-sf-6.png','fwt/fwt-sf-7.png','fwt/fwt-sf-8.png','fwt/fwt-sf-9.png']},
+  {projectId:'passion', shape:'square', title:'FWT | San Francisco Stadium Graphics', media:['fwt/sf-stadium-1.png','fwt/sf-stadium-2.png']},
+  {projectId:'passion', shape:'square', title:'FWT | Atlanta Stadium Graphics', media:['fwt/atl-stadium-1.png','fwt/atl-stadium-2.png']},
+  {projectId:'passion', shape:'square', title:'FansWhoTravel Atlanta Guidebook', media:['fwt/fwt-atl-1.png','fwt/fwt-atl-2.png','fwt/fwt-atl-3.png','fwt/fwt-atl-4.png','fwt/fwt-atl-5.png','fwt/fwt-atl-6.png']},
+  {projectId:'passion', shape:'square', title:'FWT Dispatch Repost 1', media:['fwt/fwt-dispatch-fifa-brands-1.png','fwt/fwt-dispatch-fifa-brands-2.png']},
+  {projectId:'passion', shape:'square', title:'FWT Dispatch Repost 2', media:['fwt/fwt-dispatch-football-happy.png']},
+  {projectId:'passion', shape:'square', title:'FWT Dispatch Repost 3', media:['fwt/fwt-dispatch-football-community-1.png','fwt/fwt-dispatch-football-community-2.png']},
+  {projectId:'passion', shape:'square', title:'FansWhoTravel Los Angeles Guidebook', media:['fwt/fwt-la-1.png','fwt/fwt-la-2.png','fwt/fwt-la-3.png','fwt/fwt-la-4.png','fwt/fwt-la-5.png','fwt/fwt-la-6.png','fwt/fwt-la-7.png','fwt/fwt-la-8.png','fwt/fwt-la-9.png']},
+  {projectId:'passion', shape:'square', title:'FansWhoTravel Miami Guidebook', media:['fwt/fwt-mia-1.png','fwt/fwt-mia-2.png','fwt/fwt-mia-3.png','fwt/fwt-mia-4.png','fwt/fwt-mia-5.png','fwt/fwt-mia-6.png','fwt/fwt-mia-7.png','fwt/fwt-mia-8.png','fwt/fwt-mia-9.png','fwt/fwt-mia-10.png']},
+  {projectId:'passion', shape:'vertical', title:'FWT Atlanta Budget', videoId:'4CRAOaSzUF0', media:[]},
+  {projectId:'passion', shape:'vertical', title:'FWT Miami Budget', videoId:'QSqRx1qnKmM', media:[]},
+  {projectId:'passion', shape:'vertical', title:'FWT Philly Budget', videoId:'ZJDlbLZ-5UI', media:[]},
+];
+
+/* =====================================================================
+   DESIGNS — your real works. Notes on the fields:
+     slides  = number of pages/images in the set (from your "1 to X" counts)
+     height  = thumbnail height in the masonry grid. Tuned to SHAPE:
+               horizontal (16:9 slides) ~210, square ~250, vertical/article ~360.
+               You have leeway \u2014 nudge these freely; the grid absorbs it.
+     ratio   = a note to yourself about the shape (not used by the code).
+     star    = true means it also appears on the Star / Highlights page.
+   ===================================================================== */
+var DESIGN_DATA = [
+  {projectId:'passion',   star:true, dir:'design/a24-presentation', prefix:'a24-presentation', ext:'png', title:'A24 App Redesign',                 slides:32, height:210, ratio:'horizontal 16:9',
+   blurb:'A group presentation I designed, pulling from A24\u2019s films and house style to feel ominous, sleek, yet vibrant. It\u2019s a theoretical proposal to relaunch the A24 app as a centralized hub for content, commerce, and community \u2014 deepening engagement while protecting the brand\u2019s authentic niche.'},
+  {projectId:'passion',   star:true, dir:'design', prefix:'avatar-invite', ext:'png', title:'Avatar Watch Party Invitations',   slides:2,  height:260, ratio:'invitation',
+   blurb:'Invitations I created for a watch party I hosted for Avatar: The Last Airbender \u2014 Aang. The goal was to weave every element of the show in seamlessly, so the invite felt like it belonged in that world.'},
+  {projectId:'passion',   star:true, dir:'design/netflix-presentation', prefix:'netflix-presentation', ext:'png', title:'Netflix: Beyond Screens',          slides:20, height:210, ratio:'horizontal 16:9',
+   blurb:'A group presentation I designed to echo Netflix\u2019s world of pure entertainment \u2014 eye-catching characters and fonts, with a dystopian, futuristic edge inspired by Black Mirror and Squid Game, never sacrificing legibility. The proposal extends Netflix beyond the screen into an immersive theme park that turns viewers into active participants.'},
+  {projectId:'passion',              dir:'design/cava-presentation', prefix:'cava-presentation', ext:'png', title:'Cava Case Competition',            slides:7,  height:210, ratio:'horizontal 16:9',
+   blurb:'A group presentation I primarily designed for the 2025 Management Consulted Case Competition. With tight limits on slides and timing, the challenge was fitting a lot of data in cleanly \u2014 keeping it readable while honoring Cava\u2019s brand style and colours.'},
+  {projectId:'passion',   star:true, dir:'design/design-great-jessica-walsh-presentation', prefix:'design-great-jessica-walsh-presentation', ext:'png', title:'Design Great: Jessica Walsh',      slides:19, height:210, ratio:'horizontal 16:9',
+   blurb:'A solo presentation celebrating designer Jessica Walsh and her place in the design world. Her style is bold, colourful, and mix-matchy \u2014 so I leaned all the way into that energy in the design.'},
+  {projectId:'passion',   star:true, dir:'design', prefix:'parallel-roots-article', ext:'png', title:'Parallel Roots (Article)',         slides:2,  height:370, ratio:'vertical 11x17',
+   blurb:'A two-page article exploring how young African immigrants in the U.S. navigate cultural identity \u2014 code-switching and adapting because their experiences differ from those of African Americans. It argues identity shouldn\u2019t be reduced to food, language, or music, and invites curiosity over having to prove one\u2019s \u201cAfricanness.\u201d The design plays with the continent\u2019s many patterns and prints against natural dark browns and earthy texture, evoking its land and wildlife.'},
+  {projectId:'passion',              dir:'design/burton-platform-to-platform-presentation', prefix:'burton-platform-to-platform-presentation', ext:'png', title:'Burton: The RideHub',              slides:12, height:210, ratio:'horizontal 16:9',
+   blurb:'A group presentation I designed around the adventurous, snowy spirit of Burton while showcasing a digital-first proposal. \u201cThe RideHub\u201d reimagines Burton beyond selling snowboards \u2014 curating the whole snowrider experience through a centralized app that turns consumers into members.'},
+  {projectId:'passion',              dir:'design/publicis-groupe-agentic-presentation', prefix:'publicis-groupe-agentic-presentation', ext:'png', title:'Publicis Groupe: Agentic AI',      slides:8,  height:210, ratio:'horizontal 16:9',
+   blurb:'A group presentation I designed to sit right on the brand \u2014 keeping backgrounds simple in black and white so Publicis\u2019 bold colours never overwhelm, then letting the logo\u2019s gold accents and rays spread across the deck. The concept: a clean suggestion for how Publicis could weave AI and agents into their workflow.'},
+  {projectId:'passion',   star:false, dir:'design', prefix:'parallel-roots-insta', ext:'png', title:'Parallel Roots (IG Carousel)',    slides:4,  height:320, ratio:'IG 3:4',
+   blurb:'An Instagram carousel that converts the Parallel Roots article into a promotional set \u2014 designed to introduce the piece, spark conversation, and drive traffic to the full feature.'},
+  {projectId:'passion',   star:true, dir:'design/instagram-social-media-project', prefix:'instagram-social-media-project', ext:'png', title:'@gooooooodeatz Social Strategy',   slides:14, height:210, ratio:'horizontal 16:9',
+   blurb:'A solo presentation on the performance and strategy of @gooooooodeatz \u2014 a 10-day faceless home-cooking Instagram project that lowers the intimidation of cooking with accessible, everyday recipes. To match its bubbly, older-sister feel I used a natural, neutral palette with clean, minimal design, and leaned on varied typography and boxed layouts to make dense data readable and key insights pop.'},
+  {projectId:'passion',              dir:'design/malice-in-the-palace-presentation', prefix:'malice-in-the-palace-presentation', ext:'png', title:'Malice in the Palace',             slides:7,  height:210, ratio:'horizontal 16:9',
+   blurb:'A solo presentation breaking down the visual and production elements of the documentary \u201cMalice in the Palace\u201d \u2014 from how lighting carries the weight of a dark story to how the interviewees (players) were positioned against specific backdrops.'},
+  {projectId:'passion',              dir:'design/severance-presentation', prefix:'severance-presentation', ext:'png', title:'Severance',                        slides:7,  height:210, ratio:'horizontal 16:9',
+   blurb:'A solo presentation breaking down the visual and production elements of \u201cSeverance,\u201d which plays two very different worlds against each other \u2014 lines versus natural curves, sterile bright-white offices against a green, living outside world.'},
+  {projectId:'passion',   star:true, dir:'design/twenty-one-pilots-presentation', prefix:'twenty-one-pilots-presentation', ext:'png', title:'Twenty One Pilots',               slides:21, height:210, ratio:'horizontal 16:9',
+   blurb:'A solo presentation designed for a university course, staying close to the band\u2019s primary colours while channelling the vibe and style of their music, album covers, and fanbase.'},
+  {projectId:'passion',              dir:'design/singapore-presentation', prefix:'singapore-presentation', ext:'png', title:'Singapore (Presentation)',         slides:11, height:210, ratio:'horizontal 16:9',
+   blurb:'A solo presentation designed for a university course on global business dynamics in Singapore.'},
+  {projectId:'passion',              dir:'design', files:['singapore-infographic.png'], title:'Singapore (Infographic)',          slides:1,  height:360, ratio:'vertical infographic',
+   blurb:'A solo infographic designed for a university course, distilling Singapore\u2019s global business story into one clear visual.'},
+  {projectId:'passion',              dir:'design/consulting-case-competition', prefix:'consulting-case-competition', ext:'png', title:'Consulting Case Competition',      slides:20, height:210, ratio:'horizontal 16:9',
+   blurb:'A group presentation I developed from a template for a business consulting case \u2014 lots of technical data to parse and solve. Consulting cases are usually memo-style, so I worked to keep the slides creative while keeping the data palatable and clear.'},
+  // TEDxFoggyBottom RE[verb] Conference \u2014 mixed media (logos, stickers, run-of-show)
+  {projectId:'tedx',      star:true, dir:'tedxfb', files:['reverb-logo-transparant-black.png','reverb-logo-transparant-white.png','reverb-logo-on-black.png','reverb-black-sticker.png','reverb-white-sticker.png','reverb-run-of-show.png'], title:'TEDxFoggyBottom RE[verb] Conference', slides:6, height:250, ratio:'mixed media',
+   blurb:'As Design Director on the 2022 Executive Board, I led the creative execution of the conference theme \u2014 from stage design to merchandise to event collateral and social. Inspired by the world reopening after lockdown and the urge to start something new, I built the RE[verb] logo from scratch in Illustrator, playing on a casino-style roll of the word \u201cverb\u201d so people could put whatever action they wanted onto their fresh lease on life.'},
+  // GW CEPL Offerings Newsletter
+  {projectId:'gw-cepl',              dir:'cepl', prefix:'cepl-offerings-newsletter', ext:'png', title:'CEPL Offerings Newsletter',        slides:7,  height:360, ratio:'vertical newsletter',
+   blurb:'As part of my Marketing & Communications role, I created newsletters showcasing the Center\u2019s program offerings \u2014 emailed to current and past participants and anyone who\u2019d expressed interest.'},
+  // GW CEPL Program Flyers \u2014 mixed media (different sizes, one project)
+  {projectId:'gw-cepl',   star:true, dir:'cepl', files:['flyer-eclc-1.png','flyer-eclc-2.png','flyer-eclc-program.png','flyer-ewlp-1.png','flyer-ewlp-2.png','flyer-womens-programs.png'], title:'CEPL Program Flyers',             slides:6,  height:360, ratio:'mixed media',
+   blurb:'As part of my Marketing & Communications role, I designed flyers advertising the Center\u2019s programs \u2014 holding the University\u2019s brand colours while tailoring each to the unique features of the program it promoted.'},
+  // Tastemade Talks Flyers
+  {projectId:'tastemade',            dir:'tastemade', prefix:'tastemade-talks', ext:'png', title:'Tastemade Talks Flyers',           slides:6,  height:300, ratio:'vertical flyer',
+   blurb:'A set of flyers designed for Tastemade\u2019s company-wide workshops.'},
+  // ---- BOOKS ----
+  /* ONE PAGE PER IMAGE FILE. List them in `pages` in reading order \u2014 front
+     cover first, back cover last \u2014 and the reader pairs them into facing
+     spreads by itself (cover alone, then 2+3, 4+5, ...).
+
+       pages:['images/21cafritz-program-book-1.png','images/21cafritz-program-book-2.png', ...]
+
+     `pageCount` below is only for the placeholder preview so you can flip
+     through the mechanic before the images exist. Set it to the real page
+     count, or just fill `pages` \u2014 once that's populated, pageCount is
+     ignored and the file list drives everything. */
+  {projectId:'gw-cepl',   star:true, spread:true, dir:'cepl/21cafritz-program-book', prefix:'21cafritz-program-book', ext:'png', title:'21st Cafritz Awards Program Book', height:260, pageCount:28, pages:[],
+   blurb:'I led the development and production of the official Cafritz Awards Gala program book \u2014 content strategy, copyediting, photography selection, and creative direction. I worked with the publication designer to refine layouts and served as primary liaison between stakeholders, keeping a cohesive visual identity and a story that celebrated distinguished public servants while lifting the guest experience.'},
+  {projectId:'gw-cepl',              spread:true, dir:'cepl/elp8-grad-book', prefix:'elp8-grad-book', ext:'png', title:'ELP Cohort 8 Graduation Book (2023)', height:260, pageCount:40, pages:[],
+   blurb:'Executive Leadership Program \u2014 8th Cohort Graduation Book. GW Center for Excellence in Public Leadership \u00d7 DC Department of Human Resources. A 40-page printed program book for the graduation of senior DC government leaders. The palette drew from the District\u2019s own identity \u2014 red and white \u2014 merged with George Washington University\u2019s buff and blue (gold and navy). I abstractly framed each page in thin geometric rules with section banners in solid navy to anchor each turn of the page, so the book kept its formality without the stiffness.'},
+  {projectId:'gw-cepl',   star:true, spread:true, dir:'cepl/eclc-grad-book', prefix:'eclc-grad-book', ext:'png', title:'e-CLC Graduation Book (2023)', height:260, pageCount:40, pages:[],
+   blurb:'e-Co Leadership Coaching \u2014 Cohort 4 Graduation Book. GW Center for Excellence in Public Leadership. A 40-page printed program book for the graduation of an ICF-accredited coaching cohort. Rather than reuse a house template, I pulled the whole look from the programme\u2019s nature-based pedagogy: a dandelion on the cover, its seeds scattering into the botanical frames around each graduate\u2019s portrait and landing again on the closing page. Navy and gold carry GW\u2019s institutional branding while green keeps it warm and reflects the sentiment of the programme. My favourite piece is the order of ceremony \u2014 I ran \u201cPROGRAM\u201d vertically down the full height of the page so it reads as a spread you actually enjoy looking at, not a list you skim.'}
+];
+var DESIGNS = DESIGN_DATA.map(function(d){return {projectId:d.projectId, title:d.title, height:d.height,
+  slides:d.slides, blurb:d.blurb, star:d.star, spread:d.spread, pageCount:d.pageCount,
+  dir:d.dir, prefix:d.prefix, ext:d.ext, files:d.files};});
+
+/* =====================================================================
+   DESIGN FILE PATHS
+
+   Paths mirror your actual Portfolio folders, which are organised by client
+   rather than by medium. `dir` is the folder; `prefix` + `ext` build the
+   numbered filename:
+
+     dir:'design/a24-presentation', prefix:'a24-presentation', ext:'png'
+       -> design/a24-presentation/a24-presentation-1.png ... -32.png
+
+   Sets that sit loose in a folder just use that folder as dir (avatar-invite
+   lives directly in design/). Sets that aren't numbered at all — the RE[verb]
+   logos, the CEPL flyers — list their filenames in `files`, which wins over
+   the prefix pattern.
+   ===================================================================== */
+function designSlide(d, i){
+  if(d.files && d.files.length) return d.dir+'/'+d.files[i];
+  if(!d.dir || !d.prefix) return null;
+  return d.dir+'/'+d.prefix+'-'+(i+1)+'.'+(d.ext||'png');
+}
+function designCount(d){
+  if(d.files && d.files.length) return d.files.length;
+  return d.spread ? (d.pageCount||1) : (d.slides||1);
+}
+
+/* =====================================================================
+   IMAGE EXTENSION FALLBACK
+
+   Filenames in the data are written with one extension, but a folder of
+   hundreds of exports is rarely all one format — and Windows hides
+   extensions, so it's easy to be wrong about which is which.
+
+   Rather than auditing 486 files, every <img> gets an onerror that retries
+   the same path with the next extension in the list. So `pt-1.png` failing
+   silently becomes `pt-1.jpg`, then `.jpeg`, then `.webp`. Whichever one
+   actually exists is the one that loads, and the data doesn't have to be
+   right about it.
+
+   Cost: one wasted request per wrong guess, which browsers cache. Worth it
+   for never having a silently missing image.
+   ===================================================================== */
+var EXT_ORDER = ['png','jpg','jpeg','webp','PNG','JPG','JPEG'];
+
+function swapExt(el){
+  var src = el.getAttribute('src') || '';
+  var m = src.match(/^(.*)\.([A-Za-z0-9]+)$/);
+  if(!m){ el.onerror=null; return; }
+  var base = m[1], cur = m[2];
+  var i = EXT_ORDER.indexOf(cur);
+  var next = EXT_ORDER[i < 0 ? 0 : i + 1];
+  if(!next){
+    /* Genuinely not there under any extension. Fade it rather than showing
+       a broken-image icon, and stop retrying. */
+    el.onerror = null;
+    el.style.opacity = '0.15';
+    return;
+  }
+  el.src = base + '.' + next;
+}
+
+/* Every generated <img> goes through this so the fallback is never forgotten. */
+function img(src, alt){
+  return '<img src="'+src+'" alt="'+(alt||'').replace(/"/g,'')+'" onerror="swapExt(this)">';
+}
+
+function projectById(id){for(var i=0;i<PROJECTS.length;i++){if(PROJECTS[i].id===id)return PROJECTS[i];}return null;}
+
+/* =====================================================================
+   NAVIGATION with history memory
+   ===================================================================== */
+var prevPage='home';
+function go(id){
+  var current=document.querySelector('.page.active');
+  if(current && id==='detail'){prevPage=current.id.replace('page-','');}
+  if(id!=='detail'){currentDetailId=null;}   // leaving a company page
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
+  var nav=document.getElementById('nav-'+id);
+  if(nav)nav.classList.add('active');
+  document.getElementById('navLinks').classList.remove('open');
+  window.scrollTo(0,0);
+}
+function goBack(){go(prevPage);}
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
+
+/* Open a project detail page (from any tab). Auto-pulls every work tagged
+   to this company so each piece is entered once and appears in both places.
+   Remembers where you came from for the Back button. */
+function openProject(id, scrollToSection){
+  var p=projectById(id); if(!p)return;
+  document.getElementById('d-company').textContent=p.company.toUpperCase();
+  document.getElementById('d-position').textContent=p.position;
+  document.getElementById('d-blurb').textContent=p.blurb;
+
+  /* References live here instead of keywords — keywords stay on the
+     Projects timeline where they help you scan; here they'd just repeat. */
+  document.getElementById('d-refs').innerHTML = (p.refs||[]).map(function(r){
+    return '<a class="ref-btn" href="mailto:'+r.email+'">'
+      +'<span class="rl">'+r.role+'</span><span class="rn">'+r.name+'</span></a>';
+  }).join('');
+
+  // gather this company's works
+  var vids   = VIDEO_WORKS.filter(function(w){return w.projectId===id;});
+  var socials= SOCIAL_WORKS.filter(function(w){return w.projectId===id;});
+  var desns  = DESIGNS.map(function(d,idx){d._idx=idx;return d;}).filter(function(d){return d.projectId===id;});
+
+  var html='';
+
+  // ---- VIDEOS ----
+  if(vids.length){
+    html+='<div id="dsec-video" class="detail-sec-title">Videos<span class="dst-count">'+vids.length+'</span></div>';
+    html+='<div class="d-video-grid">';
+    vids.forEach(function(w){
+      var frame = w.videoId
+        ? embedOrPlaceholder(w.videoId)
+        : '<div class="ph">▶<br>YouTube video</div>';
+      html+='<div class="d-video-item"><div class="dvi-frame">'+frame+'</div>'
+        +'<div class="dvi-cap"><h4>'+w.title+'</h4>'+(w.blurb?'<p>'+w.blurb+'</p>':'')+'</div></div>';
+    });
+    html+='</div>';
+  }
+
+  // ---- DESIGNS (funky varied layout) ----
+  if(desns.length){
+    html+='<div id="dsec-design" class="detail-sec-title">Designs<span class="dst-count">'+desns.length+'</span></div>';
+    html+='<div class="funky-grid">'+funkyLayout(desns)+'</div>';
+  }
+
+  // ---- SOCIAL (mp4 animation / youtube / image, with shape) ----
+  if(socials.length){
+    html+='<div id="dsec-social" class="detail-sec-title">Social Media<span class="dst-count">'+socials.length+'</span></div>';
+    html+='<div class="d-video-grid">';
+    socials.forEach(function(w){
+      var i=SOCIAL_WORKS.indexOf(w);
+      var inner, badge='';
+      if(w.videoId){
+        inner=embedOrPlaceholder(w.videoId);
+      } else if(w.media && w.media.length){
+        inner=socialSlide(w.media[0], true);
+        if(w.media.length>1) badge='<span class="sc-slidebadge">'+w.media.length+' slides</span>';
+      } else {
+        inner='<div class="ph">▦<br>Image</div>';
+      }
+      html+='<div class="d-video-item" style="position:relative">'+badge
+        +'<div class="dvi-frame social" onclick="openCarousel('+i+')" style="cursor:pointer">'+inner+'</div>'
+        +'<div class="dvi-cap"><h4>'+w.title+'</h4>'+(w.blurb?'<p>'+w.blurb+'</p>':'')+'</div></div>';
+    });
+    html+='</div>';
+  }
+
+  if(!vids.length && !socials.length && !desns.length){
+    html+='<div class="detail-empty">Works for this role are coming soon.</div>';
+  }
+
+  currentDetailId=id;
+  document.getElementById('d-sections').innerHTML=html;
+  go('detail');
+
+  // jump to the requested section (video / social / design), like "scroll to highlight"
+  if(scrollToSection){
+    var target=document.getElementById('dsec-'+scrollToSection);
+    if(target){
+      setTimeout(function(){target.scrollIntoView({behavior:'smooth', block:'start'});}, 60);
+    }
+  }
+}
+
+/* Builds the varied "funky" grid for a set of designs: alternates
+   caption-under, caption-beside, wide-hover, and tall blocks. Clicking
+   opens the same lightbox used on the Designs page. */
+function funkyLayout(items){
+  var out='';
+  items.forEach(function(d,i){
+    var pattern=i%5;
+    var isBook = !!DESIGNS[d._idx].spread;
+    var open='onclick="'+(isBook?'openBook':'openLightbox')+'('+d._idx+')" style="cursor:pointer"';
+    var badge = isBook ? ' (book \u00b7 '+bookPages(DESIGNS[d._idx]).length+' pp)'
+              : d.slides>1 ? ' ('+d.slides+' slides)' : '';
+    if(pattern===0){
+      out+='<div class="fg-block" '+open+'><div class="fg-img">'+d.title+badge+'</div><div class="fg-cap">'+d.blurb+'</div></div>';
+    } else if(pattern===1){
+      out+='<div class="fg-block fg-side" '+open+'><div class="fg-img">'+d.title+badge+'</div><div class="fg-cap">'+d.blurb+'</div></div>';
+    } else if(pattern===2){
+      out+='<div class="fg-block span2 fg-overlay-wrap" '+open+'><div class="fg-img" style="aspect-ratio:21/8">'+d.title+badge+'<div class="fg-overlay">'+d.blurb+'</div></div></div>';
+    } else if(pattern===3){
+      out+='<div class="fg-block" '+open+'><div class="fg-img tall">'+d.title+badge+'</div><div class="fg-cap">'+d.blurb+'</div></div>';
+    } else {
+      out+='<div class="fg-block" '+open+'><div class="fg-img tall">'+d.title+badge+'</div><div class="fg-cap">'+d.blurb+'</div></div>';
+    }
+  });
+  return out;
+}
+
+/* =====================================================================
+   RENDER: Videography (grouped by company, playable inline)
+   ===================================================================== */
+/* Shows the YouTube thumbnail with a play button instead of loading a live
+   player. The real iframe is only created when the tile is clicked. This keeps
+   dozens of players off one page (which YouTube blocks with a config error)
+   and makes the page load far faster. */
+function embedOrPlaceholder(videoId){
+  if(videoId){
+    return '<div class="yt-cp" data-vid="'+videoId+'" onclick="playYT(event,this)" '
+      +'style="background-image:url(https://img.youtube.com/vi/'+videoId+'/hqdefault.jpg)">'
+      +'<div class="st-play">▶</div></div>';
+  }
+  return '<div class="ph"><div class="ring">▶</div>YouTube reel plays here</div>';
+}
+
+/* Swaps a poster for the live player. Only the clicked video ever plays. */
+function playYT(e,el){
+  if(e){e.stopPropagation();}
+  var id=el.getAttribute('data-vid');
+  el.outerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?rel=0&autoplay=1" '
+    +'allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" '
+    +'allowfullscreen style="width:100%;height:100%;border:none;display:block"></iframe>';
+}
+
+/* Builds the media frame for a work item. Handles four cases:
+   MP4 animation (loops silently), YouTube video, static image, or a
+   placeholder. shape sets the frame ratio: square / vertical / wide. */
+function mediaFrame(w){
+  var shape = w.shape || 'wide';
+  var cls = 'media-thumb' + (shape==='vertical' ? ' vertical' : shape==='square' ? ' square' : '');
+  var inner;
+  if(w.mp4){
+    inner='<video src="'+w.mp4+'" autoplay muted loop playsinline></video>';
+  } else if(w.videoId){
+    inner=embedOrPlaceholder(w.videoId);
+  } else if(w.img){
+    inner=img(w.img, w.title);
+  } else {
+    inner='<div class="ph">▦<br>'+(w.mp4===''&&w.videoId===''&&w.img===''?'Media':'Image')+'</div>';
+  }
+  return '<div class="'+cls+'">'+inner+'</div>';
+}
+
+/* One slide of a post, as an <img>, <video> or YouTube player.
+   The file extension decides which — .mp4 becomes a video element. */
+function socialSlide(src, autoplay){
+  if(!src) return '<span class="car-ph">[ slide ]</span>';
+  if(/\.mp4$/i.test(src)){
+    return '<video src="'+src+'"'+(autoplay?' autoplay muted loop playsinline':' controls')+'></video>';
+  }
+  return img(src, '');
+}
+
+/* The grid tile: cover slide, plus a badge when the post is a carousel. */
+function socialFrame(w){
+  var shape = w.shape || 'square';
+  var cls = shape==='vertical' ? 'portrait' : shape==='wide' ? 'wide' : 'sq';
+  var inner, badge='';
+  if(w.videoId){
+    inner=embedOrPlaceholder(w.videoId);
+  } else if(w.media && w.media.length){
+    inner=socialSlide(w.media[0], true);
+    if(w.media.length>1) badge='<span class="sc-slidebadge">'+w.media.length+' slides</span>';
+  } else {
+    inner='<div class="ph">▦<br>Image</div>';
+  }
+  return badge+'<div class="sc-frame '+cls+'">'+inner+'</div>';
+}
+
+/* kind: 'video' or 'social'.
+   Videography stays as full-width rows; Social renders as a masonry grid of
+   posts. Clicking a post opens its carousel; the arrow opens the company. */
+function renderFlat(works, containerId, kind){
+  var html='';
+  if(kind==='social'){
+    html+='<div class="social-grid">';
+    works.forEach(function(w){
+      var name=workLabel(w);
+      var i=SOCIAL_WORKS.indexOf(w);
+      html+='<div class="social-card" style="position:relative">'
+        +'<div onclick="openCarousel('+i+')" style="cursor:pointer">'+socialFrame(w)+'</div>'
+        +'<div class="sc-body"><div class="sc-company">'+name+'</div>'
+        +'<h3>'+w.title+'</h3>'+(w.blurb?'<p>'+w.blurb+'</p>':'')
+        +'<span class="arrow" onclick="openProject(\''+w.projectId+'\',\'social\')">View full work →</span>'
+        +'</div></div>';
+    });
+    html+='</div>';
+    document.getElementById(containerId).innerHTML=html;
+    return;
+  }
+  works.forEach(function(w){
+    var name=workLabel(w);
+    html+='<div class="media-row">'
+      +'<div class="media-thumb">'+embedOrPlaceholder(w.videoId)+'</div>'
+      +'<div class="media-info"><div class="mr-company">'+name+'</div>'
+      +'<h3>'+w.title+'</h3><p>'+w.blurb+'</p>'
+      +'<span class="arrow" onclick="openProject(\''+w.projectId+'\',\'video\')">View full work →</span></div></div>';
+  });
+  document.getElementById(containerId).innerHTML=html;
+}
+
+/* ---- Social carousel: step through the slides of one post ---- */
+/* Set while a company detail page is open. The viewers use it to hide the
+   “Open <company>” link — you're already on that page, so it'd go nowhere
+   useful. */
+var currentDetailId=null;
+
+/* The yellow line above a work's title. Defaults to the company name, but any
+   work can override it with its own `label` — e.g. label:'FansWhoTravel | Passion
+   Project' or label:'Class Project | Independent Work' — so one project can carry
+   several different framings. Add label:'...' to any entry in VIDEO_WORKS,
+   SOCIAL_WORKS or DESIGN_DATA. */
+function workLabel(w){
+  if(w && w.label) return w.label;
+  var p=projectById(w.projectId);
+  return p ? p.company : (w.projectId||'');
+}
+
+/* Shows an “Open <company> →” link on a viewer, unless we're already on
+   that company's page — in which case the link would lead nowhere new, so
+   it's hidden. */
+function setOpenLink(elId, projectId, section, closeFn){
+  var el=document.getElementById(elId); if(!el) return;
+  var p=projectById(projectId);
+  if(!p || currentDetailId===projectId){ el.style.display='none'; return; }
+  el.style.display='inline-block';
+  el.textContent='Open '+p.company+' \u2192';
+  el.onclick=function(){ if(closeFn)closeFn(); openProject(projectId, section); };
+}
+
+var carPost=0, carSlide=0;
+function openCarousel(i){
+  carPost=i; carSlide=0;
+  updateCarousel();
+  document.getElementById('carousel').classList.add('open');
+}
+function closeCarousel(){document.getElementById('carousel').classList.remove('open');}
+function carBackdrop(e){if(e.target.id==='carousel'){closeCarousel();}}
+function carNav(dir){
+  var w=SOCIAL_WORKS[carPost];
+  var total=w.videoId?1:(w.media?w.media.length:1);
+  carSlide=(carSlide+dir+total)%total;
+  updateCarousel();
+}
+function updateCarousel(){
+  var w=SOCIAL_WORKS[carPost];
+  var p=projectById(w.projectId);
+  var total=w.videoId?1:(w.media?w.media.length:1);
+  var stage=document.getElementById('car-stage');
+
+  stage.innerHTML = w.videoId
+    ? '<iframe src="https://www.youtube.com/embed/'+w.videoId+'?rel=0&autoplay=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>'
+    : socialSlide(w.media && w.media[carSlide], false);
+
+  document.getElementById('car-title').textContent=w.title;
+  document.getElementById('car-company').textContent=workLabel(w);
+  document.getElementById('car-count').textContent = total>1 ? (carSlide+1)+' of '+total : '';
+  var show = total>1 ? 'block' : 'none';
+  document.querySelector('.car-prev').style.display=show;
+  document.querySelector('.car-next').style.display=show;
+
+  var link=document.getElementById('car-open');
+  link.textContent='Open '+(p?p.company:'project')+' →';
+  link.onclick=function(){closeCarousel(); openProject(w.projectId,'social');};
+}
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('carousel').classList.contains('open'))return;
+  if(e.key==='ArrowLeft')carNav(-1);
+  if(e.key==='ArrowRight')carNav(1);
+  if(e.key==='Escape')closeCarousel();
+});
+/* =====================================================================
+   DISPLAY ORDER — used by Videography, Designs and Social Media.
+
+   Two tiers:
+     1. star:true — your highlights, first on the page
+     2. everything else
+
+   Within a tier the data list's own order is preserved, so the fine ordering
+   is entirely yours: move an entry up or down in its array and it moves on
+   the page. Add star:true to lift something to the top. Rearranging later
+   costs nothing — no other code depends on the order. */
+function displayOrder(list){
+  function tier(w){ return w.star ? 0 : 1; }
+  return list.map(function(w,i){return {w:w,i:i};})
+             .sort(function(a,b){
+               var t=tier(a.w)-tier(b.w);
+               return t!==0 ? t : a.i-b.i;      // stable within a tier
+             })
+             .map(function(o){return o.w;});
+}
+
+renderFlat(displayOrder(VIDEO_WORKS),'video-list','video');
+renderFlat(displayOrder(SOCIAL_WORKS),'social-list','social');
+
+/* =====================================================================
+   RENDER: Designs masonry (multi-slide aware)
+   ===================================================================== */
+var designGrid=document.getElementById('design-grid');
+/* Sort for display, but keep each design's real index so the lightbox and
+   book reader still point at the right entry. */
+DESIGNS.map(function(d,i){return {d:d,i:i};})
+  .sort(function(a,b){
+    function tier(x){return x.star?0:1;}
+    var t=tier(a.d)-tier(b.d);
+    return t!==0 ? t : a.i-b.i;
+  })
+  .forEach(function(o){
+  var d=o.d, idx=o.i;
+  var badge = d.spread ? '<span class="m-slidebadge">book \u00b7 '+bookPages(d).length+' pp</span>'
+            : d.slides>1 ? '<span class="m-slidebadge">'+d.slides+' slides</span>' : '';
+  var hint = d.spread ? '<span class="m-hint">Open book \u2192</span>' : '';
+  var action = d.spread ? 'openBook('+idx+')' : 'openLightbox('+idx+')';
+  designGrid.innerHTML+=
+   '<div class="m-item" onclick="'+action+'">'+badge
+   +'<div class="m-ph" style="height:'+d.height+'px">'
+      +(designSlide(d,0)?img(designSlide(d,0), d.title):d.title)+'</div>'
+   +'<div class="m-overlay">'+hint+'<span class="m-title">'+d.title+'</span></div></div>';
+});
+
+/* =====================================================================
+   PHOTOGRAPHY — placeholder data. Each section has a label + a list of
+   photos. A photo with several images (photos: N) auto-plays through them
+   on the page (slideshow), pauses on hover, and opens full screen on click.
+   The three sections below each use a DIFFERENT label style so you can
+   compare: A = plain yellow text, B = yellow box square corners,
+   C = yellow box rounded corners. Pick your favourite and we'll unify.
+   ===================================================================== */
+var PHOTO_SECTIONS = [
+  /* One entry per photo. No captions — the section label carries the context.
+     star:true lifts a photo to the front of its own section.
+     Files are .jpg; change the extension here if yours differ. */
+  {label:'Sunday services at Pentecostal Tabernacle, Cambridge, Massachusetts. Shot on a Blackmagic Pocket Cinema Camera.',
+   photos:[
+     {img:'photography/pt-1.jpg', title:'pt-1', star:true},
+     {img:'photography/pt-2.jpg', title:'pt-2'},
+     {img:'photography/pt-3.jpg', title:'pt-3', star:true},
+     {img:'photography/pt-4.jpg', title:'pt-4', star:true},
+     {img:'photography/pt-5.jpg', title:'pt-5'},
+     {img:'photography/pt-6.jpg', title:'pt-6'},
+     {img:'photography/pt-7.jpg', title:'pt-7'},
+     {img:'photography/pt-8.jpg', title:'pt-8', star:true},
+     {img:'photography/pt-9.jpg', title:'pt-9'},
+     {img:'photography/pt-10.jpg', title:'pt-10'},
+     {img:'photography/pt-11.jpg', title:'pt-11'},
+     {img:'photography/pt-12.jpg', title:'pt-12'},
+     {img:'photography/pt-13.jpg', title:'pt-13'},
+     {img:'photography/pt-14.jpg', title:'pt-14', star:true},
+     {img:'photography/pt-15.jpg', title:'pt-15'},
+     {img:'photography/pt-16.jpg', title:'pt-16'},
+     {img:'photography/pt-17.jpg', title:'pt-17', star:true},
+     {img:'photography/pt-18.jpg', title:'pt-18'},
+     {img:'photography/pt-19.jpg', title:'pt-19'},
+     {img:'photography/pt-20.jpg', title:'pt-20', star:true},
+     {img:'photography/pt-21.jpg', title:'pt-21', star:true},
+     {img:'photography/pt-22.jpg', title:'pt-22'},
+     {img:'photography/pt-23.jpg', title:'pt-23'},
+     {img:'photography/pt-24.jpg', title:'pt-24'},
+     {img:'photography/pt-25.jpg', title:'pt-25'},
+     {img:'photography/pt-26.jpg', title:'pt-26', star:true},
+     {img:'photography/pt-27.jpg', title:'pt-27', star:true},
+     {img:'photography/pt-28.jpg', title:'pt-28'},
+     {img:'photography/pt-29.jpg', title:'pt-29'},
+     {img:'photography/pt-30.jpg', title:'pt-30'}
+   ]},
+  {label:'People. Mixed shots from a Panasonic Lumix and Blackmagic Pocket Cinema Camera.',
+   photos:[
+     {img:'photography/chidi-martin-laughter.jpg', title:'chidi-martin-laughter'},
+     {img:'photography/elder-greene.jpg', title:'elder-greene'},
+     {img:'photography/elia-1.jpg', title:'elia-1'},
+     {img:'photography/elia-2.jpg', title:'elia-2', star:true},
+     {img:'photography/elia-3.jpg', title:'elia-3'},
+     {img:'photography/josh.jpg', title:'josh'}
+   ]},
+  {label:'Moments Captured In Time. Mixed shots from a Panasonic Lumix and Blackmagic Pocket Cinema Camera.',
+   photos:[
+     {img:'photography/moments-1.jpg', title:'moments-1', star:true},
+     {img:'photography/moments-2.jpg', title:'moments-2'},
+     {img:'photography/moments-3.jpg', title:'moments-3', star:true},
+     {img:'photography/moments-4.jpg', title:'moments-4'},
+     {img:'photography/moments-5.jpg', title:'moments-5'},
+     {img:'photography/moments-6.jpg', title:'moments-6'},
+     {img:'photography/moments-7.jpg', title:'moments-7', star:true},
+     {img:'photography/moments-8.jpg', title:'moments-8'},
+     {img:'photography/moments-9.jpg', title:'moments-9'},
+     {img:'photography/london-christmas.jpg', title:'london-christmas'}
+   ]}
+];
+
+/* =====================================================================
+   PHOTOGRAPHY
+
+   Each section is a grid of individual photos. Clicking any photo opens it
+   full screen, and the arrows walk through EVERY photo in that section.
+   Deliberately it does not spill into the next section — you close the
+   viewer and open the next section's photos, so the three bodies of work
+   stay distinct.
+
+   Photos appear in exactly the order they're listed above. Unlike the other
+   pages, star:true does NOT promote a photo here — it only adds it to the
+   Highlights page.
+   ===================================================================== */
+
+/* Photography keeps the exact order listed above — no reshuffling. Here
+   star:true only means “also show this on the Highlights page”. */
+function sectionPhotos(sec){ return sec.photos; }
+
+var photoSectionsEl=document.getElementById('photo-sections');
+if(photoSectionsEl){
+  var phtml='';
+  PHOTO_SECTIONS.forEach(function(sec,si){
+    var ordered=sectionPhotos(sec);
+    sec._ordered=ordered;                       // the viewer walks this order
+    phtml+='<div class="photo-section">';
+    phtml+='<div class="photo-label-c">'+sec.label+'</div>';
+    phtml+='<div class="photo-grid">';
+    ordered.forEach(function(ph,pi){
+      phtml+='<div class="photo-tile" onclick="openPhoto('+si+','+pi+')">'
+        +(ph.star?'<span class="pt-count">\u2605</span>':'')
+        +'<span class="pt-zoom">\u2922 Full screen</span>'
+        +'<div class="pt-slideshow"><div class="pt-slide active">'
+        +img(ph.img,'')+'</div></div>'
+        +'</div>';
+    });
+    phtml+='</div></div>';
+  });
+  photoSectionsEl.innerHTML=phtml;
+}
+
+/* ---- Full-screen viewer: walks a whole section ---- */
+var pvSec=0, pvIdx=0;
+function openPhoto(si,pi){
+  pvSec=si; pvIdx=pi;
+  updatePhotoViewer();
+  document.getElementById('photo-viewer').classList.add('open');
+}
+function closePhoto(){document.getElementById('photo-viewer').classList.remove('open');}
+function pvBackdrop(e){if(e.target.id==='photo-viewer'){closePhoto();}}
+function pvNav(dir){
+  var list=PHOTO_SECTIONS[pvSec]._ordered || PHOTO_SECTIONS[pvSec].photos;
+  var next=pvIdx+dir;
+  if(next<0 || next>=list.length) return;   // stops at the edges of the section
+  pvIdx=next;
+  updatePhotoViewer();
+}
+function updatePhotoViewer(){
+  var sec=PHOTO_SECTIONS[pvSec];
+  var list=sec._ordered || sec.photos;
+  var ph=list[pvIdx];
+  document.getElementById('pv-stage').innerHTML=img(ph.img,'');
+  document.getElementById('pv-title').textContent='';
+  document.getElementById('pv-sub').textContent=sec.label;
+  document.getElementById('pv-count').textContent=(pvIdx+1)+' of '+list.length;
+  document.querySelector('.pv-prev').style.visibility = pvIdx===0 ? 'hidden':'visible';
+  document.querySelector('.pv-next').style.visibility = pvIdx===list.length-1 ? 'hidden':'visible';
+}
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('photo-viewer').classList.contains('open'))return;
+  if(e.key==='ArrowLeft')pvNav(-1);
+  if(e.key==='ArrowRight')pvNav(1);
+  if(e.key==='Escape')closePhoto();
+});
+
+/* =====================================================================
+   RENDER: Management uniform grid
+   ===================================================================== */
+/* =====================================================================
+   MANAGEMENT / TEMPLATE SHOP
+
+   Each entry is one template card. The `price` and `file` fields decide
+   what the button does:
+
+     price:0, file:'files/x.xlsx'   → FREE DOWNLOAD, served straight from
+                                       your repo. Works today, no account,
+                                       no fees. Anyone with the URL can grab
+                                       it, so only use this for things you're
+                                       happy to give away.
+     price:12, buyUrl:'https://...' → PAID. The button opens your Gumroad or
+                                       Lemon Squeezy checkout, which holds
+                                       the file and releases it after payment.
+     neither                        → shows "Coming soon" and does nothing.
+
+   Preview images live in images/ like everything else. */
+var MGMT_INTRO = "Beyond the camera and the canvas, a lot of my work is the unglamorous "
+  + "part that makes projects successful: the trackers, the budgets, the run-of-shows, the "
+  + "vendor sheets. I don\u2019t just create Excel sheets \u2014 I build systems that keep $380K galas, "
+  + "60-person cohorts, or a creative team moving with transparency, organization, and without "
+  + "the hassle of one person being a gatekeeper of details. Below are the templates I\u2019ve "
+  + "created; download and edit them to your liking.";
+
+/* Each template is stored by its Google Sheet ID, and the page derives two
+   links from it:
+     /preview — a clean, read-only view. No Google UI, no copy prompt, nothing
+                 saved to their Drive. This is the "look before you commit"
+                 route, and it beats screenshots because it's the real sheet:
+                 they can scroll every tab and see the formulas working.
+     /copy    — prompts "Make a copy", dropping an editable version into their
+                 own Drive while your original stays untouched.
+   Both need the sheet shared as "Anyone with the link — Viewer". */
+var TEMPLATES = [
+  {title:'Project Tracker', format:'Excel + Sheets',
+   file:'files/project-tracker.xlsx',
+   sheetId:'1i-bfxQHepAFHRggdkeDBCeyIjh4-NFtt',
+   blurb:'A comprehensive action plan for a project spanning months \u2014 action items, deadlines, notes, and attachments. Offers daily, weekly, and monthly views of the same work, colour-coded so priorities read at a glance.'},
+  {title:'Budget Tracker', format:'Excel + Sheets',
+   file:'files/budget-tracker.xlsx',
+   sheetId:'1AGEl0AeO_cKApDNBtBx8C9f5u6FNMoWVqehZcFeCCfw',
+   blurb:'Breaks spending down per location and per month, with space to note what\u2019s actually being bought \u2014 so you can see not just how much you\u2019re spending, but on what.'},
+  {title:'Goal Tracker', format:'Excel + Sheets',
+   file:'files/goal-tracker.xlsx',
+   sheetId:'1cfk2l-t7PBsWW3K_XRIKWXjLX-DUf3zoW6NTBdj_9do',
+   blurb:'A progress tracker with a custom bar that fills in real time as you check items off your to-do list, and empties again if you uncheck them. The bars feed an overarching pie chart for a bird\u2019s-eye view of the whole system.'},
+  {title:'Project Dashboard', format:'Excel + Sheets',
+   file:'files/project-dashboard.xlsx',
+   sheetId:'1A1U4l0wT_ssRl8SbqdGduKnFfhfdhidAYBiWQdvK9Wk',
+   blurb:'A framework for a project made of smaller projects and many moving pieces. Tracks completion status, assigns roles and point persons, links to materials, holds a team page for contacts and departmental roles, and lays a schedule across months broken into weekdays and weekends.'}
+];
+
+var mgmtIntro=document.getElementById('mgmt-intro');
+if(mgmtIntro) mgmtIntro.textContent=MGMT_INTRO;
+
+function sheetPreviewUrl(id){ return 'https://docs.google.com/spreadsheets/d/'+id+'/preview'; }
+function sheetCopyUrl(id){ return 'https://docs.google.com/spreadsheets/d/'+id+'/copy'; }
+
+var mgmtGrid=document.getElementById('mgmt-grid');
+if(mgmtGrid){
+  mgmtGrid.innerHTML = TEMPLATES.map(function(t,i){
+    var preview = t.preview
+      ? img(t.preview, t.title+' preview')
+      : '<span class="mgmt-ph">\u2317 Preview the live sheet</span>';
+    var clickPrev = t.sheetId ? ' onclick="openSheet('+i+')" style="cursor:pointer"' : '';
+    var btns='';
+    if(t.sheetId) btns+='<span class="mgmt-btn ghost" onclick="openSheet('+i+')">Preview</span>';
+    if(t.file)    btns+='<a class="mgmt-btn" href="'+t.file+'" download>Excel</a>';
+    if(t.sheetId) btns+='<a class="mgmt-btn" href="'+sheetCopyUrl(t.sheetId)+'" target="_blank" rel="noopener">Copy to Sheets</a>';
+    if(!btns)     btns='<span class="mgmt-btn soon">Coming soon</span>';
+    return '<div class="mgmt-card">'
+      +'<div class="mgmt-prev"'+clickPrev+'><span class="mgmt-fmt">'+t.format+'</span>'+preview+'</div>'
+      +'<div class="mgmt-body"><h3>'+t.title+'</h3><p>'+t.blurb+'</p>'
+      +'<div class="mgmt-foot">'+btns+'</div></div></div>';
+  }).join('');
+}
+
+/* Live read-only sheet in an overlay — they never leave your site, and nothing
+   lands in their Drive unless they choose to copy it. */
+function openSheet(i){
+  var t=TEMPLATES[i]; if(!t.sheetId) return;
+  document.getElementById('sheet-title').textContent=t.title;
+  document.getElementById('sheet-frame').src=sheetPreviewUrl(t.sheetId);
+  var c=document.getElementById('sheet-copy');
+  c.href=sheetCopyUrl(t.sheetId);
+  var x=document.getElementById('sheet-xlsx');
+  if(t.file){ x.href=t.file; x.style.display='inline-block'; } else { x.style.display='none'; }
+  document.getElementById('sheet-view').classList.add('open');
+}
+function closeSheet(){
+  document.getElementById('sheet-view').classList.remove('open');
+  document.getElementById('sheet-frame').src='';   // stop it loading in the background
+}
+function sheetBackdrop(e){ if(e.target.id==='sheet-view'){ closeSheet(); } }
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape' && document.getElementById('sheet-view').classList.contains('open')) closeSheet();
+});
+
+/* =====================================================================
+   RENDER: Projects timeline (years in yellow, reference buttons)
+   ===================================================================== */
+/* Projects dropdown — generated from PROJECTS so adding a role to the data
+   adds it here too. No separate list to maintain. */
+var navProjMenu=document.getElementById('nav-projects-menu');
+if(navProjMenu){
+  navProjMenu.innerHTML = PROJECTS.map(function(p){
+    return '<a onclick="openProject(\''+p.id+'\')">'+p.company
+      +'<span class="nm-role">'+p.position+'</span></a>';
+  }).join('') + '<a class="nm-all" onclick="go(\'projects\')">See the full timeline →</a>';
+}
+
+var timeline=document.getElementById('timeline');
+PROJECTS.forEach(function(p){
+  var kwhtml=p.keywords.map(function(k){return '<span class="kw">'+k+'</span>';}).join('');
+  var refhtml='';
+  if(p.refs && p.refs.length){
+    refhtml=p.refs.map(function(r){
+      return '<a class="ref-btn" href="mailto:'+r.email+'"><span class="rl">'+r.role+'</span><span class="rn">'+r.name+'</span></a>';
+    }).join('');
+  }
+  timeline.innerHTML+=
+   '<div class="tl-item'+(p.highlight?' tl-highlight':'')+'">'
+   +'<div class="tl-thumb" onclick="openProject(\''+p.id+'\')">'
+      +(p.logo?img(p.logo, p.company):'Logo')+'</div>'
+   +'<div class="tl-meta" onclick="openProject(\''+p.id+'\')">'
+   +'<div class="tl-position">'+p.position+'</div>'
+   +'<div class="tl-company">'+p.company+'</div>'
+   +'<div class="tl-sub"><span class="yr">'+p.years+'</span> · '+p.location+'</div>'
+   +'<div class="tl-keywords">'+kwhtml+'</div></div>'
+   +'<div class="tl-refs">'+refhtml+'</div></div>';
+});
+
+/* =====================================================================
+   RENDER: Star wall — auto-built from every work marked star:true.
+   Videos play live inline; designs open the lightbox. Three "explore"
+   buttons are woven in at staggered positions.
+   ===================================================================== */
+var starWall=document.getElementById('star-wall');
+(function(){
+  var starVideos = VIDEO_WORKS.filter(function(w){return w.star;});
+  var starDesigns = DESIGNS.map(function(d,idx){return {d:d,idx:idx};}).filter(function(o){return o.d.star;});
+  var starSocials = SOCIAL_WORKS.map(function(w,idx){return {w:w,idx:idx};}).filter(function(o){return o.w.star;});
+
+  /* Starred photos, carrying their section and position so a click opens the
+     full-screen viewer at the right place. */
+  var starPhotos = [];
+  PHOTO_SECTIONS.forEach(function(sec,si2){
+    sec.photos.forEach(function(ph,pi){
+      if(ph.star) starPhotos.push({ph:ph, sec:si2, idx:pi});
+    });
+  });
+
+  // interleave the four kinds so the wall feels mixed
+  var mixed=[];
+  var vi=0, di=0, si=0, pi2=0;
+  while(vi<starVideos.length || di<starDesigns.length || si<starSocials.length || pi2<starPhotos.length){
+    if(vi<starVideos.length){mixed.push({type:'video', v:starVideos[vi]}); vi++;}
+    if(di<starDesigns.length){mixed.push({type:'design', o:starDesigns[di]}); di++;}
+    if(pi2<starPhotos.length){mixed.push({type:'photo', o:starPhotos[pi2]}); pi2++;}
+    if(si<starSocials.length){mixed.push({type:'social', o:starSocials[si]}); si++;}
+  }
+
+  // where to drop the three explore buttons
+  var explores=[
+    {label:'Explore more<br>videography', target:'videography', rot:'rot1'},
+    {label:'Explore more<br>designs', target:'designs', rot:'rot2'},
+    {label:'Explore more<br>social media', target:'social', rot:'rot1'},
+    {label:'Explore more<br>photography', target:'photography', rot:'rot2'}
+  ];
+  var dropAt=[7,19,31,43]; // positions in the wall (52 tiles, so spread them out)
+  var eIdx=0;
+
+  var html='';
+  mixed.forEach(function(item,i){
+    if(eIdx<explores.length && i===dropAt[eIdx]){
+      var e=explores[eIdx];
+      html+='<button class="explore-btn '+e.rot+'" onclick="go(\''+e.target+'\')">'+e.label+'</button>';
+      eIdx++;
+    }
+    if(item.type==='video'){
+      var v=item.v;
+      if(v.videoId){
+        html+='<div class="star-tile">'
+          +'<span class="st-badge">▶ Video</span>'
+          +'<div class="video-clickplay" data-vid="'+v.videoId+'" onclick="playStarVideo(this)">'
+          +'<div class="st-thumb" style="background-image:url(https://img.youtube.com/vi/'+v.videoId+'/hqdefault.jpg)"><div class="st-play">▶</div></div></div>'
+          +'<div class="dvi-cap" style="padding:.7rem .9rem"><h4 style="font-family:\'DynaPuff\',cursive;font-size:.9rem;color:var(--white);margin-bottom:2px">'+v.title+'</h4>'
+          +'<span class="st-open" onclick="openProject(\''+v.projectId+'\',\'video\')">Open project →</span>'
+          +'</div></div>';
+      } else {
+        html+='<div class="star-tile"><span class="st-badge">▶ Video</span>'
+          +'<div class="st-ph" style="height:200px">'+v.title+'</div>'
+          +'<div class="dvi-cap" style="padding:.7rem .9rem"><h4 style="font-family:\'DynaPuff\',cursive;font-size:.9rem;color:var(--white);margin-bottom:2px">'+v.title+'</h4></div></div>';
+      }
+    } else if(item.type==='photo'){
+      /* Opens the same full-screen viewer as the Photography page, at this
+         photo, so you can keep arrowing through the rest of its section. */
+      var po=item.o;
+      html+='<div class="star-tile" onclick="openPhoto('+po.sec+','+po.idx+')">'
+        +'<span class="st-badge">★ Photo</span>'
+        +img(po.ph.img,'')
+        +'<div class="st-overlay">View full screen →</div></div>';
+    } else if(item.type==='social'){
+      /* One post = one tile. Clicking opens the same carousel as the
+         Social page, so every slide of a starred post is reachable. */
+      var sw=item.o.w, si2=item.o.idx;
+      var scount = sw.videoId ? 1 : (sw.media ? sw.media.length : 1);
+      var scover = sw.videoId
+        ? '<div class="st-thumb" style="background-image:url(https://img.youtube.com/vi/'+sw.videoId+'/hqdefault.jpg)"><div class="st-play">▶</div></div>'
+        : (sw.media && sw.media[0] ? socialSlide(sw.media[0], true)
+                                   : '<div class="st-ph" style="height:220px">'+sw.title+'</div>');
+      html+='<div class="star-tile" onclick="openCarousel('+si2+')">'
+        +'<span class="st-badge">★ Social'+(scount>1?' · '+scount:'')+'</span>'
+        +scover
+        +'<div class="st-overlay">'+sw.title+'</div></div>';
+    } else {
+      var o=item.o;
+      var isBook = !!o.d.spread;
+      var circle = (!isBook && o.idx%4===1);
+      var cls = circle ? 'star-tile circle' : 'star-tile';
+      var h = circle ? '' : 'height:'+(200+(o.idx%3)*60)+'px';
+      /* Books open the page-flip reader, same as on the Designs page. */
+      var act = isBook ? 'openBook('+o.idx+')' : 'openLightbox('+o.idx+')';
+      html+='<div class="'+cls+'" onclick="'+act+'">'
+        +'<span class="st-badge">'+(isBook?'★ Book · '+bookPages(o.d).length+' pp':'★ Design')+'</span>'
+        +'<div class="st-ph" style="'+h+'">'
+          +(designSlide(o.d,0)?img(designSlide(o.d,0), o.d.title):o.d.title)+'</div>'
+        +'<div class="st-overlay">'+(isBook?'Open book →':o.d.title)+'</div></div>';
+    }
+  });
+  // any leftover explore buttons
+  while(eIdx<explores.length){
+    var e2=explores[eIdx];
+    html+='<button class="explore-btn '+e2.rot+'" onclick="go(\''+e2.target+'\')">'+e2.label+'</button>';
+    eIdx++;
+  }
+  starWall.innerHTML=html;
+})();
+
+/* Click-to-play for star video tiles: swaps the thumbnail for the player
+   so only the clicked video plays (never all at once). */
+function playStarVideo(el){
+  var id=el.getAttribute('data-vid');
+  el.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?rel=0&autoplay=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:16/9;border:none;display:block"></iframe>';
+  el.onclick=null;
+}
+
+/* =====================================================================
+   BOOK READER — one PAGE per image file.
+
+   How it maps files to what you see:
+     • pages: ['cepl/21cafritz-program-book/01.png', ...] listed in reading order, front
+       cover first and back cover last. One file = one page.
+     • View 0 shows the front cover ALONE, because a closed book presents a
+       single face. After that pages sit in facing pairs — 2+3, 4+5, and so
+       on — exactly as they'd lie open on a table. If a final page is left
+       over it's the back cover, shown alone again.
+     • pageCount generates numbered placeholders so you can flip through the
+       mechanic before any images exist. Once `pages` is filled, pageCount is
+       ignored and the real list drives everything.
+
+   The turn itself: `.bk-flip` is the page in motion. Its FRONT face is the
+   page you're leaving and its BACK face is the page revealed as it lands —
+   which is what a real page does. It rotates around the spine while the
+   destination page is already sitting underneath, so the page appears to
+   lift off one side and settle on the other.
+
+   Flipping: click the right page (or › / →) forward, the left page
+   (or ‹ / ←) back. Esc closes.
+   ===================================================================== */
+
+/* The page list, generating numbered placeholders from pageCount if the real
+   images haven't been added yet. */
+function bookPages(d){
+  var n=designCount(d), out=[];
+  for(var i=0;i<n;i++) out.push(designSlide(d,i));
+  return out;
+}
+
+/* Turns a flat page list into the sequence of views a reader sees:
+   [cover], [2,3], [4,5], ... , [back]. */
+function bookViews(d){
+  var pages=bookPages(d), views=[], i;
+  if(!pages.length) return views;
+  views.push([0]);                                 // front cover, alone
+  for(i=1; i<pages.length; i+=2){
+    if(i+1 < pages.length) views.push([i, i+1]);   // a facing pair
+    else views.push([i]);                          // back cover, alone
+  }
+  return views;
+}
+
+var bkDesign=0, bkView=0, bkAnimating=false;
+
+function openBook(idx){
+  bkDesign=idx; bkView=0; bkAnimating=false;
+  document.getElementById('bk-flip').className='bk-flip';
+  renderBookView();
+  document.getElementById('book').classList.add('open');
+}
+function closeBook(){document.getElementById('book').classList.remove('open');}
+function bkBackdrop(e){if(e.target.id==='book'){closeBook();}}
+
+/* One page's contents, as an image or a numbered placeholder. */
+function bkPageHTML(d, pageIdx){
+  var pages=bookPages(d), src=pages[pageIdx];
+  return src ? img(src, 'page '+(pageIdx+1))
+             : '[ page '+(pageIdx+1)+' ]';
+}
+
+function bkNav(dir){
+  if(bkAnimating) return;                     // ignore clicks mid-turn
+  var d=DESIGNS[bkDesign], views=bookViews(d);
+  var next=bkView+dir;
+  if(next<0 || next>=views.length) return;    // books don't wrap around
+
+  var from=views[bkView], to=views[next];
+
+  /* Animate only when turning between two full spreads. Covers are single
+     faces, so there's no page geometry to rotate — those just cut. */
+  if(from.length===2 && to.length===2){
+    bkAnimate(d, from, to, dir>0);
+    bkView=next;
+    return;
+  }
+  bkView=next;
+  renderBookView();
+}
+
+function bkAnimate(d, from, to, forward){
+  bkAnimating=true;
+  var flip=document.getElementById('bk-flip');
+  var front=document.getElementById('bk-flip-front');
+  var back=document.getElementById('bk-flip-back');
+  var L=document.getElementById('bk-left'), R=document.getElementById('bk-right');
+
+  if(forward){
+    /* The right page lifts and turns over to become the next left page. */
+    front.innerHTML=bkPageHTML(d, from[1]);
+    back.innerHTML =bkPageHTML(d, to[0]);
+    R.innerHTML    =bkPageHTML(d, to[1]);   // revealed underneath as it lifts
+    flip.className='bk-flip fwd';
+  } else {
+    /* The left page lifts back over to become the previous right page. */
+    front.innerHTML=bkPageHTML(d, from[0]);
+    back.innerHTML =bkPageHTML(d, to[1]);
+    L.innerHTML    =bkPageHTML(d, to[0]);
+    flip.className='bk-flip bwd';
+  }
+
+  void flip.offsetWidth;                     // force a reflow so the animation restarts
+  flip.classList.add('turning');
+
+  setTimeout(function(){
+    flip.className='bk-flip';
+    bkAnimating=false;
+    renderBookView();
+  }, 620);
+}
+
+/* Draws the current view with no animation. */
+function renderBookView(){
+  var d=DESIGNS[bkDesign], views=bookViews(d), view=views[bkView]||[0];
+  var total=bookPages(d).length;
+  var L=document.getElementById('bk-left'), R=document.getElementById('bk-right');
+
+  document.getElementById('bk-title').textContent=d.title;
+  document.getElementById('bk-blurb').textContent=d.blurb||'';
+  setOpenLink('bk-open', d.projectId, 'design', closeBook);
+
+  if(view.length===2){
+    L.className='bk-page left'; R.className='bk-page right';
+    L.innerHTML=bkPageHTML(d,view[0])+'<span class="bk-side">'+(view[0]+1)+'</span>';
+    R.innerHTML=bkPageHTML(d,view[1])+'<span class="bk-side">'+(view[1]+1)+'</span>';
+    document.getElementById('bk-count').textContent=
+      'Pages '+(view[0]+1)+'\u2013'+(view[1]+1)+' of '+total;
+  } else {
+    /* A single face — a cover. Centre it and hide the other panel. */
+    L.className='bk-page solo'; R.className='bk-page right hidden';
+    var label = bkView===0 ? 'Front cover' : 'Back cover';
+    L.innerHTML=bkPageHTML(d,view[0])+'<span class="bk-side" style="left:14px">'+label+'</span>';
+    R.innerHTML='';
+    document.getElementById('bk-count').textContent=label+' \u00b7 '+total+' pages';
+  }
+
+  document.getElementById('bk-fill').style.width=
+    Math.round(((bkView+1)/views.length)*100)+'%';
+  document.querySelector('.bk-prev').style.visibility = bkView===0 ? 'hidden':'visible';
+  document.querySelector('.bk-next').style.visibility = bkView===views.length-1 ? 'hidden':'visible';
+}
+
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('book').classList.contains('open'))return;
+  if(e.key==='ArrowLeft')bkNav(-1);
+  if(e.key==='ArrowRight')bkNav(1);
+  if(e.key==='Escape')closeBook();
+});
+
+/* =====================================================================
+   LIGHTBOX — multi-slide support within one design
+   ===================================================================== */
+var lbDesign=0, lbSlide=0;
+function openLightbox(i){lbDesign=i;lbSlide=0;updateLightbox();document.getElementById('lightbox').classList.add('open');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+function lbBackdrop(e){
+  // close only if the click is on the dark backdrop itself, not the image/arrows/caption
+  if(e.target.id==='lightbox'){closeLightbox();}
+}
+function lbNav(dir){
+  var total=DESIGNS[lbDesign].slides;
+  lbSlide=(lbSlide+dir+total)%total;
+  updateLightbox();
+}
+function updateLightbox(){
+  var d=DESIGNS[lbDesign], total=designCount(d);
+  var src=designSlide(d,lbSlide);
+  document.getElementById('lb-stage').innerHTML = src
+    ? img(src, d.title)
+    : '[ '+d.title+(total>1?' — slide '+(lbSlide+1):'')+' ]';
+  document.getElementById('lb-title').textContent=d.title;
+  document.getElementById('lb-sub').textContent=d.blurb;
+  setOpenLink('lb-open', d.projectId, 'design', closeLightbox);
+  document.getElementById('lb-slidelabel').textContent = total>1 ? ('Slide '+(lbSlide+1)+' of '+total) : '';
+  var dots='';
+  if(total>1){for(var s=0;s<total;s++){dots+='<span class="lb-dot'+(s===lbSlide?' active':'')+'"></span>';}}
+  document.getElementById('lb-dots').innerHTML=dots;
+  // hide arrows for single-slide designs
+  var show = total>1 ? 'block':'none';
+  document.querySelector('.lb-prev').style.display=show;
+  document.querySelector('.lb-next').style.display=show;
+}
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='ArrowRight')lbNav(1);
+  if(e.key==='Escape')closeLightbox();
+});
+
+/* =====================================================================
+   CONTACT FORM (stub until Formspree)
+   ===================================================================== */
+/* =====================================================================
+   CONTACT FORM — Formspree
+
+   Posts the fields to Formspree with fetch() rather than a plain HTML form
+   action, so the visitor stays on your site instead of being bounced to a
+   Formspree thank-you page. No library or CDN script needed, which keeps
+   this a single self-contained file.
+
+   To change where mail lands, swap the endpoint below and update it in your
+   Formspree dashboard.
+   ===================================================================== */
+var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgavwnwr';
+
+function submitContact(){
+  var btn = document.querySelector('#page-contact .btn-send');
+  var fields = {
+    name:    document.getElementById('c-name').value.trim(),
+    email:   document.getElementById('c-email').value.trim(),
+    phone:   document.getElementById('c-number').value.trim(),
+    subject: document.getElementById('c-subject').value.trim(),
+    message: document.getElementById('c-message').value.trim()
+  };
+  var err = document.getElementById('c-error');
+
+  if(!fields.name || !fields.email || !fields.message){
+    showFormError('Please fill in your name, email and message.');
+    return;
+  }
+
+  err.style.display='none';
+  btn.disabled = true;
+  btn.textContent = 'Sending\u2026';
+
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json', 'Accept':'application/json'},
+    body: JSON.stringify({
+      name: fields.name,
+      email: fields.email,
+      phone: fields.phone,
+      /* _subject sets the subject line of the email you receive. */
+      _subject: fields.subject
+        ? 'Portfolio enquiry: '+fields.subject
+        : 'Portfolio enquiry from '+fields.name,
+      message: fields.message
+    })
+  })
+  .then(function(res){
+    if(res.ok){
+      document.getElementById('c-success').style.display='block';
+      ['c-name','c-email','c-number','c-subject','c-message'].forEach(function(id){
+        document.getElementById(id).value='';
+      });
+      setTimeout(function(){document.getElementById('c-success').style.display='none';}, 8000);
+    } else {
+      return res.json().then(function(data){
+        var m = (data && data.errors) ? data.errors.map(function(x){return x.message;}).join(', ')
+                                      : 'Something went wrong sending that.';
+        showFormError(m+' You can also email me directly at lydiaobi@outlook.com.');
+      });
+    }
+  })
+  .catch(function(){
+    /* Network failure, offline, or a blocked request. Always give them the
+       fallback so a broken form never costs you the enquiry. */
+    showFormError('Couldn\u2019t reach the server. Please email me directly at lydiaobi@outlook.com.');
+  })
+  .then(function(){
+    btn.disabled = false;
+    btn.textContent = 'Send inquiry';
+  });
+}
+
+function showFormError(msg){
+  var err=document.getElementById('c-error');
+  err.textContent=msg;
+  err.style.display='block';
+}
+</script>
+</body>
+</html>
