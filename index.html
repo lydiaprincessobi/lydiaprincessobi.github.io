@@ -161,10 +161,10 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
    portrait or square image never sits in a letterboxed grey box. */
 .car-stage{max-width:82vw;max-height:66vh;display:inline-flex;align-items:center;justify-content:center;
   background:transparent;border-radius:8px;overflow:hidden}
-.car-stage img,.car-stage video{max-width:82vw;max-height:66vh;object-fit:contain;display:block}
+.car-stage img,.car-stage video{max-width:82vw;max-height:66vh;object-fit:contain;display:block;animation:slideIn .18s ease-out}
 .car-stage iframe{width:min(82vw,420px);aspect-ratio:9/16;border:none;display:block}
 .car-ph{color:var(--muted2);font-family:'DynaPuff',cursive;font-size:14px;padding:2rem}
-.car-cap{margin-top:1.3rem;text-align:center;max-width:640px;padding:0 1rem}
+.car-cap{margin-top:1.3rem;text-align:center;max-width:min(1150px,92vw);padding:0 1rem}
 .car-cap .cct{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.1rem;color:var(--purple-light)}
 .car-cap .ccc{font-family:'DynaPuff',cursive;font-size:12px;color:var(--yellow);margin-top:4px}
 .car-count{margin-top:.9rem;font-size:12px;color:var(--muted2);letter-spacing:.1em}
@@ -298,10 +298,13 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .proj-banner img{width:100%;height:100%;object-fit:cover;display:block}
 /* Tighten the gap above the banner too — the subtitle's own bottom margin
    was what created most of that space. */
-#page-projects .sec-sub{margin-bottom:1.5rem}
+#page-projects .sec-sub{margin-bottom:0}
+/* .wrap carries 5rem of bottom padding, which is what opened the gap between
+   the heading and the full-bleed banner. Zero it for the heading block only. */
+#page-projects .wrap:first-of-type{padding-bottom:0}
 @media(max-width:768px){.home-video{height:58vh;min-height:320px}
   .proj-banner{height:260px;margin-bottom:1.25rem}
-  #page-projects .sec-sub{margin-bottom:1.25rem}}
+  #page-projects .sec-sub{margin-bottom:0}}
 .mgmt-intro{max-width:none;color:var(--muted);font-size:15px;line-height:1.85;margin-bottom:2.5rem;text-align:justify;hyphens:none}
 .mgmt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
 .mgmt-card{background:var(--surface2);border:0.5px solid var(--line-soft);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
@@ -312,19 +315,20 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 
 /* ---- Drawn spreadsheet thumbnail ---- */
 .sheet-mock{position:absolute;inset:0;padding:12px;display:flex;flex-direction:column;gap:7px;
-  background:linear-gradient(160deg,var(--surface3),var(--surface2));overflow:hidden}
+  background:#F7F6F2;overflow:hidden}
 .sheet-mock .sm-bar{display:flex;gap:5px;flex:0 0 auto}
 .sheet-mock .sm-bar span{height:7px;border-radius:3px;background:var(--accent);opacity:.85}
 .sheet-mock .sm-bar span:nth-child(1){width:34%}
 .sheet-mock .sm-bar span:nth-child(2){width:22%;opacity:.45}
 .sheet-mock .sm-bar span:nth-child(3){width:14%;opacity:.3}
 .sheet-mock .sm-grid{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;align-content:start}
-.sheet-mock .sm-grid i{height:9px;border-radius:2px;background:rgba(255,255,255,0.055)}
+.sheet-mock .sm-grid i{height:9px;border-radius:2px;background:rgba(12,12,14,0.09)}
 .sheet-mock .sm-grid i.w1{opacity:.55}
 .sheet-mock .sm-grid i.w2{opacity:.8}
 .sheet-mock .sm-grid i.fill{background:var(--accent);opacity:.7}
-.sheet-mock .sm-label{font-family:'DynaPuff',cursive;font-size:11.5px;color:var(--muted);text-align:center;margin-top:2px}
-.mgmt-card:hover .sheet-mock .sm-label{color:var(--yellow-star)}
+.sheet-mock .sm-label{font-family:'DynaPuff',cursive;font-size:11.5px;color:rgba(12,12,14,0.55);text-align:center;margin-top:2px}
+.mgmt-card:hover .sheet-mock .sm-label{color:var(--purple-deep)}
+.sheet-mock.tint2{--accent:#2E9E6B}
 .sheet-mock.tint0{--accent:var(--yellow-star)}
 .sheet-mock.tint1{--accent:var(--purple-med)}
 .sheet-mock.tint2{--accent:#7FC8A9}
@@ -333,15 +337,14 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .mgmt-body{padding:1.1rem 1.25rem 1.35rem;display:flex;flex-direction:column;flex:1}
 .mgmt-body h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.05rem;line-height:1.15;margin-bottom:.5rem}
 .mgmt-body p{color:var(--muted);font-size:13px;line-height:1.7;flex:1}
-.mgmt-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:1.1rem}
+.mgmt-foot{display:flex;align-items:center;gap:7px;margin-top:1.1rem;flex-wrap:nowrap}
 .mgmt-price{font-family:'DynaPuff',cursive;font-size:15px;color:var(--yellow-star)}
 .mgmt-price.free{color:var(--purple-light)}
-.mgmt-btn{padding:9px 16px;border-radius:6px;background:var(--yellow-star);color:var(--black);font-family:'Anton',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:.04em;cursor:pointer;border:none;white-space:nowrap;transition:.2s}
+.mgmt-btn{padding:9px 11px;border-radius:6px;flex:1 1 0;text-align:center;background:var(--yellow-star);color:var(--black);font-family:'Anton',sans-serif;text-transform:uppercase;font-size:11px;letter-spacing:.04em;cursor:pointer;border:none;white-space:nowrap;transition:.2s}
 .mgmt-btn:hover{background:#FFE87A}
 .mgmt-btn.ghost{background:transparent;border:1px solid var(--purple-med);color:var(--purple-light)}
 .mgmt-btn.ghost:hover{background:var(--purple-med);color:var(--black)}
 .mgmt-btn.soon{background:transparent;border:1px solid var(--muted2);color:var(--muted2);cursor:default}
-.mgmt-foot{flex-wrap:wrap}
 .sheetview{display:none;position:fixed;inset:0;z-index:560;background:rgba(8,8,10,0.97);backdrop-filter:blur(6px);flex-direction:column;padding:1.5rem}
 .sheetview.open{display:flex}
 .sv-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
@@ -461,8 +464,8 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .pv{display:none;position:fixed;inset:0;z-index:520;background:rgba(8,8,10,0.96);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column}
 .pv.open{display:flex}
 .pv-stage{max-width:86vw;max-height:70vh;display:inline-flex;align-items:center;justify-content:center;background:transparent;border-radius:8px;color:var(--muted);font-family:'DynaPuff',cursive}
-.pv-stage img{max-width:86vw;max-height:70vh;object-fit:contain;border-radius:8px;display:block}
-.pv-cap{margin-top:1.4rem;max-width:680px;text-align:center;padding:0 2rem}
+.pv-stage img{max-width:86vw;max-height:70vh;object-fit:contain;border-radius:8px;display:block;animation:slideIn .18s ease-out}
+.pv-cap{margin-top:1.4rem;max-width:min(1150px,92vw);text-align:center;padding:0 2rem}
 .pv-cap .pvt{display:none}
 .pv-cap .pvs{font-size:13.5px;color:var(--muted);line-height:1.7}
 .pv-count{margin-top:1rem;font-size:12px;color:var(--muted2);letter-spacing:.1em}
@@ -503,10 +506,11 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .lightbox{display:none;position:fixed;inset:0;z-index:500;background:rgba(8,8,10,0.94);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column}
 .lightbox.open{display:flex}
 .lb-stage{max-width:80vw;max-height:68vh;background:transparent;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);font-family:'DynaPuff',cursive}
-.lb-stage img{max-width:80vw;max-height:68vh;object-fit:contain;border-radius:8px}
-.lb-caption{margin-top:1.5rem;max-width:680px;text-align:center;padding:0 2rem}
+.lb-stage img{max-width:80vw;max-height:68vh;object-fit:contain;border-radius:8px;animation:slideIn .18s ease-out}
+@keyframes slideIn{from{opacity:0}to{opacity:1}}
+.lb-caption{margin-top:1.5rem;max-width:min(1150px,92vw);text-align:center;padding:0 2rem}
 .lb-caption .lbt{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.2rem;color:var(--purple-light);margin-bottom:.4rem}
-.lb-caption .lbs{font-size:13px;color:var(--muted)}
+.lb-caption .lbs{font-size:13px;color:var(--muted);line-height:1.7;text-align:justify;text-justify:inter-word;hyphens:none}
 .lb-close{position:absolute;top:24px;right:30px;font-size:28px;color:var(--white);cursor:pointer;background:none;border:none;line-height:1}
 .lb-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:34px;color:var(--white);cursor:pointer;background:none;border:none;padding:1rem;transition:.2s}
 .lb-arrow:hover{color:var(--yellow-star)}
@@ -830,8 +834,8 @@ footer{border-top:0.5px solid var(--line-soft);padding:2.5rem 2rem;text-align:ce
   <div class="sv-bar">
     <span class="sv-title" id="sheet-title"></span>
     <span class="sv-actions">
-      <a class="mgmt-btn" id="sheet-xlsx" href="#" download>Excel</a>
-      <a class="mgmt-btn ghost" id="sheet-copy" href="#" target="_blank" rel="noopener">Copy to Sheets</a>
+      <a class="mgmt-btn" id="sheet-xlsx" href="#" download style="flex:0 0 auto">Excel</a>
+      <a class="mgmt-btn ghost" id="sheet-copy" href="#" target="_blank" rel="noopener" style="flex:0 0 auto">Copy to Sheets</a>
       <button class="sv-close" onclick="closeSheet()">✕</button>
     </span>
   </div>
@@ -1215,6 +1219,41 @@ function swapExt(el){
   el.src = base + '.' + next;
 }
 
+/* =====================================================================
+   PRELOADING
+
+   The stutter on a first pass through a slide set isn't the animation — it's
+   the browser fetching and decoding each image at the moment it's first
+   shown. Once they're all cached the set runs smoothly, which is exactly the
+   pattern you'd see.
+
+   So the moment a viewer opens, every image in that set starts downloading in
+   the background. By the time someone clicks to slide two, it's already
+   decoded and ready.
+
+   `decode()` matters as much as the download: it forces the browser to
+   rasterise the image up front rather than on the frame it appears, which is
+   what removes the hitch on the page-flip animation.
+   ===================================================================== */
+var PRELOADED = {};
+
+function preload(paths){
+  paths.forEach(function(src){
+    if(!src || PRELOADED[src]) return;
+    PRELOADED[src] = true;
+    var im = new Image();
+    im.src = src;
+    if(im.decode){ im.decode().catch(function(){}); }
+  });
+}
+
+/* Warms every slide of one design (or every page of one book). */
+function preloadDesign(d){
+  var n = designCount(d), out = [];
+  for(var i=0;i<n;i++) out.push(designSlide(d,i));
+  preload(out);
+}
+
 /* Every generated <img> goes through this so the fallback is never forgotten. */
 function img(src, alt){
   return '<img src="'+src+'" alt="'+(alt||'').replace(/"/g,'')+'" onerror="swapExt(this)">';
@@ -1492,6 +1531,7 @@ function setOpenLink(elId, projectId, section, closeFn){
 var carPost=0, carSlide=0;
 function openCarousel(i){
   carPost=i; carSlide=0;
+  if(SOCIAL_WORKS[i].media) preload(SOCIAL_WORKS[i].media);
   updateCarousel();
   document.getElementById('carousel').classList.add('open');
 }
@@ -1573,7 +1613,7 @@ DESIGNS.map(function(d,i){return {d:d,i:i};})
   var hint = d.spread ? '<span class="m-hint">Open book \u2192</span>' : '';
   var action = d.spread ? 'openBook('+idx+')' : 'openLightbox('+idx+')';
   designGrid.innerHTML+=
-   '<div class="m-item" onclick="'+action+'">'+badge
+   '<div class="m-item" onclick="'+action+'" onmouseenter="preloadDesign(DESIGNS['+idx+'])">'+badge
    +'<div class="m-ph" style="height:'+d.height+'px">'
       +(designSlide(d,0)?img(designSlide(d,0), d.title):d.title)+'</div>'
    +'<div class="m-overlay">'+hint+'<span class="m-title">'+d.title+'</span></div></div>';
@@ -1692,6 +1732,8 @@ if(photoSectionsEl){
 var pvSec=0, pvIdx=0;
 function openPhoto(si,pi){
   pvSec=si; pvIdx=pi;
+  var sec=PHOTO_SECTIONS[si];
+  preload((sec._ordered||sec.photos).map(function(p){return p.img;}));
   updatePhotoViewer();
   document.getElementById('photo-viewer').classList.add('open');
 }
@@ -1815,7 +1857,7 @@ if(mgmtGrid){
     var btns='';
     if(t.sheetId) btns+='<span class="mgmt-btn ghost" onclick="openSheet('+i+')">Preview</span>';
     if(t.file)    btns+='<a class="mgmt-btn" href="'+t.file+'" download>Excel</a>';
-    if(t.sheetId) btns+='<a class="mgmt-btn" href="'+sheetCopyUrl(t.sheetId)+'" target="_blank" rel="noopener">Copy to Sheets</a>';
+    if(t.sheetId) btns+='<a class="mgmt-btn" href="'+sheetCopyUrl(t.sheetId)+'" target="_blank" rel="noopener" title="Copy to Google Sheets">Sheets</a>';
     if(!btns)     btns='<span class="mgmt-btn soon">Coming soon</span>';
     return '<div class="mgmt-card">'
       +'<div class="mgmt-prev"'+clickPrev+'><span class="mgmt-fmt">'+t.format+'</span>'+preview+'</div>'
@@ -2044,6 +2086,7 @@ var bkDesign=0, bkView=0, bkAnimating=false;
 
 function openBook(idx){
   bkDesign=idx; bkView=0; bkAnimating=false;
+  preloadDesign(DESIGNS[idx]);
   document.getElementById('bk-flip').className='bk-flip';
   renderBookView();
   document.getElementById('book').classList.add('open');
