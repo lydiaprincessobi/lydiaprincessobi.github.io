@@ -464,8 +464,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(12,12,14,
 .photo-tile .pt-slide.active{opacity:1}
 .photo-tile .pt-slide img{width:100%;height:100%;object-fit:cover}
 .photo-tile .pt-count{position:absolute;top:10px;right:10px;background:var(--yellow-star);color:var(--black);font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;z-index:3;font-family:'Poppins',sans-serif}
-.photo-tile .pt-zoom{position:absolute;top:10px;left:10px;z-index:3;background:rgba(12,12,14,0.7);border:1px solid var(--yellow-star);color:var(--yellow-star);font-size:11px;padding:3px 9px;border-radius:20px;opacity:0;transition:.2s;font-family:'Poppins',sans-serif}
-.photo-tile:hover .pt-zoom{opacity:1}
 
 /* ---- Photo full-screen viewer ---- */
 .pv{display:none;position:fixed;inset:0;z-index:520;background:rgba(8,8,10,0.96);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column}
@@ -1041,7 +1039,7 @@ var SOCIAL_WORKS = [
   {projectId:'emmanuela', shape:'vertical', title:'Morning Routine with EC Products', media:['ec/ec-morning-routine.mp4']},
   {projectId:'emmanuela', shape:'square', title:'What Are Skin Peels?', media:['ec/ec-peel.png']},
   {projectId:'emmanuela', shape:'vertical', title:'Product Breakdown | Luminous Brightening Serum 1', media:['ec/ec-product.mp4']},
-  {projectId:'emmanuela', shape:'square', title:'Product Breakdown | Vitamin C Serum 1', media:['ec/ec-product-info.png']},
+  {projectId:'emmanuela', shape:'square', title:'Product Breakdown | Vitamin C Serum 1', media:['ec/ec-product-info.mp4']},
   {projectId:'emmanuela', shape:'square', title:'It\u2019s A Promo!', media:['ec/ec-promo.mp4']},
   {projectId:'emmanuela', shape:'square', title:'Product Breakdown | Resurfacing Peel Kit', media:['ec/ec-rpk.png']},
   {projectId:'emmanuela', shape:'square', title:'Product Breakdown | Luminous Brightening Serum 2', media:['ec/ec-serum.png']},
@@ -1194,17 +1192,60 @@ function designCount(d){
 /* =====================================================================
    IMAGES
 
-   Paths in the data are exact: folder, filename, extension. Nothing guesses
-   or retries. If an image doesn't appear on the live site, the path in the
-   data is wrong and it's a one-line fix — which is easier to reason about
-   than code that quietly tries six alternatives.
+   Paths in the data are exact, with ONE exception: if a .png isn't found the
+   browser retries the same name as .jpg, and vice versa. One retry, one
+   alternative, nothing else — so you never have to audit which folder
+   exported as which format.
 
-   The only safety net: a file that genuinely isn't there fades out instead of
-   showing a broken-image icon, so a gap looks like a gap rather than a bug.
+   That's deliberately narrower than guessing at padding or six formats: the
+   rule fits in a sentence, and if an image still doesn't appear you know the
+   filename itself is wrong, not the extension.
+
+   A file that genuinely isn't there fades out rather than showing a
+   broken-image icon, so a gap reads as a gap rather than a fault.
    ===================================================================== */
 function imgMissing(el){
+  var src = el.getAttribute('src') || '';
+  if(!el.getAttribute('data-swapped')){
+    var alt = src.replace(/\.png$/i, '.jpg');
+    if(alt === src) alt = src.replace(/\.jpe?g$/i, '.png');
+    if(alt !== src){
+      el.setAttribute('data-swapped','1');
+      el.src = alt;
+      return;
+    }
+  }
   el.onerror = null;
   el.style.opacity = '0.15';
+}
+
+/* =====================================================================
+   PRELOADING
+
+   The stutter on a first pass through a slide set is the browser fetching and
+   decoding each image at the moment it's first shown. So the moment a viewer
+   opens, every image in that set starts downloading in the background, and
+   decode() forces it to rasterise up front rather than on the frame it
+   appears — which is what keeps the page-flip smooth.
+   ===================================================================== */
+var PRELOADED = {};
+
+function preload(paths){
+  (paths || []).forEach(function(src){
+    if(!src || PRELOADED[src]) return;
+    PRELOADED[src] = true;
+    var im = new Image();
+    im.src = src;
+    if(im.decode){ im.decode().catch(function(){}); }
+  });
+}
+
+/* Warms every slide of one design, or every page of one book. */
+function preloadDesign(d){
+  if(!d) return;
+  var n = designCount(d), out = [];
+  for(var i=0;i<n;i++) out.push(designSlide(d,i));
+  preload(out);
 }
 
 /* Every generated <img> goes through this. `eager` skips lazy-loading for
@@ -1233,7 +1274,48 @@ function go(id){
   if(nav)nav.classList.add('active');
   document.getElementById('navLinks').classList.remove('open');
   window.scrollTo(0,0);
+  if(!ROUTING && id!=='detail') writeRoute(id);
 }
+
+/* =====================================================================
+   URL ROUTING
+
+   The site is one HTML file with sections shown and hidden, so without this
+   the address bar never changes: you couldn't send someone straight to a
+   page, the back button did nothing, and a refresh always landed on Home.
+
+   Each page now gets an address using a #hash \u2014 lydiaprincessobi.github.io/#designs
+   \u2014 and each company page gets #project/gw-cepl. A hash works on GitHub
+   Pages with no server configuration, which a /designs style path would need.
+
+   ROUTING guards against a loop: when the browser's own back button changes
+   the hash we navigate WITHOUT rewriting the hash, which would otherwise
+   trigger another navigation.
+   ===================================================================== */
+var ROUTING = false;
+
+function currentRoute(){ return (location.hash || '').replace(/^#\/?/, ''); }
+
+function writeRoute(path){
+  if(currentRoute() === path) return;
+  location.hash = path;
+}
+
+function applyRoute(){
+  var r = currentRoute();
+  ROUTING = true;
+  if(r.indexOf('project/') === 0){
+    var pid = r.slice(8);
+    if(projectById(pid)) openProject(pid); else go('home');
+  } else if(r && r !== 'detail' && document.getElementById('page-'+r)){
+    go(r);
+  } else {
+    go('home');
+  }
+  ROUTING = false;
+}
+
+window.addEventListener('hashchange', applyRoute);
 function goBack(){go(prevPage);}
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
 
@@ -1308,7 +1390,11 @@ function openProject(id, scrollToSection){
 
   currentDetailId=id;
   document.getElementById('d-sections').innerHTML=html;
+  var wasRouting = ROUTING;
+  ROUTING = true;            // stop go() writing '#detail'
   go('detail');
+  ROUTING = wasRouting;
+  if(!ROUTING) writeRoute('project/'+id);
 
   // jump to the requested section (video / social / design), like "scroll to highlight"
   if(scrollToSection){
@@ -1675,7 +1761,6 @@ if(photoSectionsEl){
     ordered.forEach(function(ph,pi){
       phtml+='<div class="photo-tile" onclick="openPhoto('+si+','+pi+')">'
         +(ph.star?'<span class="pt-count">\u2605</span>':'')
-        +'<span class="pt-zoom">\u2922 Full screen</span>'
         +'<div class="pt-slideshow"><div class="pt-slide active">'
         +img(ph.img,'')+'</div></div>'
         +'</div>';
@@ -2267,6 +2352,11 @@ function showFormError(msg){
   err.textContent=msg;
   err.style.display='block';
 }
+
+/* Open on whatever page the address asks for. Runs last, once every page has
+   been built — otherwise a #project/... link would try to open a detail page
+   before the work lists exist. */
+applyRoute();
 </script>
 </body>
 </html>
