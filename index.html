@@ -1281,25 +1281,7 @@ function go(id){
   if(nav)nav.classList.add('active');
   document.getElementById('navLinks').classList.remove('open');
   window.scrollTo(0,0);
-  if(id==='home') refreshShowreel();
   if(!ROUTING && id!=='detail') writeRoute(id);
-}
-
-/* The homepage showreel is a YouTube iframe. Hiding a page with display:none
-   takes its iframe out of the render tree, and the player loses the surface it
-   was drawing into — so coming back to Home showed a black box until a manual
-   refresh. Re-assigning the src rebuilds the iframe, which is what a refresh
-   was doing by hand. The reel restarts from the beginning; it's muted and
-   looping, so that isn't noticeable.
-
-   Skipped on the very first visit, where the iframe has only just loaded and
-   reloading it would fetch the video twice. */
-var showreelShown = false;
-function refreshShowreel(){
-  var f = document.querySelector('#page-home iframe');
-  if(!f) return;
-  if(showreelShown) f.src = f.getAttribute('src');
-  showreelShown = true;
 }
 
 /* =====================================================================
