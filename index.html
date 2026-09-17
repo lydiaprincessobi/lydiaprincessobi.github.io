@@ -727,7 +727,7 @@ footer{border-top:0.5px solid var(--line-soft);padding:2.5rem 2rem;text-align:ce
         </svg>
       </div>
       <h1>The Highlights</h1>
-      <p>A curated mix of my favourite videos and designs.<br>Watch, explore, and dive into any project.</p>
+      <p>Welcome to my world.<br><br>A curated mix of my favourite multimedia pieces.</p>
     </div>
     <div class="star-wall" id="star-wall"></div>
   </div>
@@ -748,10 +748,11 @@ footer{border-top:0.5px solid var(--line-soft);padding:2.5rem 2rem;text-align:ce
       <div class="about-text">
         <h2>Hi, I'm <em>Lydia</em>.</h2>
         <p class="story-lead">At my core, I'm a storyteller — I believe every project, event, and brand has a story to tell, and I love finding the best way to tell it.</p>
-        <p>On paper: an MBA candidate. In practice: a passionate creative bringing ideas to life through storytelling. My work sits at the intersection of creativity and execution — spanning event management, marketing, communications, digital media, and program operations — giving me the ability to move seamlessly between big-picture vision and detailed execution.</p>
-        <p>I've supported large-scale initiatives from leadership programs and public-sector events to award ceremonies and marketing campaigns, managing everything from timelines, stakeholder engagement, and budgets to content creation, communications, and production. Whether I'm coordinating a high-visibility event, editing a video, designing a presentation, or building a tracker that keeps a project moving, I enjoy creating systems that make great work possible.</p>
-        <p>I taught myself Adobe Premiere Pro at twelve, when I fell in love with video editing making films for my school's volunteer club. That led to a curiosity for graphic design and photography, which I refined through my work with the African Development Initiative, AIESEC DC, and TEDxFoggyBottom.</p>
-        <p style="color:var(--muted2);font-size:14px">Shoot me a message — I'm always looking for opportunities to create work that leaves a lasting impact on the people it serves. <span style="color:var(--muted)">(Draft blended from your resume + LinkedIn — edit freely.)</span></p>
+        <p>On paper, I’m an MBA candidate. In practice, I’m a passionate creative bringing ideas to life through storytelling. I use my skills in production, visual design, and videography to create experiences and memories.</p>
+        <p>My work sits at the intersection of creativity and execution, spanning event production, marketing, communications, digital media, and program operations. I’ve supported everything from leadership programs and public-sector events to award ceremonies and marketing campaigns, moving between the big picture and the details that bring these stories to life.</p>
+        <p>I taught myself Adobe Premiere Pro at 12 after falling in love with video editing while making promos for my school’s volunteer club. That curiosity eventually grew into graphic design, photography, branding, and a broader interest in how ideas are communicated visually and experienced by people.</p>
+        <p>Whether I’m coordinating an event, editing a video, designing a presentation, shaping a brand, or building the systems behind a project, I’m interested in creating work that is thoughtful, engaging, and useful.</p>
+        <p class="sign">Shoot me a message! I’m always looking for opportunities to create work that leaves a lasting impact :)</p>
         <div class="about-keywords">
           <span class="akw" onclick="go('star')">Storyteller</span>
           <span class="akw" onclick="go('designs')">Creative</span>
@@ -1192,27 +1193,32 @@ function designCount(d){
 /* =====================================================================
    IMAGES
 
-   Paths in the data are exact, with ONE exception: if a .png isn't found the
-   browser retries the same name as .jpg, and vice versa. One retry, one
-   alternative, nothing else — so you never have to audit which folder
-   exported as which format.
+   Paths in the data are exact, with one exception: if a .png isn't found the
+   browser retries the same name as .jpg, and vice versa. One retry, then it
+   stops.
 
-   That's deliberately narrower than guessing at padding or six formats: the
-   rule fits in a sentence, and if an image still doesn't appear you know the
-   filename itself is wrong, not the extension.
+   Those are the only two formats used across the site. If an image still
+   doesn't appear after the retry, the filename or folder is wrong — not the
+   extension.
 
    A file that genuinely isn't there fades out rather than showing a
    broken-image icon, so a gap reads as a gap rather than a fault.
    ===================================================================== */
+var IMG_FORMATS = ['png','jpg'];
+
 function imgMissing(el){
   var src = el.getAttribute('src') || '';
-  if(!el.getAttribute('data-swapped')){
-    var alt = src.replace(/\.png$/i, '.jpg');
-    if(alt === src) alt = src.replace(/\.jpe?g$/i, '.png');
-    if(alt !== src){
-      el.setAttribute('data-swapped','1');
-      el.src = alt;
-      return;
+  var m = src.match(/^(.*)\.([A-Za-z0-9]+)$/);
+  if(m){
+    var base = m[1];
+    var tried = (el.getAttribute('data-tried') || m[2].toLowerCase()).split(',');
+    for(var i=0;i<IMG_FORMATS.length;i++){
+      if(tried.indexOf(IMG_FORMATS[i]) < 0){
+        tried.push(IMG_FORMATS[i]);
+        el.setAttribute('data-tried', tried.join(','));
+        el.src = base + '.' + IMG_FORMATS[i];
+        return;
+      }
     }
   }
   el.onerror = null;
