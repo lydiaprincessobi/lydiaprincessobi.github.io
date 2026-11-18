@@ -1018,6 +1018,7 @@ var VIDEO_WORKS = [
   {projectId:'passion',              title:'GW Senior Reflection',                 videoId:'yIoW89V32pw', blurb:'A reflective piece marking the end of my time at GW \u2014 personal, and edited to feel like looking back rather than summing up.'},
   {projectId:'passion',              title:'Group Project: Global Hunger Video',   videoId:'fU8VM5IYieQ', blurb:'A coursework group project on global hunger, where the edit had to carry a heavy subject without overwhelming the argument.'},
   {projectId:'passion',              title:'Rooted Fare Campaign Group Recording', videoId:'gxXctBcFGuc', blurb:'A group campaign recording for Rooted Fare \u2014 built around the pitch, kept plain enough to let the idea land.'},
+  {projectId:'passion', shape:'vertical', title:'Journalism Class Vertical Video Reporting', videoId:'-1CX-8ZzRbo', blurb:'A vertical news report for a journalism class \u2014 shooting for a phone screen changes how you frame everything, and this was me working that out.'},
 
   // GWADI
   {projectId:'gw-adi', star:true, title:'Africa\u2019s Role in the Global Economy', videoId:'up41Zbu_9sA', blurb:'A thought-provoking piece exploring Africa\u2019s place and influence in the global economy.'},
@@ -1044,6 +1045,11 @@ var VIDEO_WORKS = [
   {projectId:'nu-camd', star:true,   title:'NU in NY',                             videoId:'WFqYgyU6e4s', blurb:'Cut for the Dean\u2019s Office to bring movement and dynamism to the college webpage \u2014 Northeastern\u2019s New York campus, shot and edited to feel like a place rather than a location.'},
 
   {projectId:'nu-camd',              title:'CAMD Web Home',                        videoId:'O1-Ck41JHJU', blurb:'A web-home piece for the College of Arts, Media and Design \u2014 cut to give the landing page motion rather than a static header.'},
+
+  {projectId:'nu-camd', shape:'vertical', title:'Profs at Play Event',               videoId:'ngtJmVPcURo', blurb:'A vertical short from the Profs at Play event, cut for the college\u2019s social channels.'},
+  {projectId:'nu-camd',              title:'Imaginary Instruments',                videoId:'2L-peyU3f7E', blurb:'A piece on the Imaginary Instruments work coming out of the college.'},
+  {projectId:'nu-camd',              title:'CAMD Semester Hype Video',             videoId:'-1iDYx5Leuk', blurb:'A semester hype video for the college \u2014 fast, and meant to be caught between classes.'},
+  {projectId:'nu-camd',              title:'CAMD Dean\u2019s Talk',                   videoId:'NTvMjMdwIp0', blurb:'A recording of the Dean\u2019s talk, cut for the college\u2019s channels.'},
 
   // Tastemade
   {projectId:'tastemade',            title:'Kirsten\u2019s Tastemade Internship Spotlight', videoId:'_dwR0416sek', blurb:'A warm internship spotlight following Kirsten\u2019s experience at Tastemade.'}
@@ -1357,7 +1363,7 @@ function openProject(id, scrollToSection){
       var frame = w.videoId
         ? embedOrPlaceholder(w.videoId)
         : '<div class="ph">▶<br>YouTube video</div>';
-      html+='<div class="d-video-item"><div class="dvi-frame">'+frame+'</div>'
+      html+='<div class="d-video-item"><div class="dvi-frame'+(w.shape==='vertical'?' vertical':w.shape==='square'?' square':'')+'">'+frame+'</div>'
         +'<div class="dvi-cap"><h4>'+w.title+'</h4>'+(w.blurb?'<p>'+w.blurb+'</p>':'')+'</div></div>';
     });
     html+='</div>';
@@ -1541,7 +1547,7 @@ function renderFlat(works, containerId, kind){
   works.forEach(function(w){
     var name=workLabel(w);
     html+='<div class="media-row">'
-      +'<div class="media-thumb">'+embedOrPlaceholder(w.videoId)+'</div>'
+      +'<div class="media-thumb'+(w.shape==='vertical'?' vertical':w.shape==='square'?' square':'')+'">'+embedOrPlaceholder(w.videoId)+'</div>'
       +'<div class="media-info"><div class="mr-company">'+name+'</div>'
       +'<h3>'+w.title+'</h3><p>'+w.blurb+'</p>'
       +'<span class="arrow" onclick="openProject(\''+w.projectId+'\',\'video\')">View full work →</span></div></div>';
@@ -1681,6 +1687,54 @@ var PHOTO_SECTIONS = [
   /* One entry per photo. No captions — the section label carries the context.
      star:true lifts a photo to the front of its own section.
      Files are .jpg; change the extension here if yours differ. */
+  {label:'Event Photography, Boston, Massachusetts. Shot on a Canon EOS R8 Camera.',
+   photos:[
+     {img:'photography/profsplay-1.jpg', title:'profsplay-1', star:true},
+     {img:'photography/profsplay-5.jpg', title:'profsplay-5'},
+     {img:'photography/profsplay-4.jpg', title:'profsplay-4', star:true},
+     {img:'photography/profsplay-2.jpg', title:'profsplay-2'},
+     {img:'photography/event-1.jpg', title:'event-1', star:true},
+     {img:'photography/food-1.jpg', title:'food-1', star:true},
+     {img:'photography/profsplay-3.jpg', title:'profsplay-3'},
+     {img:'photography/profsplay-6.jpg', title:'profsplay-6'},
+     {img:'photography/profsplay-13.jpg', title:'profsplay-13'},
+     {img:'photography/event-9.jpg', title:'event-9'},
+     {img:'photography/profsplay-8.jpg', title:'profsplay-8', star:true},
+     {img:'photography/profsplay-10.jpg', title:'profsplay-10'},
+     {img:'photography/food-2.jpg', title:'food-2'},
+     {img:'photography/event-11.jpg', title:'event-11'},
+     {img:'photography/event-10.jpg', title:'event-10'},
+     {img:'photography/event-12.jpg', title:'event-12', star:true},
+     {img:'photography/event-23.jpg', title:'event-23'},
+     {img:'photography/food-3.jpg', title:'food-3'},
+     {img:'photography/food-4.jpg', title:'food-4'},
+     {img:'photography/profsplay-7.jpg', title:'profsplay-7'},
+     {img:'photography/profsplay-11.jpg', title:'profsplay-11'},
+     {img:'photography/event-2.jpg', title:'event-2', star:true},
+     {img:'photography/event-3.jpg', title:'event-3'},
+     {img:'photography/profsplay-9.jpg', title:'profsplay-9'},
+     {img:'photography/profsplay-12.jpg', title:'profsplay-12'},
+     {img:'photography/event-26.jpg', title:'event-26'},
+     {img:'photography/event-24.jpg', title:'event-24'},
+     {img:'photography/event-25.jpg', title:'event-25'},
+     {img:'photography/event-4.jpg', title:'event-4', star:true},
+     {img:'photography/event-5.jpg', title:'event-5'},
+     {img:'photography/event-6.jpg', title:'event-6'},
+     {img:'photography/event-7.jpg', title:'event-7'},
+     {img:'photography/event-8.jpg', title:'event-8', star:true},
+     {img:'photography/event-13.jpg', title:'event-13'},
+     {img:'photography/event-14.jpg', title:'event-14'},
+     {img:'photography/event-15.jpg', title:'event-15'},
+     {img:'photography/event-16.jpg', title:'event-16'},
+     {img:'photography/event-17.jpg', title:'event-17'},
+     {img:'photography/event-18.jpg', title:'event-18'},
+     {img:'photography/event-19.jpg', title:'event-19'},
+     {img:'photography/event-20.jpg', title:'event-20'},
+     {img:'photography/event-21.jpg', title:'event-21'},
+     {img:'photography/event-22.jpg', title:'event-22'},
+     {img:'photography/event-27.jpg', title:'event-27'},
+     {img:'photography/event-28.jpg', title:'event-28'}
+   ]},
   {label:'Sunday services at Pentecostal Tabernacle, Cambridge, Massachusetts. Shot on a Blackmagic Pocket Cinema Camera.',
    photos:[
      {img:'photography/pt-1.jpg', title:'pt-1', star:true},
@@ -1718,6 +1772,7 @@ var PHOTO_SECTIONS = [
    photos:[
      {img:'photography/chidi-martin-laughter.jpg', title:'chidi-martin-laughter'},
      {img:'photography/elder-greene.jpg', title:'elder-greene'},
+     {img:'photography/katie-nyt.jpg', title:'katie-nyt', star:true},
      {img:'photography/elia-1.jpg', title:'elia-1'},
      {img:'photography/elia-2.jpg', title:'elia-2', star:true},
      {img:'photography/elia-3.jpg', title:'elia-3'},
@@ -1728,6 +1783,7 @@ var PHOTO_SECTIONS = [
      {img:'photography/moments-1.jpg', title:'moments-1', star:true},
      {img:'photography/moments-2.jpg', title:'moments-2'},
      {img:'photography/moments-3.jpg', title:'moments-3', star:true},
+     {img:'photography/moments-10.jpg', title:'moments-10', star:true},
      {img:'photography/moments-4.jpg', title:'moments-4'},
      {img:'photography/moments-5.jpg', title:'moments-5'},
      {img:'photography/moments-6.jpg', title:'moments-6'},
